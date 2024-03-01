@@ -1,9 +1,9 @@
 # Your Project's Title...
-Your project's description...
+AEM Edge Delivery for Audi UK
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--audi--aemsites.hlx.page/uk/web/en/
+- Live: https://main--audi--aemsites.hlx.live/uk/web/en/
 
 ## Installation
 

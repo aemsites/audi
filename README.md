@@ -1,5 +1,4 @@
-# Your Project's Title...
-AEM Edge Delivery for Audi UK
+# AEM Edge Delivery for Audi UK
 
 ## Environments
 - Preview: https://main--audi--aemsites.hlx.page/uk/web/en/

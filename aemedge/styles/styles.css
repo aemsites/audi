@@ -12,12 +12,14 @@
 
 :root {
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
   --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+
+  /* todo fix link colors*/
+  --link-color: var(--text-color);
+  --link-hover-color: var(--dark-color);
 
   /* fonts */
   --body-font-family: auditype, sans-serif;
@@ -80,12 +82,29 @@ h4, h5, h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+h1 {
+  font-size: var(--heading-font-size-xxl)
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl)
+}
+
+h3 {
+  font-size: var(--heading-font-size-l)
+}
+
+h4 {
+  font-size: var(--heading-font-size-m)
+}
+
+h5 {
+  font-size: var(--heading-font-size-s)
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs)
+}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
@@ -119,34 +138,47 @@ a:any-link {
   text-decoration: none;
 }
 
+/* only add flex for non-headline elements.*/
+:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) > a:any-link {
+  display: flex;
+  align-items: center;
+}
+
 a:hover {
-  text-decoration: underline;
   color: var(--link-hover-color);
+}
+
+/* Add the caret svg to anchors that are not a button */
+a:not(.button)::after {
+  content: url('/aemedge/icons/forward-small.svg');
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+  /* todo change svg color fill on hover */
 }
 
 /* buttons */
 a.button:any-link, button {
-  font-family: var(--body-font-family);
-  display: inline-block;
+  border: 1px solid black;
   box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
+  color: var(--link-color);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--body-font-family);
   font-style: normal;
   font-weight: 600;
-  cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
   margin: 16px 0;
-  white-space: nowrap;
   overflow: hidden;
+  padding: 15px 36px;
+  text-align: center;
+  text-decoration: none;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  white-space: nowrap;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
+a.button:hover, a.button:focus, button:hover, button:focus {
+  color: var(--link-hover-color);
   cursor: pointer;
 }
 

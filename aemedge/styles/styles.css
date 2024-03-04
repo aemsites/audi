@@ -17,7 +17,7 @@
   --dark-color: #ccc;
   --text-color: black;
 
-  /* todo fix link colors*/
+  /* todo fix link colors */
   --link-color: var(--text-color);
   --link-hover-color: var(--dark-color);
 
@@ -138,14 +138,14 @@ a:any-link {
   text-decoration: none;
 }
 
-/* only add flex for non-headline elements.*/
-:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) > a:any-link {
-  display: flex;
-  align-items: center;
-}
-
 a:hover {
   color: var(--link-hover-color);
+}
+
+/* only add flex for non-headline elements. */
+:not(h1, h2, h3, h4, h5, h6) > a:any-link {
+  display: flex;
+  align-items: center;
 }
 
 /* Add the caret svg to anchors that are not a button */
@@ -155,6 +155,7 @@ a:not(.button)::after {
   width: 24px;
   height: 24px;
   margin-left: 6px;
+
   /* todo change svg color fill on hover */
 }
 

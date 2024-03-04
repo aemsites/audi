@@ -1,8 +1,98 @@
 @font-face {
-  font-weight: 400 700;
-  font-family: auditype;
-  font-style: normal;
-  font-stretch: 100% 130%;
-  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
   font-display: swap;
+  font-family: AudiType;
+  font-stretch: 100%;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiType;
+  font-stretch: 100%;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiType;
+  font-stretch: 100%;
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/AudiType-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiType;
+  font-stretch: 100%;
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/AudiType-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeExtended;
+  font-stretch: 130%;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeExtended;
+  font-stretch: 130%;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeExtended;
+  font-stretch: 130%;
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/AudiType-ExtendedItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeExtended;
+  font-stretch: 130%;
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/AudiType-ExtendedBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeWide;
+  font-stretch: 105%;
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/AudiType-WideLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeWide;
+  font-stretch: 105%;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: AudiTypeWide;
+  font-stretch: 105%;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/AudiTypeVF.woff2') format('woff2-variations');
 }

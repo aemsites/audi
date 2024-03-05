@@ -388,6 +388,17 @@ function decorateButtons(element) {
           a.className = 'button secondary';
           twoup.classList.add('button-container');
         }
+        if (
+          // check for dashes and create tertiary button
+          up.childNodes.length === 1
+          && a.title.startsWith('-')
+          && a.title.endsWith('-')
+        ) {
+          a.title = a.title.slice(1, -1).trim();
+          // get first child node and slice off dashes. Second Child might be an icon inside a span.
+          a.firstChild.textContent = a.firstChild.textContent.slice(1, -1).trim();
+          a.className = 'button tertiary';
+        }
       }
     }
   });

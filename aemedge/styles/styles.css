@@ -185,7 +185,7 @@ a:hover {
   align-items: center;
 }
 
-/* Add the caret svg to anchors that are not a button */
+/* Add the caret svg to anchors that are not a primary or secondary button */
 a:not(.button)::after {
   content: url('/aemedge/icons/forward.svg');
   display: inline-block;
@@ -223,6 +223,10 @@ a.button:hover, a.button:focus, button:hover, button:focus {
 a.button.secondary, button.secondary {
   color: var(--background-color);
   background-color: transparent;
+}
+
+a.button.tertiary, button.tertiary {
+  border: unset;
 }
 
 main img {

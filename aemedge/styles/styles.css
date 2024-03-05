@@ -140,6 +140,7 @@ h1, h2, h3,
 h4, h5, h6 {
   width: 100%;
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: 18px;
   scroll-margin: calc(var(--nav-height) + 1em);
   animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
@@ -148,6 +149,24 @@ h4, h5, h6 {
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+/* Replace default list icon with svg.
+Use flexbox to achieve "grid" like style for line breaks */
+ul li {
+  display: flex;
+  align-items: start;
+}
+
+ul li::before {
+  content: url('/aemedge/icons/forward.svg');
+  padding-right: 10px; /* adjust this value as needed */
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 /* links */
@@ -168,14 +187,12 @@ a:hover {
 
 /* Add the caret svg to anchors that are not a button */
 a:not(.button)::after {
-  content: url('/aemedge/icons/forward-small.svg');
+  content: url('/aemedge/icons/forward.svg');
   display: inline-block;
   width: 24px;
   height: 24px;
   margin-left: 6px;
   margin-top: -6px;
-
-  /* todo change svg color fill on hover */
 }
 
 /* buttons */
@@ -269,17 +286,21 @@ main > .section div.default-content-wrapper {
 }
 
 /* Swap black and white in case of dark background */
-.dark {
+.dark.block {
   color: var(--background-color);
   background-color: var(--text-color);
 }
 
-.dark p.button-container > a.button {
+.dark.block p.button-container > a.button {
   color: var(--background-color);
   border-color: var(--background-color);
 }
 
-.dark p.button-container > a.button:hover {
+.dark.block p.button-container > a.button:hover {
   color: var(--link-hover-color);
   border-color: var(--link-hover-color);
+}
+
+.dark.block ul li::before {
+  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
 }

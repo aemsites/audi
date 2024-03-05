@@ -10,107 +10,83 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* colors */
   --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
 
-  /* todo fix link colors */
-  --link-color: var(--text-color);
-  --link-hover-color: #b3b3b3;
+ /* todo fix link colors */
+ --link-color: var(--text-color);
+ --link-hover-color: #b3b3b3;
 
-  /* fonts */
-  --body-font-family: auditypewide, sans-serif;
-  --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
+ /* fonts */
+ --heading-font-family: auditypeextended, sans-serif;
+ --body-font-family: auditypewide, sans-serif;
+ --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
 
-  /* body sizes */
-  --body-font-size-m: 1.6rem;
-  --body-font-size-s: 18px;
-  --body-line-height-m: 2.4rem;
+  /* font sizes */
+  --font-size-xxs: 13px;
+  --font-size-xs: 16px;
+  --font-size-s: 20px;
+  --font-size-m: 24px;
+  --font-size-l: 27px;
+  --font-size-xl: 36px;
+  --font-size-xxl: 42px;
+
+  /* font stretch */
+  --font-stretch-100: 100%;
+  --font-stretch-130: 130%;
+
+   /* font weight */
+ --font-weight-light: 200;
+ --font-weight-normal:400;
+ --font-weight-bold:700;
+
+  /* line height */
+  --line-height-xxs: 12px;
+  --line-height-xs: 24px;
+  --line-height-s: 36px;
+  --line-height-m: 42px;
+  --line-height-l: 48px;
+  --line-height-xl: 52px;
+  --line-height-xxl: 66px;
+  --line-height-xxxl: 96px;
 
   /* nav height */
-  --nav-height: 64px;
-
-  /* others */
-  --button-border: 1px solid black;
-}
+  --nav-height: 72px;
+ }
 
 h1 {
-  font-family: AudiTypeExtended, sans-serif;
-  font-size: 2.7rem;
-  line-height: 4.2rem;
+  font-family: var( --heading-font-family);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-bold);
 }
 
 h2 {
-  font-family: AudiTypeExtended, sans-serif;
-  font-size: 2.1rem;
-  line-height: 3rem;
+  font-family: var( --heading-font-family);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-bold);
 }
 
 h3, h4, h5, h6 {
-  font-family: AudiTypeExtended, sans-serif;
-  font-size: 2.1rem;
-  line-height: 3rem;
-}
-
-@media (width >= 768px) {
-  h1 {
-    font-size: 3.6rem;
-    line-height: 4.8rem;
-  }
-
-  h2 {
-    font-size: 2.4rem;
-    line-height: 3.6rem;
-  }
-}
-
-@media (width >= 1024px) {
-  h1 {
-    font-size: 4.2rem;
-    line-height: 6rem;
-  }
-
-  h2 {
-    font-size: 3rem;
-    line-height: 4.2rem;
-  }
-}
-
-@media (width >= 1440px) {
-  h1 {
-    font-size: 5.4rem;
-    line-height: 7.8rem;
-  }
-
-  h2 {
-    font-size: 3.6rem;
-    line-height: 5.4rem;
-  }
-}
-
-@media (width >= 1920px) {
-  h1 {
-    font-size: 6.6rem;
-    line-height: 9.6rem;
-  }
-
-  h2 {
-    font-size: 4.2rem;
-    line-height: 6.6rem;
-  }
+  font-family: var( --heading-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: var(--line-height-s);
 }
 
 body {
-  font-size: var(--body-font-size-m);
-  margin: 0;
   font-family: var(--body-font-family);
-  line-height: var(--body-line-height-m);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-xs);
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  margin:0;
 }
 
 body.appear {
@@ -123,11 +99,7 @@ header {
 
 /* Headline FadeIn Animation */
 @keyframes headline-fadein {
-  0% {
-    opacity: 0;
-  }
-
-  25% {
+  0%, 25% {
     opacity: 0;
   }
 
@@ -139,7 +111,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   width: 100%;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   margin-top: 0;
   margin-bottom: 18px;
   scroll-margin: calc(var(--nav-height) + 1em);
@@ -151,10 +123,6 @@ p, dl, ol, ul, pre, blockquote {
   margin-bottom: 1em;
   padding-inline-start: 0;
   list-style: none;
-}
-
-::selection {
-  background: #f50537;
 }
 
 /* Replace default list icon with svg.
@@ -187,6 +155,7 @@ a:hover {
 :not(h1, h2, h3, h4, h5, h6) > a:any-link {
   display: flex;
   align-items: center;
+  word-break: break-all;
 }
 
 /* Add the caret svg to anchors that are not a primary or secondary button */
@@ -201,13 +170,14 @@ a:not(.button)::after {
 
 /* buttons */
 a.button:any-link, button {
-  border: var(--button-border);
+  border: 1px solid black;
   box-sizing: border-box;
   color: var(--link-color);
   cursor: pointer;
   display: inline-block;
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--font-weight-normal);
+  font-size:  var(--font-size-xs);
   margin: 16px 0;
   overflow: hidden;
   padding: 15px 36px;
@@ -253,63 +223,49 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
-}
-
-@media (width >= 600px) {
-  main .section {
-    padding: 64px 32px;
-  }
-}
-
-@media (width >= 900px) {
-  .section > div {
-    max-width: 1200px;
-    margin: auto;
-  }
-}
-
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-}
-
-/* Default Content Wrapper (content not inside a block) */
-main > .section div.default-content-wrapper {
-  text-align: start;
-  margin: 0 1em;
-
-  @media (width >= 768px) {
-    max-width: 1200px;
-    text-align: center;
-  }
-}
-
-.block:not(.hero) > div,
-.block:not(.hero) ul {
-  @media (width >= 768px) {
-    max-width: 1200px;
-    text-align: center;
-  }
+  padding: 36px 16px;
 }
 
 /* Swap black and white in case of dark background */
-.dark.block {
+.block.dark {
   color: var(--background-color);
   background-color: var(--text-color);
 }
 
-.dark.block p.button-container > a.button {
+.block.dark p.button-container > a.button {
   color: var(--background-color);
   border-color: var(--background-color);
 }
 
-.dark.block p.button-container > a.button:hover {
+.block.dark p.button-container > a.button:hover {
   color: var(--link-hover-color);
   border-color: var(--link-hover-color);
 }
 
-.dark.block ul li::before {
+.block.dark ul li::before {
   content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
+}
+
+@media (width >= 768px) {
+  h1, h2 {
+    font-size: var( --font-size-xl);
+    line-height: var(--line-height-l);
+  }
+}
+
+@media (width >= 1024px) {
+  .section > div {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-m);
+  }
+
+  h2 {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-xxl);
+  }
 }

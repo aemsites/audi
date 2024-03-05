@@ -1,6 +1,6 @@
 .cards > ul {
   list-style: none;
-  margin: 0 4% 0;
+  margin: 0 4%;
   padding: 54px 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));

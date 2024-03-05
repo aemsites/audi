@@ -121,6 +121,7 @@ header {
   height: var(--nav-height);
 }
 
+/* Headline FadeIn Animation */
 @keyframes headline-fadein {
   0% {
     opacity: 0;
@@ -137,6 +138,9 @@ header {
 
 h1, h2, h3,
 h4, h5, h6 {
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 18px;
   scroll-margin: calc(var(--nav-height) + 1em);
   animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
 }
@@ -144,27 +148,6 @@ h4, h5, h6 {
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
-}
-
-code, pre {
-  font-family: var(--fixed-font-family);
-  font-size: var(--body-font-size-s);
-}
-
-code {
-  padding: .125em;
-}
-
-pre {
-  overflow: scroll;
-}
-
-main pre {
-  background-color: var(--light-color);
-  padding: 1em;
-  border-radius: .25em;
-  overflow-x: auto;
-  white-space: pre;
 }
 
 /* links */
@@ -219,11 +202,6 @@ a.button:hover, a.button:focus, button:hover, button:focus {
   cursor: pointer;
 }
 
-button:disabled, button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
-}
-
 /* Transparent Button Variation */
 a.button.secondary, button.secondary {
   color: var(--background-color);
@@ -273,14 +251,21 @@ main .section.highlight {
 
 /* Default Content Wrapper (content not inside a block) */
 main > .section div.default-content-wrapper {
-  max-width: 1200px;
-  text-align: center;
+  text-align: start;
+  margin: 0 1em;
+
+  @media (width >= 768px) {
+    max-width: 1200px;
+    text-align: center;
+  }
 }
 
 .block:not(.hero) > div,
-.block:not(.hero) ul{
-  margin: 0 auto;
-  max-width: 1200px;
+.block:not(.hero) ul {
+  @media (width >= 768px) {
+    max-width: 1200px;
+    text-align: center;
+  }
 }
 
 /* Swap black and white in case of dark background */

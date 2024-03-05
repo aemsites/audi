@@ -125,6 +125,10 @@ p, dl, ol, ul, pre, blockquote {
   list-style: none;
 }
 
+::selection {
+  background: #f50537;
+}
+
 /* Replace default list icon with svg.
 Use flexbox to achieve "grid" like style for line breaks */
 ul li {

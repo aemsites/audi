@@ -19,7 +19,7 @@
 
   /* todo fix link colors */
   --link-color: var(--text-color);
-  --link-hover-color: var(--dark-color);
+  --link-hover-color: #b3b3b3;
 
   /* fonts */
   --body-font-family: auditypewide, sans-serif;
@@ -32,10 +32,13 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  /* others */
+  --button-border: 1px solid black;
 }
 
 h1 {
-  font-family: AudiTypeExtended, sans-serif;;
+  font-family: AudiTypeExtended, sans-serif;
   font-size: 2.7rem;
   line-height: 4.2rem;
 }
@@ -187,13 +190,14 @@ a:not(.button)::after {
   width: 24px;
   height: 24px;
   margin-left: 6px;
+  margin-top: -6px;
 
   /* todo change svg color fill on hover */
 }
 
 /* buttons */
 a.button:any-link, button {
-  border: 1px solid black;
+  border: var(--button-border);
   box-sizing: border-box;
   color: var(--link-color);
   cursor: pointer;
@@ -211,6 +215,7 @@ a.button:any-link, button {
 
 a.button:hover, a.button:focus, button:hover, button:focus {
   color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
   cursor: pointer;
 }
 
@@ -219,10 +224,10 @@ button:disabled, button:disabled:hover {
   cursor: unset;
 }
 
+/* Transparent Button Variation */
 a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color)
+  color: var(--background-color);
+  background-color: transparent;
 }
 
 main img {
@@ -264,4 +269,10 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+/* Default Content Wrapper (content not inside a block) */
+main > .section div.default-content-wrapper {
+  max-width: 1200px;
+  text-align: center;
 }

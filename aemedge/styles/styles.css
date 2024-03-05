@@ -277,6 +277,12 @@ main > .section div.default-content-wrapper {
   text-align: center;
 }
 
+.block:not(.hero) > div,
+.block:not(.hero) ul{
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 /* Swap black and white in case of dark background */
 .dark {
   color: var(--background-color);

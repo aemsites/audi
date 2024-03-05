@@ -1,10 +1,23 @@
+/*
+Default: Will try to fit as many cards in a row as possible
+(two-column), and (three-column) are optional block variations
+*/
+
 .cards > ul {
   list-style: none;
-  margin: 0;
+  margin: 0 4% 78px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
   grid-gap: 8px;
+}
+
+.cards.two-column > ul {
+  grid-template-columns: repeat(2, minmax(278px, 1fr));
+}
+
+.cards.three-column > ul {
+  grid-template-columns: repeat(3, minmax(278px, 1fr));
 }
 
 .cards > ul > li {
@@ -13,6 +26,10 @@
 
 .cards .cards-card-body {
   margin-top: 12px;
+}
+
+.cards .cards-card-body > p {
+  margin: 0;
 }
 
 .cards .cards-card-image {
@@ -25,6 +42,6 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }

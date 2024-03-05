@@ -276,3 +276,19 @@ main > .section div.default-content-wrapper {
   max-width: 1200px;
   text-align: center;
 }
+
+/* Swap black and white in case of dark background */
+.dark {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
+
+.dark p.button-container > a.button {
+  color: var(--background-color);
+  border-color: var(--background-color);
+}
+
+.dark p.button-container > a.button:hover {
+  color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}

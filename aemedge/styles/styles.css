@@ -224,12 +224,13 @@ a.button:hover, a.button:focus, button:hover, button:focus {
 }
 
 /* Transparent Button Variation */
-a.button.secondary, button.secondary {
+a.button.primary, button.primary {
   color: var(--background-color);
   background-color: transparent;
 }
 
-a.button.tertiary, button.tertiary {
+/* Button without a border and "forward" icon */
+a.button.secondary, button.secondary {
   border: unset;
 }
 

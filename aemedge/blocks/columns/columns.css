@@ -84,7 +84,7 @@
 }
 
 /* zoom-in effect on hover */
-.columns.hover > div > div > div.hover-wrapper:hover > p > picture > img {
+.columns.hover > div > div:hover > div.hover-wrapper > p > picture > img {
   transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
 
   @media (width >= 900px) {

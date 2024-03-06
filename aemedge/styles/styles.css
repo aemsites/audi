@@ -10,21 +10,21 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+:root {
   /* colors */
   --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
 
- /* todo fix link colors */
- --link-color: var(--text-color);
- --link-hover-color: #b3b3b3;
+  /* todo fix link colors */
+  --link-color: var(--text-color);
+  --link-hover-color: #b3b3b3;
 
- /* fonts */
- --heading-font-family: auditypeextended, sans-serif;
- --body-font-family: auditypewide, sans-serif;
- --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
+  /* fonts */
+  --heading-font-family: auditypeextended, sans-serif;
+  --body-font-family: auditypewide, sans-serif;
+  --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
 
   /* font sizes */
   --font-size-xxs: 13px;
@@ -39,10 +39,10 @@
   --font-stretch-100: 100%;
   --font-stretch-130: 130%;
 
-   /* font weight */
- --font-weight-light: 200;
- --font-weight-normal:400;
- --font-weight-bold:700;
+  /* font weight */
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 
   /* line height */
   --line-height-xxs: 12px;
@@ -56,24 +56,26 @@
 
   /* nav height */
   --nav-height: 72px;
- }
+}
 
 h1 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
   font-size: var(--font-size-l);
   line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
 }
 
 h2 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
   font-size: var(--font-size-l);
   line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
 }
 
 h3, h4, h5, h6 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
+
+  /* todo fix me, this does not exist */
   font-size: var(--heading-font-size-s);
   line-height: var(--line-height-s);
 }
@@ -86,7 +88,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
-  margin:0;
+  margin: 0;
 }
 
 body.appear {
@@ -136,13 +138,18 @@ ul li {
   align-items: start;
 }
 
-ul li::before {
+/* only target li elements that contain a simple text node */
+ul li:not(:has(*))::before {
   content: url('/aemedge/icons/forward.svg');
   padding-right: 10px; /* adjust this value as needed */
   width: 24px;
   height: 24px;
   display: inline-block;
   flex-shrink: 0;
+}
+
+.block.dark ul li:not(:has(*))::before {
+  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
 }
 
 /* links */
@@ -181,7 +188,7 @@ a.button:any-link, button {
   display: inline-block;
   font-style: normal;
   font-weight: var(--font-weight-normal);
-  font-size:  var(--font-size-xs);
+  font-size: var(--font-size-xs);
   margin: 16px 0;
   overflow: hidden;
   padding: 15px 36px;
@@ -246,13 +253,9 @@ main .section {
   border-color: var(--link-hover-color);
 }
 
-.block.dark ul li::before {
-  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
-}
-
 @media (width >= 768px) {
   h1, h2 {
-    font-size: var( --font-size-xl);
+    font-size: var(--font-size-xl);
     line-height: var(--line-height-l);
   }
 }

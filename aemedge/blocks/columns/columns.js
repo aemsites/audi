@@ -15,9 +15,25 @@ export default function decorate(block) {
 
         // setup hover variation
         if (block.classList.contains('hover')) {
-          // set image as background of col div and remove picture element
-          col.style.backgroundImage = `url(${pic.querySelector('img')?.src})`;
-          pic.parentElement.remove();
+          const hoverWrapper = document.createElement('div');
+          hoverWrapper.classList.add('hover-wrapper');
+
+          const contentWrapper = document.createElement('div');
+          contentWrapper.classList.add('content-wrapper');
+
+          // append picture to first child div
+          const pictureElement = col.querySelector('p > picture');
+          hoverWrapper.appendChild(pictureElement.parentElement);
+
+          // append content elements to second child div
+          const contentElements = Array.from(col.querySelectorAll('p'))
+            .filter((p) => !p.querySelector('picture'));
+          contentElements.forEach((element) => {
+            contentWrapper.appendChild(element);
+          });
+
+          col.appendChild(hoverWrapper);
+          col.appendChild(contentWrapper);
         }
       }
     });

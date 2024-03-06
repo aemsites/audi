@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 48px 4%
+  padding: 48px 4%;
+  overflow: hidden;
 }
 
 .columns img {
@@ -41,22 +42,44 @@
   height: 100%;
   width: 100%;
   aspect-ratio: 6/7;
+  overflow: hidden;
+}
 
-  /* rearrange background image */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.columns.hover > div > div > div.hover-wrapper {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.columns.hover > div > div > div.hover-wrapper:hover > p > picture > img {
   transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
+
+  @media (width >= 900px) {
+    transform: scale(1.2);
+  }
+}
+
+.columns.hover > div > div > div.hover-wrapper > p > picture > img {
+  display: block;
+  -webkit-user-drag: none;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.columns.hover > div > div > div.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 32px;
+  position: relative;
 }
 
 .columns.hover > div > div > p {
   padding: 1rem;
-}
-
-/* todo, this scales the whole div, not just the background image */
-.columns.hover > div > div:hover {
-  /* on desktop, add hover zoom effect on image */
-  @media (width >= 900px) {
-    transform: scale(1.2);
-  }
 }

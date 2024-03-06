@@ -70,6 +70,20 @@
   margin: 0 32px;
 }
 
+.columns.hover > div > div > div.content-wrapper > p.button-container > a.button {
+  color: var(--background-color);
+  border-color: var(--background-color);
+}
+
+.columns.hover > div > div > div.content-wrapper > p.button-container > a.button:hover {
+  color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}
+
+.columns.hover > div > div > div.content-wrapper > *:first-child {
+  margin-top: 32px;
+}
+
 /* If last child is a p with an em text, move it to the bottom */
 .columns.hover > div > div > div.content-wrapper > p:last-child:has(em) {
   margin-top: auto;

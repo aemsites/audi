@@ -56,6 +56,7 @@ function buildFooter(footerJson) {
     const anchor = document.createElement('a');
     anchor.href = media.Link.Url;
     anchor.className = media.Link.Text.toLowerCase();
+    anchor.target = media.Link.Target;
     listItem.appendChild(anchor);
     socialMediaList.appendChild(listItem);
   });
@@ -120,7 +121,41 @@ export default async function decorate(block) {
     footerWrapper.className = 'footer-wrapper';
     footerWrapper.append(footer);
     block.replaceChildren(footerWrapper);
+
+    // Add event listeners to category menu links
+    footer.querySelectorAll('footer .category-menu').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const parent = item.closest('li');
+        const links = parent.querySelector('.category-menu-links');
+        const otherMenus = footer.querySelectorAll('footer .category-menu');
+
+        // Remove 'open' class from other menus
+        otherMenus.forEach((menu) => {
+          if (menu !== item) {
+            menu.classList.remove('open');
+            const parentMenu = menu.closest('li');
+            const otherLinks = parentMenu.querySelector('.category-menu-links');
+            if (otherLinks.classList.contains('open')) {
+              otherLinks.classList.remove('open');
+            }
+          }
+        });
+        // Toggle 'open' class for the clicked menu
+        item.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+    });
   }
+
+  // Add event listener for "Back to the top"
+  const backToTop = block.querySelector('.back-to-top');
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 
   // load footer fragment
   const footerPath = footerMeta.footer || '/footer';
@@ -129,6 +164,5 @@ export default async function decorate(block) {
   // decorate footer DOM
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
   block.append(footer);
 }

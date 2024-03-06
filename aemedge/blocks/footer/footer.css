@@ -38,6 +38,18 @@ footer .back-to-top {
   text-decoration: none;
 }
 
+footer .back-to-top::after {
+  content: '';
+  display: inline-block;
+  background: url('../../icons/arrow-down.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
+  margin-left : 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 footer ul li::before {
   content: none;
 }
@@ -70,6 +82,17 @@ footer .category-menu{
   cursor: pointer;
   padding: 0 28px;
   position: relative;
+  display: flex;
+}
+
+footer .category-menu::after{
+  content: '';
+  background: url('../../icons/arrow-down.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 footer .category-menu a {
@@ -77,8 +100,6 @@ footer .category-menu a {
   font-size: 16px;
   font-stretch: 105%;
   line-height: 24px;
-  display: flex;
-  flex-flow: row;
   justify-content: space-between;
   padding: 16px 0;
 }
@@ -92,9 +113,46 @@ footer .category-menu-links > ul > li {
   padding: 0 28px;
 }
 
+footer .social-media > ul >li {
+  display: inline-block;
+  margin: 0 0 0 8px;
+}
+
+footer .social-media > ul >li > a::after{
+  content: '';
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1); 
+}
+
+footer .social-media > ul >li > a.facebook::after{
+  background: url('../../icons/facebook.svg') no-repeat;
+}
+
+footer .social-media > ul >li > a.instagram::after{
+  background: url('../../icons/instagram.svg') no-repeat;
+}
+
+footer .social-media > ul >li > a.youtube::after{
+  background: url('../../icons/youtube.svg') no-repeat;
+}
+
+footer .social-media > ul >li > a.pinterest::after{
+  background: url('../../icons/pinterest.svg') no-repeat;
+}
+
+footer .category-menu-links > ul > li:first-child {
+  display: none;
+}
+
 footer .category-menu-links > ul > li > a {
   padding: 8px 0;
   width: 100%;
+}
+
+footer .social-media > ul >li:first-child {
+  margin: 0;
 }
 
 footer .category-menu-links{
@@ -115,14 +173,6 @@ footer .social-media > ul{
   padding: 0;
 }
 
-footer .social-media > ul >li {
-  display: inline-block;
-  margin: 0 0 0 8px;
-}
-
-footer .social-media > ul >li:first-child {
-  margin: 0;
-}
 
 footer .categories > ul > li:first-of-type {
   margin-top: 16px;
@@ -147,7 +197,7 @@ footer .copyright-wrapper .copyright {
   text-decoration: none;
   font-size: 12px;
   margin-inline-end: 36px;
-  margin-block-end: 16px;
+  margin-top: 12px;
 }
 
 footer .copyright-wrapper .legal-links {
@@ -199,13 +249,17 @@ footer .category-menu{
   padding: 0;
 }
 
+footer .category-menu::after{
+  content: none;
+}
+
 footer .category-menu a{
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 20px;
   font-stretch: 130%;
-  line-height: 24px;
+  line-height: 32px;
   padding: 0;
   width: auto;
 }

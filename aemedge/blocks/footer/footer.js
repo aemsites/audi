@@ -55,7 +55,7 @@ function buildFooter(footerJson) {
     const listItem = document.createElement('li');
     const anchor = document.createElement('a');
     anchor.href = media.Link.Url;
-    anchor.textContent = media.Link.Text;
+    anchor.className = media.Link.Text.toLowerCase();
     listItem.appendChild(anchor);
     socialMediaList.appendChild(listItem);
   });

@@ -1,6 +1,7 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: 48px 4%
 }
 
@@ -31,4 +32,15 @@
     flex: 1;
     order: unset;
   }
+}
+
+/* Target each 'column item' */
+.columns.hover > div > div {
+  text-align: center;
+  color: white;
+
+  /* rearrange background image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

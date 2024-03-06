@@ -38,9 +38,25 @@
 .columns.hover > div > div {
   text-align: center;
   color: white;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 6/7;
 
   /* rearrange background image */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
+}
+
+.columns.hover > div > div > p {
+  padding: 1rem;
+}
+
+/* todo, this scales the whole div, not just the background image */
+.columns.hover > div > div:hover {
+  /* on desktop, add hover zoom effect on image */
+  @media (width >= 900px) {
+    transform: scale(1.2);
+  }
 }

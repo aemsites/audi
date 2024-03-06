@@ -74,6 +74,7 @@
 .columns.hover > div > div > div.content-wrapper > p:last-child:has(em) {
   margin-top: auto;
   margin-bottom: 1rem;
+  text-align: start;
 }
 
 .columns.hover > div > div > div.content-wrapper > h1 {

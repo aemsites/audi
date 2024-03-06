@@ -108,7 +108,7 @@ export default async function decorate(block) {
   }
 
   if (!footerJson) {
-    const resp = await fetch(`${window.hlx.codeBasePath}/blocks/header/footer-fallback.json`);
+    const resp = await fetch(`${window.hlx.codeBasePath}/blocks/footer/footer-fallback.json`);
     if (resp.ok) {
       footerJson = await resp.json();
     }

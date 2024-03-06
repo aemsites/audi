@@ -10,63 +10,83 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
   --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback;
-  --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+ /* todo fix link colors */
+ --link-color: var(--text-color);
+ --link-hover-color: #b3b3b3;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+ /* fonts */
+ --heading-font-family: auditypeextended, sans-serif;
+ --body-font-family: auditypewide, sans-serif;
+ --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  /* font sizes */
+  --font-size-xxs: 13px;
+  --font-size-xs: 16px;
+  --font-size-s: 20px;
+  --font-size-m: 24px;
+  --font-size-l: 27px;
+  --font-size-xl: 36px;
+  --font-size-xxl: 42px;
+
+  /* font stretch */
+  --font-stretch-100: 100%;
+  --font-stretch-130: 130%;
+
+   /* font weight */
+ --font-weight-light: 200;
+ --font-weight-normal:400;
+ --font-weight-bold:700;
+
+  /* line height */
+  --line-height-xxs: 12px;
+  --line-height-xs: 24px;
+  --line-height-s: 36px;
+  --line-height-m: 42px;
+  --line-height-l: 48px;
+  --line-height-xl: 52px;
+  --line-height-xxl: 66px;
+  --line-height-xxxl: 96px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 72px;
+ }
+
+h1 {
+  font-family: var( --heading-font-family);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-bold);
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
+h2 {
+  font-family: var( --heading-font-family);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-bold);
 }
 
-@media (width >= 900px) {
-  :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
-  }
+h3, h4, h5, h6 {
+  font-family: var( --heading-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: var(--line-height-s);
 }
 
 body {
-  font-size: var(--body-font-size-m);
-  margin: 0;
   font-family: var(--body-font-family);
-  line-height: 1.6;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-xs);
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  margin:0;
 }
 
 body.appear {
@@ -77,47 +97,52 @@ header {
   height: var(--nav-height);
 }
 
-h1, h2, h3,
-h4, h5, h6 {
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
-  margin-top: 1em;
-  margin-bottom: .5em;
-  scroll-margin: calc(var(--nav-height) + 1em);
+/* Headline FadeIn Animation */
+@keyframes headline-fadein {
+  0%, 25% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+h1, h2, h3,
+h4, h5, h6 {
+  width: 100%;
+  font-weight: var(--font-weight-bold);
+  margin-top: 0;
+  margin-bottom: 18px;
+  scroll-margin: calc(var(--nav-height) + 1em);
+  animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
+}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
+  padding-inline-start: 0;
+  list-style: none;
 }
 
-code, pre {
-  font-family: var(--fixed-font-family);
-  font-size: var(--body-font-size-s);
+::selection {
+  background: #f50537;
 }
 
-code {
-  padding: .125em;
+/* Replace default list icon with svg.
+Use flexbox to achieve "grid" like style for line breaks */
+ul li {
+  display: flex;
+  align-items: start;
 }
 
-pre {
-  overflow: scroll;
-}
-
-main pre {
-  background-color: var(--light-color);
-  padding: 1em;
-  border-radius: .25em;
-  overflow-x: auto;
-  white-space: pre;
+ul li::before {
+  content: url('/aemedge/icons/forward.svg');
+  padding-right: 10px; /* adjust this value as needed */
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 /* links */
@@ -127,45 +152,60 @@ a:any-link {
 }
 
 a:hover {
-  text-decoration: underline;
   color: var(--link-hover-color);
+}
+
+/* only add flex for non-headline elements. */
+:not(h1, h2, h3, h4, h5, h6) > a:any-link {
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+/* Add the caret svg to anchors that are not a primary or secondary button */
+a:not(.button)::after {
+  content: url('/aemedge/icons/forward.svg');
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+  margin-top: -6px;
 }
 
 /* buttons */
 a.button:any-link, button {
-  font-family: var(--body-font-family);
-  display: inline-block;
+  border: 1px solid black;
   box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
+  color: var(--link-color);
+  cursor: pointer;
+  display: inline-block;
   font-style: normal;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
+  font-weight: var(--font-weight-normal);
+  font-size:  var(--font-size-xs);
   margin: 16px 0;
-  white-space: nowrap;
   overflow: hidden;
+  padding: 15px 36px;
+  text-align: center;
+  text-decoration: none;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  white-space: nowrap;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
+a.button:hover, a.button:focus, button:hover, button:focus {
+  color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
   cursor: pointer;
 }
 
-button:disabled, button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
+/* Transparent Button Variation */
+a.button.primary, button.primary {
+  color: var(--background-color);
+  background-color: transparent;
 }
 
+/* Button without a border and "forward" icon */
 a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color)
+  border: unset;
 }
 
 main img {
@@ -187,24 +227,49 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: 36px 16px;
 }
 
-@media (width >= 600px) {
-  main .section {
-    padding: 64px 32px;
+/* Swap black and white in case of dark background */
+.block.dark {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
+
+.block.dark p.button-container > a.button {
+  color: var(--background-color);
+  border-color: var(--background-color);
+}
+
+.block.dark p.button-container > a.button:hover {
+  color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}
+
+.block.dark ul li::before {
+  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
+}
+
+@media (width >= 768px) {
+  h1, h2 {
+    font-size: var( --font-size-xl);
+    line-height: var(--line-height-l);
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 1024px) {
   .section > div {
     max-width: 1200px;
     margin: auto;
   }
-}
 
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
+  h1 {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-m);
+  }
+
+  h2 {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-xxl);
+  }
 }

@@ -36,66 +36,67 @@
 }
 
 /* Hover Variation */
-@media (width >= 800px) {
-  .columns.hover > div > div {
-    text-align: center;
-    color: white;
-    overflow: hidden;
-    position: relative;
-    aspect-ratio: 6/7;
-  }
+.columns.hover > div > div {
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 6/7;
+}
 
-  .columns.hover > div > div > p {
-    padding: 1rem;
-  }
+.columns.hover > div > div > p {
+  padding: 1rem;
+}
 
-  .columns.hover > div > div > div.hover-wrapper,
-  .columns.hover > div > div > div.content-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100%
-  }
+.columns.hover > div > div > div.hover-wrapper,
+.columns.hover > div > div > div.content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+}
 
-  .columns.hover > div > div > div.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: justify;
+.columns.hover > div > div > div.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: justify;
 
-    /* if screen width is too narrow and text content to large, it might overflow and be hidden */
-    font-size: 1rem;
-  }
+  /* if screen width is too narrow and text content to large, it might overflow and be hidden */
+  font-size: 1rem;
+}
 
-  .columns.hover > div > div > div.content-wrapper > p {
-    margin: 0 32px;
-  }
+.columns.hover > div > div > div.content-wrapper > p {
+  margin: 0 32px;
+}
 
-  /* If last child is a p with an em text, move it to the bottom */
-  .columns.hover > div > div > div.content-wrapper > p:last-child:has(em) {
-    margin-top: auto;
-    margin-bottom: 1rem;
-  }
+/* If last child is a p with an em text, move it to the bottom */
+.columns.hover > div > div > div.content-wrapper > p:last-child:has(em) {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
 
-  .columns.hover > div > div > div.content-wrapper > h1 {
-    font-size: 28px;
-  }
+.columns.hover > div > div > div.content-wrapper > h1 {
+  font-size: 28px;
+}
 
-  .columns.hover > div > div > div.hover-wrapper {
-    overflow: hidden;
-    position: relative;
-  }
+.columns.hover > div > div > div.hover-wrapper {
+  overflow: hidden;
+  position: relative;
+}
 
-  .columns.hover > div > div > div.hover-wrapper > p > picture > img {
-    display: block;
-    -webkit-user-drag: none;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
+.columns.hover > div > div > div.hover-wrapper > p > picture > img {
+  display: block;
+  -webkit-user-drag: none;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
 
+@media (width >= 900px) {
   /* zoom-in effect on hover */
   .columns.hover > div > div:hover > div.hover-wrapper > p > picture > img {
     transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;

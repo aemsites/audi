@@ -43,6 +43,26 @@
   width: 100%;
   aspect-ratio: 6/7;
   overflow: hidden;
+  position: relative;
+}
+
+.columns.hover > div > div > p {
+  padding: 1rem;
+}
+
+.columns.hover > div > div > div.hover-wrapper,
+.columns.hover > div > div > div.content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.columns.hover > div > div > div.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 32px;
 }
 
 .columns.hover > div > div > div.hover-wrapper {
@@ -50,14 +70,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-}
-
-.columns.hover > div > div > div.hover-wrapper:hover > p > picture > img {
-  transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
-
-  @media (width >= 900px) {
-    transform: scale(1.2);
-  }
 }
 
 .columns.hover > div > div > div.hover-wrapper > p > picture > img {
@@ -71,15 +83,11 @@
   width: 100%;
 }
 
-.columns.hover > div > div > div.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  padding: 32px;
-  position: relative;
-}
+/* zoom-in effect on hover */
+.columns.hover > div > div > div.hover-wrapper:hover > p > picture > img {
+  transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
 
-.columns.hover > div > div > p {
-  padding: 1rem;
+  @media (width >= 900px) {
+    transform: scale(1.2);
+  }
 }

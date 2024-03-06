@@ -65,10 +65,12 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
 function linkFromObject(obj) {
   const a = document.createElement('a');
+  a.className = toClassName(`link-${obj.Type}`);
   a.href = obj.Url;
   a.target = obj.Target;
   a.title = obj.Text;
   const text = document.createElement('span');
+  text.className = 'link-text';
   text.textContent = obj.Text;
   a.append(text);
   return a;

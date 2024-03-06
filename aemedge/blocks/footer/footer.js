@@ -1,5 +1,4 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
 
 /**
  * built and return the footer element
@@ -156,8 +155,4 @@ export default async function decorate(block) {
       behavior: 'smooth',
     });
   });
-
-  // decorate footer DOM
-  const footer = document.createElement('div');
-  block.append(footer);
 }

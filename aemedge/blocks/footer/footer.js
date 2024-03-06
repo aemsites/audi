@@ -13,6 +13,7 @@ function buildFooter(footerJson) {
   toTopLabel.textContent = footerJson.ToTopLabel;
 
   // Create Categories
+  const categoriesDiv = document.createElement('div');
   const categoriesUL = document.createElement('ul');
   footerJson.Categories.forEach((category) => {
     const li = document.createElement('li');
@@ -33,9 +34,9 @@ function buildFooter(footerJson) {
       });
       li.appendChild(subUl);
     }
-
     categoriesUL.appendChild(li);
   });
+  categoriesDiv.appendChild(categoriesUL);
 
   // Create the div for social media icons
   const socialMediaDiv = document.createElement('div');
@@ -67,7 +68,7 @@ function buildFooter(footerJson) {
   });
   legalLinksDiv.appendChild(legalLinksList);
 
-  footerContainer.append(toTopLabel, categoriesUL, socialMediaDiv, copyrightDiv, legalLinksDiv);
+  footerContainer.append(toTopLabel, categoriesDiv, socialMediaDiv, copyrightDiv, legalLinksDiv);
   return footerContainer;
 }
 

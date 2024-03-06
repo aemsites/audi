@@ -144,8 +144,9 @@ ul li:not(:has(*))::before {
   padding-right: 10px; /* adjust this value as needed */
   width: 24px;
   height: 24px;
-  display: inline-block;
   flex-shrink: 0;
+  display: inline-block;
+  vertical-align: bottom;
 }
 
 .block.dark ul li:not(:has(*))::before {
@@ -162,6 +163,10 @@ a:hover {
   color: var(--link-hover-color);
 }
 
+a > span.icon {
+  vertical-align: bottom;
+}
+
 /* only add flex for non-headline elements. */
 :not(h1, h2, h3, h4, h5, h6) > a:any-link {
   display: flex;
@@ -175,8 +180,7 @@ a:not(.button)::after {
   display: inline-block;
   width: 24px;
   height: 24px;
-  margin-left: 6px;
-  margin-top: -6px;
+  vertical-align: bottom;
 }
 
 /* buttons */
@@ -213,6 +217,8 @@ a.button.primary, button.primary {
 /* Button without a border and "forward" icon */
 a.button.secondary, button.secondary {
   border: unset;
+  margin: 0;
+  padding: 0;
 }
 
 main img {

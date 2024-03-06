@@ -35,59 +35,60 @@
   }
 }
 
-/* Target each 'column item' */
-.columns.hover > div > div {
-  text-align: center;
-  color: white;
-  height: 100%;
-  width: 100%;
-  aspect-ratio: 6/7;
-  overflow: hidden;
-  position: relative;
-}
+/* Hover Variation */
+@media (width >= 800px) {
+  .columns.hover > div > div {
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 6/7;
+  }
 
-.columns.hover > div > div > p {
-  padding: 1rem;
-}
+  .columns.hover > div > div > p {
+    padding: 1rem;
+  }
 
-.columns.hover > div > div > div.hover-wrapper,
-.columns.hover > div > div > div.content-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+  .columns.hover > div > div > div.hover-wrapper,
+  .columns.hover > div > div > div.content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-.columns.hover > div > div > div.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  padding: 32px;
-}
+  .columns.hover > div > div > div.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
 
-.columns.hover > div > div > div.hover-wrapper {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
+    /* dynamically scale the text content down - will overflow otherwise */
+    font-size: 2vw;
+  }
 
-.columns.hover > div > div > div.hover-wrapper > p > picture > img {
-  display: block;
-  -webkit-user-drag: none;
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
+  .columns.hover > div > div > div.content-wrapper > p {
+    margin: 0 32px;
+  }
 
-/* zoom-in effect on hover */
-.columns.hover > div > div:hover > div.hover-wrapper > p > picture > img {
-  transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
+  .columns.hover > div > div > div.hover-wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
-  @media (width >= 900px) {
+  .columns.hover > div > div > div.hover-wrapper > p > picture > img {
+    display: block;
+    -webkit-user-drag: none;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* zoom-in effect on hover */
+  .columns.hover > div > div:hover > div.hover-wrapper > p > picture > img {
+    transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
     transform: scale(1.2);
   }
 }

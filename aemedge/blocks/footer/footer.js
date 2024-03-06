@@ -7,22 +7,30 @@ import { loadFragment } from '../fragment/fragment.js';
  */
 function buildFooter(footerJson) {
   const footerContainer = document.createElement('div');
+  footerContainer.classList.add('footer');
 
   // Create ToTopLabel
   const toTopLabel = document.createElement('div');
+  toTopLabel.classList.add('back-to-top');
   toTopLabel.textContent = footerJson.ToTopLabel;
 
   // Create Categories
   const categoriesDiv = document.createElement('div');
+  categoriesDiv.classList.add('categories');
   const categoriesUL = document.createElement('ul');
   footerJson.Categories.forEach((category) => {
     const li = document.createElement('li');
+    const categoryMenuDiv = document.createElement('div');
+    categoryMenuDiv.classList.add('category-menu');
     const categoryLink = document.createElement('a');
     categoryLink.href = category.Link.Url;
     categoryLink.textContent = category.Link.Text;
-    li.appendChild(categoryLink);
+    categoryMenuDiv.append(categoryLink);
+    li.appendChild(categoryMenuDiv);
 
     if (category.SubLinks && category.SubLinks.length > 0) {
+      const categoryMenuLinks = document.createElement('div');
+      categoryMenuLinks.classList.add('category-menu-links');
       const subUl = document.createElement('ul');
       category.SubLinks.forEach((subLink) => {
         const subLi = document.createElement('li');
@@ -32,7 +40,8 @@ function buildFooter(footerJson) {
         subLi.appendChild(subLinkAnchor);
         subUl.appendChild(subLi);
       });
-      li.appendChild(subUl);
+      categoryMenuLinks.appendChild(subUl);
+      li.appendChild(categoryMenuLinks);
     }
     categoriesUL.appendChild(li);
   });
@@ -40,6 +49,7 @@ function buildFooter(footerJson) {
 
   // Create the div for social media icons
   const socialMediaDiv = document.createElement('div');
+  socialMediaDiv.classList.add('social-media');
   const socialMediaList = document.createElement('ul');
   footerJson.SocialMedia.forEach((media) => {
     const listItem = document.createElement('li');
@@ -51,12 +61,17 @@ function buildFooter(footerJson) {
   });
   socialMediaDiv.appendChild(socialMediaList);
 
-  // Create Copyright
+  // Create Copyright & Legal Links
+
   const copyrightDiv = document.createElement('div');
-  copyrightDiv.textContent = footerJson.Copyright;
+  copyrightDiv.classList.add('copyright-wrapper');
+  const copyright = document.createElement('div');
+  copyright.classList.add('copyright');
+  copyright.textContent = footerJson.Copyright;
 
   // Create Legal Links
   const legalLinksDiv = document.createElement('div');
+  legalLinksDiv.classList.add('legal-links');
   const legalLinksList = document.createElement('ul');
   footerJson.LegalLinks.forEach((legalLinks) => {
     const listItem = document.createElement('li');
@@ -67,8 +82,9 @@ function buildFooter(footerJson) {
     legalLinksList.appendChild(listItem);
   });
   legalLinksDiv.appendChild(legalLinksList);
+  copyrightDiv.append(copyright, legalLinksDiv);
 
-  footerContainer.append(toTopLabel, categoriesDiv, socialMediaDiv, copyrightDiv, legalLinksDiv);
+  footerContainer.append(toTopLabel, categoriesDiv, socialMediaDiv, copyrightDiv);
   return footerContainer;
 }
 

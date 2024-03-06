@@ -26,7 +26,7 @@ export default function decorate(block) {
           hoverWrapper.appendChild(pictureElement.parentElement);
 
           // append content elements to second child div
-          const contentElements = Array.from(col.querySelectorAll('p'))
+          const contentElements = Array.from(col.children)
             .filter((p) => !p.querySelector('picture'));
           contentElements.forEach((element) => {
             contentWrapper.appendChild(element);

@@ -54,6 +54,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    min-height: 100%
   }
 
   .columns.hover > div > div > div.content-wrapper {
@@ -61,16 +62,19 @@
     flex-direction: column;
     -webkit-box-pack: justify;
 
-    /* dynamically scale the text content down - will overflow otherwise */
-    font-size: 2vw;
+    /* if screen width is too narrow and text content to large, it might overflow and be hidden */
+    font-size: 1rem;
   }
 
   .columns.hover > div > div > div.content-wrapper > p {
     margin: 0 32px;
   }
 
+  .columns.hover > div > div > div.content-wrapper > h1 {
+    font-size: 28px;
+  }
+
   .columns.hover > div > div > div.hover-wrapper {
-    min-height: 100%;
     overflow: hidden;
     position: relative;
   }

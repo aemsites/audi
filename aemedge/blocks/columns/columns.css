@@ -70,6 +70,12 @@
     margin: 0 32px;
   }
 
+  /* If last child is a p with an em text, move it to the bottom */
+  .columns.hover > div > div > div.content-wrapper > p:last-child:has(em) {
+    margin-top: auto;
+    margin-bottom: 1rem;
+  }
+
   .columns.hover > div > div > div.content-wrapper > h1 {
     font-size: 28px;
   }

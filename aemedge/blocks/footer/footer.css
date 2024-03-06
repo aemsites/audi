@@ -223,7 +223,7 @@ footer .copyright-wrapper .legal-links > ul > li > a {
   margin-bottom: 12px;
 }
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
 footer .category-menu-links {
   max-height: 0;
   overflow: hidden;
@@ -236,7 +236,7 @@ footer .category-menu-links.open {
 }
 
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   footer .footer-wrapper {
     padding: 24px 40px 36px;
   }
@@ -320,13 +320,13 @@ footer .social-media{
 }
 }
 
-@media (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   footer .footer-wrapper {
     padding: 24px 60px 40px;
   }
 }
 
-@media (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   footer .footer-wrapper {
     padding: 24px 96px 52px;
   }
@@ -336,7 +336,7 @@ footer .social-media{
   }
 }
 
-@media (min-width: 1920px) {
+@media only screen and (min-width: 1920px) {
   footer .footer-wrapper {
     padding: 24px 96px 68px;
   }

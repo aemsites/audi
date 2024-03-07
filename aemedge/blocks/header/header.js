@@ -183,9 +183,14 @@ function buildNav(navJson) {
   hamburgerButton.setAttribute('type', 'button');
   hamburgerButton.setAttribute('aria-controls', 'nav');
   hamburgerButton.setAttribute('aria-label', `Open ${navJson.MenuLabel}`);
-  const hamburgerButtonIcon = document.createElement('span');
+  const hamburgerButtonIcon = document.createElement('div');
   hamburgerButtonIcon.className = 'nav-hamburger-icon';
   hamburgerButton.append(hamburgerButtonIcon);
+  hamburgerButtonIcon.innerHTML = `
+    <span class="line top"></span>
+    <span class="line middle"></span>
+    <span class="line bottom"></span> 
+  `;
   const hamburgerButtonText = document.createElement('span');
   hamburgerButtonText.textContent = navJson.MenuLabel;
   hamburgerButtonText.classList.add('nav-hamburger-label');

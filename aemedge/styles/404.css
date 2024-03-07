@@ -9,6 +9,10 @@ main.error {
   }
 }
 
+a:any-link{
+  display: unset;
+}
+
 /* auto-blocking generated hero */
 .hero.block > div > div > h1 {
   background-color: white;
@@ -31,12 +35,12 @@ main.error ul > li > a::after {
   vertical-align: bottom;
 }
 
-div.cards {
-  display: flex;
-  flex-direction: column;
+/*div.cards {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
 
-  @media (width >= 600px) {
-    flex-direction: row;
+/*  @media (width >= 600px) {*/
+/*    flex-direction: row;*/
 
-  }
-}
+/*  }*/
+/*}*/

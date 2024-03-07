@@ -155,13 +155,6 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-/* only add flex for non-headline elements. */
-:not(h1, h2, h3, h4, h5, h6) > a:any-link {
-  display: flex;
-  align-items: center;
-  word-break: break-all;
-}
-
 /* Add the caret svg to anchors that are not a primary or secondary button */
 a:not(.button)::after {
   content: url('/aemedge/icons/forward.svg');

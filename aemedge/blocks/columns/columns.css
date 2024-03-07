@@ -24,7 +24,7 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: start;
+    align-items: center;
     flex-direction: unset;
     gap: 32px;
   }
@@ -36,6 +36,10 @@
 }
 
 /* Hover Variation */
+.columns.hover > div {
+  align-items: start;
+}
+
 .columns.hover > div > div {
   text-align: center;
   color: white;

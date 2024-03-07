@@ -31,17 +31,22 @@ function closeOnEscape(nav, navSections) {
 function headerKeyPress(event, nav, navSections) {
   if (event.code === 'Escape') {
     closeOnEscape(nav, navSections);
-  } else {
-    // todo revisit keybaord support for section toggle and section close
+  } else if (event.code === 'Space' || event.code === 'Enter') {
     const focused = document.activeElement;
-    if (focused.classList.contains('nav-section-toggle-button')
-    && event.code === 'Space') {
+    if (focused.classList.contains('nav-section-toggle-button') || focused.classList.contains('nav-flyout-close-button')) {
       event.preventDefault();
       const flyout = document.getElementById(focused.getAttribute('aria-controls'));
       if (flyout) {
         const expanded = flyout.getAttribute('aria-expanded') === 'true';
         toggleAllNavSections(navSections);
         flyout.setAttribute('aria-expanded', !expanded);
+        flyout.addEventListener('transitionend', () => {
+          if (focused.classList.contains('nav-section-toggle-button')) {
+            flyout.querySelector('.nav-flyout-close-button').focus();
+          } else {
+            flyout.closest('.nav-section').querySelector('.nav-section-toggle-button').focus();
+          }
+        }, { once: true });
       }
     }
   }

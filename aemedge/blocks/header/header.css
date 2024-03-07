@@ -23,7 +23,7 @@ header nav {
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger tools tools' var(--nav-height)
-    'sections sections section' 1fr / 1fr 1fr 1fr;
+    'sections sections sections' 1fr / 1fr 1fr 1fr;
   overflow-y: auto;
   min-height: 100vh;
 }
@@ -165,18 +165,130 @@ header nav .nav-sections {
 header nav[aria-expanded="true"] .nav-sections {
   display: block;
   align-self: start;
-}
-
-header nav .nav-sections .nav-section-flyout {
-  display: none;
+  height: 100%;
 }
 
 header nav .nav-sections .nav-list {
   color: var(--colors-base-grey-60);
+  position: relative;
+  overflow-x: clip;
+  height: 100%;
 }
 
-header nav .nav-section {
+header nav .nav-section,
+header nav .nav-item {
   padding-block: 12px;
+  display: block;
+}
+
+header nav .nav-item.audi-sport {
+  position: relative;
+}
+
+header nav .nav-item.audi-sport .link-text {
+  padding-inline-start: 42px;
+}
+
+header nav .nav-item.audi-sport::before {
+  background-color: var(--color-progressive-red);
+  content: "";
+  display: inline-block;
+  height: 24px;
+  left: 6px;
+  position: absolute;
+  transform: skew(-28deg);
+  vertical-align: top;
+  width: 24px;
+}
+
+header nav .nav-section .nav-section-toggle-button {
+  position: relative;
+  display: block;
+}
+
+header nav .nav-section .nav-section-toggle-button::after {
+  content: '';
+  background: url('../../icons/forward.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+}
+
+header nav .nav-sections .nav-section-flyout {
+  visibility: hidden;
+  background-color: var(--background-color);
+  position: absolute;
+  inset: 0;
+  transform: translateX(100vw);
+  transition: transform .6s, visibility .4s .2s;
+  transform-origin: top;
+  z-index: 2;
+}
+
+header nav .nav-sections .nav-section-flyout[aria-expanded="true"] {
+  visibility: visible;
+  transform: translateX(0);
+  transition: transform .6s, visibility 0s;
+}
+
+header nav .nav-sections .nav-flyout-close-button {
+  display: flex;
+  width: 100%;
+  background: none;
+  border: none;
+  margin: 0;
+  padding:  16px 0;
+  border-bottom: 1px solid var(--colors-base-grey-20);
+  position: relative;
+}
+
+header nav .nav-sections .nav-flyout-close-button span {
+  margin-inline-start: 36px;
+}
+
+header nav .nav-sections .nav-flyout-close-button::before {
+  content: '';
+  background: url('../../icons/forward.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  rotate: 180deg;
+}
+
+header nav .nav-sections .nav-section-teaser {
+  position: relative;
+  margin-block-end: 40px;
+}
+
+header nav .nav-sections .nav-section-teaser img {
+  width: 100%;
+  height: auto;
+}
+
+header nav .nav-sections .nav-section-teaser a {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  color: var(--color-grey-10);
+  margin-bottom: 16px;
+}
+
+header nav .nav-sections .nav-section-teaser a::after {
+  content: '';
+  background: url('../../icons/arrow-down.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  rotate: -90deg;
+  z-index: 2;
 }
 
 @media (width >= 900px) {

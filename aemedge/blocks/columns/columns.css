@@ -74,14 +74,23 @@
   margin: 0 32px;
 }
 
-.columns.hover > div > div > a > div.content-wrapper > p.button-container > a.button {
+.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary {
   color: var(--background-color);
   border-color: var(--background-color);
 }
 
-.columns.hover > div > div > a > div.content-wrapper > p.button-container > a.button:hover {
+.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary:hover {
   color: var(--link-hover-color);
   border-color: var(--link-hover-color);
+}
+
+.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary::after {
+  content: url('/aemedge/icons/forward-white.svg');
+  display: inline-block;
+  vertical-align: bottom;
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
 }
 
 .columns.hover > div > div > a > div.content-wrapper > *:first-child {

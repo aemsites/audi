@@ -129,9 +129,9 @@ p, dl, ol, ul, pre, blockquote {
   background: #f50537;
 }
 
-/* TODO I think we should do a general pass over all "forward" icons, once most main PRs are merged */
 /* Use flexbox to achieve "grid" like style for line breaks */
 ul li {
+  /* TODO I think we should do a general pass over all "forward" icons, once most main PRs are merged */
   display: flex;
   align-items: start;
 }

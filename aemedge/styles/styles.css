@@ -74,6 +74,8 @@ h2 {
 
 h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
+
+  /* todo fix me, this does not exist */
   font-size: var(--heading-font-size-s);
   line-height: var(--line-height-s);
 }
@@ -136,13 +138,19 @@ ul li {
   align-items: start;
 }
 
-ul li::before {
+/* only target li elements that contain a simple text node */
+ul li:not(:has(*))::before {
   content: url('/aemedge/icons/forward.svg');
   padding-right: 10px;
   width: 24px;
   height: 24px;
-  display: inline-block;
   flex-shrink: 0;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.block.dark ul li:not(:has(*))::before {
+  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
 }
 
 /* links */
@@ -153,6 +161,10 @@ a:any-link {
 
 a:hover {
   color: var(--link-hover-color);
+}
+
+a > span.icon {
+  vertical-align: bottom;
 }
 
 /* only add flex for non-headline elements. */
@@ -168,8 +180,7 @@ a:not(.button)::after {
   display: inline-block;
   width: 24px;
   height: 24px;
-  margin-left: 6px;
-  margin-top: -6px;
+  vertical-align: bottom;
 }
 
 /* buttons */
@@ -204,6 +215,8 @@ a.button.primary, button.primary {
 
 a.button.secondary, button.secondary {
   border: unset;
+  margin: 0;
+  padding: 0;
 }
 
 main img {

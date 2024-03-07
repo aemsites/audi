@@ -1,19 +1,50 @@
 .cards > ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 4% 74px;
+  padding: 54px 0 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
-  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+  grid-gap: 8px;
+}
+
+.cards.two-column > ul {
+  @media (width >= 600px) {
+    grid-template-columns: repeat(2, minmax(278px, 1fr));
+  }
+}
+
+.cards.three-column > ul {
+  @media (width >= 900px) {
+    grid-template-columns: repeat(3, minmax(278px, 1fr));
+  }
 }
 
 .cards > ul > li {
-  border: 1px solid var(--dark-color);
-  background-color: var(--background-color)
+  display: unset;
+  background-color: var(--background-color);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin-top: 12px;
+}
+
+.cards .cards-card-body > p {
+  margin: 0;
+}
+
+.cards .cards-card-body > p > strong {
+  font-size: var(--font-size-s);
+}
+
+.cards .cards-card-body > p.button-container > em > a::after {
+  content: url('/aemedge/icons/forward.svg');
+  padding-right: 10px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-top: -100px;
+  vertical-align: bottom;
 }
 
 .cards .cards-card-image {
@@ -26,6 +57,6 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }

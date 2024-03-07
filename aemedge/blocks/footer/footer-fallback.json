@@ -1,0 +1,283 @@
+{
+    "Categories": [
+      {
+        "Link": {
+          "IsOverview": false,
+          "Type": "default",
+          "Target": "_self",
+          "Text": "Audi World",
+          "Url": "https://www.audi.co.uk/uk/web/en/audi-world/careers.html"
+        },
+        "SubLinks": [
+          {
+            "IsOverview": true,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Menu",
+            "Url": "https://www.audi.co.uk/uk/web/en/audi-world/careers.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Careers",
+            "Url": "https://www.audi.co.uk/uk/web/en/audi-world/careers.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Repair Partnering with Audi",
+            "Url": "https://www.audi.co.uk/uk/web/en/audi-world/repair-partnering.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "WLTP",
+            "Url": "https://www.audi.co.uk/uk/web/en/audi-world/wltp.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Audi presents",
+            "Url": "https://www.audi.co.uk/uk/web/en/discover/lifestyle/audi-presents.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Integrity and Compliance",
+            "Url": "https://www.audi.co.uk/uk/web/en/audi-world/integrity-and-compliance.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Who Regulates Us",
+            "Url": "https://www.audi.co.uk/uk/web/en/audi-world/who-regulates-us.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Progress you can feel",
+            "Url": "https://www.audi.co.uk/uk/web/en/discover/progress-you-can-feel.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Latest Updates",
+            "Url": "https://www.audi.co.uk/uk/web/en/discover/latest-updates.html"
+          }
+        ]
+      },
+      {
+        "Link": {
+          "IsOverview": false,
+          "Type": "default",
+          "Target": "_self",
+          "Text": "Assistance",
+          "Url": "https://www.audi.co.uk/uk/web/en/owners/roadside-assistance-and-insurance.html"
+        },
+        "SubLinks": [
+          {
+            "IsOverview": true,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Menu",
+            "Url": "https://www.audi.co.uk/uk/web/en/owners/roadside-assistance-and-insurance.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Road Assistance & Insurance",
+            "Url": "https://www.audi.co.uk/uk/web/en/owners/roadside-assistance-and-insurance.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Imports & Exports",
+            "Url": "https://www.audi.co.uk/uk/web/en/assistance/imports-and-exports.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Audi Glossary",
+            "Url": "https://www.audi.co.uk/uk/web/en/assistance/glossary.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Airbag Safety Recall",
+            "Url": "https://www.audi.co.uk/uk/web/en/assistance/airbag-safety-recall.html"
+          }
+        ]
+      },
+      {
+        "Link": {
+          "IsOverview": false,
+          "Type": "default",
+          "Target": "_self",
+          "Text": "Connect",
+          "Url": "https://www.audi.co.uk/uk/web/en/discover/contact-us.html"
+        },
+        "SubLinks": [
+          {
+            "IsOverview": true,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Menu",
+            "Url": "https://www.audi.co.uk/uk/web/en/discover/contact-us.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Contact Us",
+            "Url": "https://www.audi.co.uk/uk/web/en/discover/contact-us.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Request a Callback",
+            "Url": "https://www.audi.co.uk/uk/web/en/call-me-back.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Locate a Centre",
+            "Url": "https://www.audi.co.uk/uk/web/en/locate-a-centre.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Book a Service Online",
+            "Url": "https://www.audi.co.uk/uk/web/en/owners/servicing/service-booking.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Part Exchange",
+            "Url": "https://www.audi.co.uk/uk/web/en/find-and-buy/finance-and-offers/part-exchange-calculator.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Book a Test Drive",
+            "Url": "https://www.audi.co.uk/uk/web/en/find-and-buy/book-a-test-drive.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Audi Consultation",
+            "Url": "https://www.audi.co.uk/uk/web/en/discover/live-tour.html"
+          },
+          {
+            "IsOverview": false,
+            "Type": "default",
+            "Target": "_self",
+            "Text": "Subscribe to Newsletter",
+            "Url": "https://www.audi.co.uk/uk/web/en/register-for-updates.html"
+          }
+        ]
+      }
+    ],
+    "Copyright": "© Audi United Kingdom 2024 All Rights Reserved",
+    "LanguageLinks": [],
+    "LegalLinks": [
+      {
+        "IsOverview": false,
+        "Type": "default",
+        "Target": "_self",
+        "Text": "Legal & Privacy",
+        "Url": "https://www.audi.co.uk/uk/web/en/legal-and-privacy.html"
+      },
+      {
+        "IsOverview": false,
+        "Type": "default",
+        "Target": "_self",
+        "Text": "Manage Cookies",
+        "Url": "https://www.audi.co.uk/uk/web/en/legal-and-privacy/cookies.html"
+      },
+      {
+        "IsOverview": false,
+        "Type": "default",
+        "Target": "_self",
+        "Text": "Integrity and Compliance",
+        "Url": "https://www.audi.co.uk/uk/web/en/audi-world/integrity-and-compliance.html"
+      },
+      {
+        "IsOverview": false,
+        "Type": "default",
+        "Target": "_self",
+        "Text": "Audi Connect Terms and Conditions",
+        "Url": "https://www.audi.co.uk/uk/web/en/owners/terms-and-conditions.html"
+      },
+      {
+        "IsOverview": false,
+        "Type": "default",
+        "Target": "_self",
+        "Text": "Who Regulates Us",
+        "Url": "https://www.audi.co.uk/uk/web/en/audi-world/who-regulates-us.html"
+      },
+      {
+        "IsOverview": false,
+        "Type": "default",
+        "Target": "_self",
+        "Text": "Centres List",
+        "Url": "https://www.audi.co.uk/uk/web/en/audi-centres-list.html"
+      }
+    ],
+    "SocialMedia": [
+      {
+        "Link": {
+          "Type": "default",
+          "Target": "_blank",
+          "Text": "Facebook",
+          "Url": "https://www.facebook.com/AudiUK/"
+        },
+        "Id": "facebook"
+      },
+      {
+        "Link": {
+          "Type": "default",
+          "Target": "_blank",
+          "Text": "Instagram",
+          "Url": "https://www.instagram.com/audiuk/"
+        },
+        "Id": "instagram"
+      },
+      {
+        "Link": {
+          "Type": "default",
+          "Target": "_blank",
+          "Text": "Youtube",
+          "Url": "https://www.youtube.com/user/Audichannel"
+        },
+        "Id": "youtube"
+      },
+      {
+        "Link": {
+          "Type": "default",
+          "Target": "_blank",
+          "Text": "Pinterest",
+          "Url": "https://www.pinterest.co.uk/audiuk/"
+        },
+        "Id": "pinterest"
+      }
+    ],
+    "ToTopLabel": "Back to the top"
+  }

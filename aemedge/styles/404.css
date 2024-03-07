@@ -9,7 +9,7 @@ main.error {
   }
 }
 
-a:any-link{
+a:any-link {
   display: unset;
 }
 
@@ -34,13 +34,3 @@ main.error ul > li::before {
 main.error ul > li > a::after {
   vertical-align: bottom;
 }
-
-/*div.cards {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-
-/*  @media (width >= 600px) {*/
-/*    flex-direction: row;*/
-
-/*  }*/
-/*}*/

@@ -131,9 +131,9 @@ p, dl, ol, ul, pre, blockquote {
   background: #f50537;
 }
 
-/* Replace default list icon with svg.
-Use flexbox to achieve "grid" like style for line breaks */
+/* Use flexbox to achieve "grid" like style for line breaks */
 ul li {
+  /* TODO I think we should do a general pass over all "forward" icons, once most main PRs are merged */
   display: flex;
   align-items: start;
 }
@@ -171,7 +171,7 @@ a > span.icon {
 :not(h1, h2, h3, h4, h5, h6) > a:any-link {
   display: flex;
   align-items: center;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 /* Add the caret svg to anchors that are not a primary or secondary button */
@@ -208,13 +208,11 @@ a.button:hover, a.button:focus, button:hover, button:focus {
   cursor: pointer;
 }
 
-/* Transparent Button Variation */
 a.button.primary, button.primary {
   color: var(--background-color);
   background-color: transparent;
 }
 
-/* Button without a border and "forward" icon */
 a.button.secondary, button.secondary {
   border: unset;
   margin: 0;
@@ -238,9 +236,8 @@ main img {
   width: 100%;
 }
 
-/* sections */
 main .section {
-  padding: 36px 16px;
+  padding: 36px 0;
 }
 
 /* Swap black and white in case of dark background */
@@ -257,6 +254,10 @@ main .section {
 .block.dark p.button-container > a.button:hover {
   color: var(--link-hover-color);
   border-color: var(--link-hover-color);
+}
+
+.block.dark ul li::before {
+  content: url('/aemedge/icons/forward-white.svg');
 }
 
 @media (width >= 768px) {

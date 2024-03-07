@@ -141,7 +141,7 @@ ul li {
 /* only target li elements that contain a simple text node */
 ul li:not(:has(*))::before {
   content: url('/aemedge/icons/forward.svg');
-  padding-right: 10px; /* adjust this value as needed */
+  padding-right: 10px;
   width: 24px;
   height: 24px;
   flex-shrink: 0;
@@ -150,7 +150,7 @@ ul li:not(:has(*))::before {
 }
 
 .block.dark ul li:not(:has(*))::before {
-  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
+  content: url('/aemedge/icons/forward-white.svg');
 }
 
 /* links */
@@ -280,5 +280,12 @@ main .section {
   h2 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-xxl);
+  }
+}
+
+/* Error 404 Styling */
+.error {
+  main.error {
+    min-height: calc(100vh - var(--nav-height));
   }
 }

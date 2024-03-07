@@ -15,7 +15,10 @@
 
     window.addEventListener('load', () => {
       if (document.referrer) {
-        const { origin, pathname } = new URL(document.referrer);
+        const {
+          origin,
+          pathname
+        } = new URL(document.referrer);
         if (origin === window.location.origin) {
           const backBtn = document.createElement('a');
           backBtn.classList.add('button', 'error-button-back');
@@ -26,26 +29,29 @@
           btnContainer.append(backBtn);
         }
       }
-      sampleRUM('404', { source: document.referrer, target: window.location.href });
+      sampleRUM('404', {
+        source: document.referrer,
+        target: window.location.href
+      });
     });
   </script>
   <link rel="stylesheet" href="/aemedge/styles/styles.css">
+  <style>
+
+  </style>
   <link rel="stylesheet" href="/aemedge/styles/lazy-styles.css">
 </head>
 
 <body>
-  <header></header>
-  <main class="error">
-    <div>
-      <div class="fragment">
-        <div>path</div>
-        <div>
-          <a href="/uk/web/en/fragments/404-fragment"></a>
-        </div>
-      </div>
+<header></header>
+<main class="error">
+  <div>
+    <div class="fragment">
+      <a href="/uk/web/en/fragments/404-fragment"></a>
     </div>
-  </main>
-  <footer></footer>
+  </div>
+</main>
+<footer></footer>
 </body>
 
 </html>

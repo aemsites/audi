@@ -155,7 +155,7 @@ ul li:not(:has(*))::before {
 }
 
 .block.dark ul li:not(:has(*))::before {
-  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
+  content: url('/aemedge/icons/forward-white.svg');
 }
 
 /* links */
@@ -286,5 +286,12 @@ main .section {
   h2 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-xxl);
+  }
+}
+
+/* Error 404 Styling */
+.error {
+  main.error {
+    min-height: calc(100vh - var(--nav-height));
   }
 }

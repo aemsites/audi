@@ -15,6 +15,8 @@ export default function decorate(block) {
 
         // setup hover variation
         if (block.classList.contains('hover')) {
+          const anchor = document.createElement('a');
+
           const hoverWrapper = document.createElement('div');
           hoverWrapper.classList.add('hover-wrapper');
 
@@ -30,10 +32,15 @@ export default function decorate(block) {
             .filter((p) => !p.querySelector('picture'));
           contentElements.forEach((element) => {
             contentWrapper.appendChild(element);
+            const foundLink = element.querySelector('a');
+            if (foundLink) {
+              anchor.setAttribute('href', foundLink.href);
+            }
           });
 
-          col.appendChild(hoverWrapper);
-          col.appendChild(contentWrapper);
+          anchor.appendChild(hoverWrapper);
+          anchor.appendChild(contentWrapper);
+          col.appendChild(anchor);
         }
       }
     });

@@ -1,3 +1,8 @@
+.columns-wrapper:has(> div.columns[class*="30-70"]),
+.columns-wrapper:has(>  div.columns[class*="70-30"]) {
+  max-width: unset;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -132,7 +137,19 @@
   }
 }
 
-/* 70-30 Variation */
+/* 70-30, 30-70 Variation */
+.columns[class*="30-70"] > div,
+.columns[class*="70-30"] > div {
+  gap: 0;
+  align-items: normal;
+  color: white;
+  padding: 0;
+
+  /* to not color padding area */
+  background-color: black;
+  background-clip: content-box;
+}
+
 .columns[class*="70-30"] > div > div:nth-child(2n+1) {
   flex: 0 0 70%;
 }
@@ -141,11 +158,19 @@
   flex: 0 0 30%;
 }
 
-/* 30-70 Variation */
 .columns[class*="30-70"] > div > div:nth-child(2n+1) {
   flex: 0 0 30%;
 }
 
 .columns[class*="30-70"] > div > div:nth-child(2n) {
   flex: 0 0 70%;
+}
+
+.columns[class*="30-70"] > div > div:not(.columns-img-col),
+.columns[class*="70-30"] > div > div:not(.columns-img-col) {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  flex: 1 1 0;
 }

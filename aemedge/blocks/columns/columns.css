@@ -97,7 +97,7 @@
   margin-top: 32px;
 }
 
-/* If last child is a p with an em text, move it to the bottom */
+/* If last child is a p which is not a button-container, move it to the bottom */
 .columns.hover > div > div > a > div.content-wrapper > p:last-child:not(.button-container) {
   margin-top: auto;
   margin-bottom: 1rem;

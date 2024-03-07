@@ -2,66 +2,81 @@
 <html>
 
 <head>
-  <title>Page not found</title>
-  <script type="text/javascript">
-    window.isErrorPage = true;
-    window.errorCode = '404';
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Page not found">
-  <script src="/aemedge/scripts/scripts.js" type="module" crossorigin="use-credentials"></script>
-  <script type="module">
-    import { sampleRUM } from '/aemedge/scripts/aem.js';
+    <title>Page not found</title>
+    <script type="text/javascript">
+      window.isErrorPage = true;
+      window.errorCode = '404';
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Page not found">
+    <script src="/aemedge/scripts/scripts.js" type="module" crossorigin="use-credentials"></script>
+    <script type="module">
+      import { sampleRUM } from '/aemedge/scripts/aem.js';
 
-    window.addEventListener('load', () => {
-      if (document.referrer) {
-        const { origin, pathname } = new URL(document.referrer);
-        if (origin === window.location.origin) {
-          const backBtn = document.createElement('a');
-          backBtn.classList.add('button', 'error-button-back');
-          backBtn.href = pathname;
-          backBtn.textContent = 'Go back';
-          backBtn.title = 'Go back';
-          const btnContainer = document.querySelector('.button-container');
-          btnContainer.append(backBtn);
+      window.addEventListener('load', () => {
+        if (document.referrer) {
+          const {
+            origin,
+            pathname
+          } = new URL(document.referrer);
+          if (origin === window.location.origin) {
+            const backBtn = document.createElement('a');
+            backBtn.classList.add('button', 'error-button-back');
+            backBtn.href = pathname;
+            backBtn.textContent = 'Go back';
+            backBtn.title = 'Go back';
+            const btnContainer = document.querySelector('.button-container');
+            btnContainer.append(backBtn);
+          }
         }
-      }
-      sampleRUM('404', { source: document.referrer, target: window.location.href });
-    });
-  </script>
-  <link rel="stylesheet" href="/aemedge/styles/styles.css">
-  <style>
-    main.error {
-      min-height: calc(100vh - var(--nav-height));
-      display: flex;
-      align-items: center;
-    }
-
-    main.error .error-number {
-      width: 100%;
-    }
-
-    main.error .error-number text {
-      font-family: var(--fixed-font-family);
-    }
-  </style>
-  <link rel="stylesheet" href="/aemedge/styles/lazy-styles.css">
+        sampleRUM('404', {
+          source: document.referrer,
+          target: window.location.href
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="/aemedge/styles/404.css">
+    <link rel="stylesheet" href="/aemedge/styles/styles.css">
+    <link rel="stylesheet" href="/aemedge/styles/lazy-styles.css">
 </head>
 
 <body>
-  <header></header>
-  <main class="error">
-    <div class="section">
-      <svg viewBox="1 0 38 18" class="error-number">
-        <text x="0" y="17">404</text>
-      </svg>
-      <h2 class="error-message">Page Not Found</h2>
-      <p class="button-container">
-        <a href="/" class="button secondary error-button-home">Go home</a>
-      </p>
+<header></header>
+<main class="error">
+    <picture>
+        <source srcset="https://www.audi.co.uk/content/dam/nemo/innovation/audi-driving-experience/1400x438_ade_s2014_47.jpg?imwidth=767"
+                data-resize-param="imwidth=767" media="(max-width:767px)">
+        <source class=""
+                srcset="https://www.audi.co.uk/content/dam/nemo/innovation/audi-driving-experience/1400x438_ade_s2014_47.jpg?imwidth=1023"
+                data-resize-param="imwidth=1023" media="(max-width:1023px)">
+        <source srcset="https://www.audi.co.uk/content/dam/nemo/innovation/audi-driving-experience/1400x438_ade_s2014_47.jpg?imwidth=1439"
+                data-resize-param="imwidth=1439" media="(max-width:1439px)">
+        <img src="https://www.audi.co.uk//content/dam/nemo/innovation/audi-driving-experience/1400x438_ade_s2014_47.jpg?imwidth=1920"
+             data-resize-param="imwidth=1920" alt="1400x438_ade_s2014_47.jpg">
+    </picture>
+    <h1>Sorry, page not found</h1>
+    <div>
+        <p>Page not found (404)</p>
+        <p>This page may have been removed, had its name changed or is temporarily unavailable</p>
+        <ul>
+            <li>
+                <a href="https://www.audi.co.uk/nemo-public/web/en.html" target="_blank">Return to the homepage</a>
+            </li>
+            <li>
+                <a href="https://www.audi.co.uk/uk/web/en/models/all-models.html" target="_blank">Explore models</a>
+            </li>
+        </ul>
     </div>
-  </main>
-  <footer></footer>
+    <div class="cards">
+        <div>
+            <h2>Find your nearest Centre</h2>
+            <img src="https://www.audi.co.uk/dam/nemo/models/misc/contact/320x110_Haendler-finden.jpg"
+                 alt="320x110_Haendler-finden.jpg">
+            <button>Locate a Centre ></button>
+        </div>
+    </div>
+</main>
+<footer></footer>
 </body>
 
 </html>

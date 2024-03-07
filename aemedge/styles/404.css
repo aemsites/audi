@@ -1,0 +1,42 @@
+main.error {
+  min-height: calc(100vh - var(--nav-height));
+}
+
+@media (width >= 900px) {
+  div.section {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* auto-blocking generated hero */
+.hero.block > div > div > h1 {
+  background-color: white;
+  width: fit-content;
+  margin-left: 0;
+  color: black;
+
+  /* todo, -3 is a hack, check if this still works, when we integrate the header on the 404 page */
+  @media (width <= 900px) {
+    position: absolute;
+    top: -3rem;
+  }
+}
+
+main.error ul > li::before {
+  display: none;
+}
+
+main.error ul > li > a::after {
+  vertical-align: bottom;
+}
+
+div.cards {
+  display: flex;
+  flex-direction: column;
+
+  @media (width >= 600px) {
+    flex-direction: row;
+
+  }
+}

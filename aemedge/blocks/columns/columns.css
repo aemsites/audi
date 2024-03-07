@@ -98,7 +98,7 @@
 }
 
 /* If last child is a p with an em text, move it to the bottom */
-.columns.hover > div > div > a > div.content-wrapper > p:last-child:has(em) {
+.columns.hover > div > div > a > div.content-wrapper > p:last-child:not(.button-container) {
   margin-top: auto;
   margin-bottom: 1rem;
   text-align: start;

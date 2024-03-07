@@ -1,7 +1,6 @@
 .video {
   width: unset;
   text-align: center;
-  max-width: 800px;
   margin: 32px auto;
 }
 
@@ -69,4 +68,9 @@
   border-left: 6px solid;
   top: 4px;
   left: 7px;
+}
+
+div.section > .video-wrapper {
+  margin: 0;
+  max-width: 100%;
 }

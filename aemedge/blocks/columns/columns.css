@@ -30,7 +30,7 @@
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
+    flex-direction: row;
     gap: 32px;
   }
 
@@ -41,8 +41,10 @@
 }
 
 /* Hover Variation */
-.columns.hover > div {
-  align-items: start;
+@media (width >= 900px) {
+  .columns.hover > div {
+    align-items: start;
+  }
 }
 
 .columns.hover > div > div > a {

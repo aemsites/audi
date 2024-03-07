@@ -1,7 +1,7 @@
 header,
 header a.button:any-link, 
 header button {
-  font-family: AudiType;
+  font-family: AudiType, sans-serif;
   font-weight: 400;
   font-stretch: var(--font-stretch-105);
 }
@@ -334,16 +334,16 @@ header nav .nav-sections .nav-section-teaser a::after {
     align-self: unset;
   }
 
+  header nav .nav-section .nav-section-toggle-button::after {
+    content: none;
+  }
+
   header nav .nav-section:has(.nav-section-flyout[aria-expanded="true"]) .nav-section-toggle-button::after {
     content: '';
     height: 2px;
     width: 100%;
     background: var(--color-black);
     bottom: 0;
-  }
-
-  header nav .nav-section .nav-section-toggle-button::after {
-    content: none;
   }
 
   header nav .nav-sections .nav-list {
@@ -378,9 +378,8 @@ header nav .nav-sections .nav-section-teaser a::after {
   }
 
   header nav .nav-sections .nav-section-flyout .for-desktop-columns {
-    column-count: 2;
+    columns: 320px 2;
     column-gap: 52px;
-    column-width: 320px;
     margin-inline-end: 32px;
     margin-block-end: 80px;
   }

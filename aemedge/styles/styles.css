@@ -112,8 +112,8 @@
   --link-hover-color: #b3b3b3;
 
   /* fonts */
-  --heading-font-family: AudiTypeExtended, sans-serif;
-  --body-font-family: AudiTypeWide, sans-serif;
+  --heading-font-family: auditypeextended, sans-serif;
+  --body-font-family: auditypewide, sans-serif;
   --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
   --ff-auditype: auditype, sans-serif;
   --ff-auditype-extended: auditypeextended, sans-serif;

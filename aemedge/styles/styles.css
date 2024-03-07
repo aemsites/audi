@@ -11,6 +11,94 @@
  */
 
  :root {
+  /* 
+    audi colors. I'm sure how many of these we will actually use
+    but felt it better to just copy them all now and we can comment out
+    or elimate later if needed.
+  */
+  --color-black: #000;
+  --color-green: #090;
+  --color-grey-05: #f2f2f2;
+  --color-grey-10: #e5e5e5;
+  --color-grey-15: #d9d9d9;
+  --color-grey-20: #ccc;
+  --color-grey-30: #b3b3b3;
+  --color-grey-40: #999;
+  --color-grey-50: grey;
+  --color-grey-60: #666;
+  --color-grey-70: #4c4c4c;
+  --color-grey-80: #333;
+  --color-grey-90: #1a1a1a;
+  --color-progressive-red: #f50537;
+  --color-red: #bb0a30;
+  --color-white: #fff;
+  --colors-background-backdrop-strong: rgba(0 0 0 / 90%);
+  --colors-background-card: #fff;
+  --colors-background-level-0: #fff;
+  --colors-background-level-1: #fff;
+  --colors-background-level-2: #fff;
+  --colors-background-level-3: #f2f2f2;
+  --colors-base-brand-black: #000;
+  --colors-base-brand-progressive-red: #f50537;
+  --colors-base-brand-white: #fff;
+  --colors-base-charging-neon-blue: #2526fe;
+  --colors-base-charging-neon-green: #2526fe;
+  --colors-base-grey-0: #fff;
+  --colors-base-grey-5: #f2f2f2;
+  --colors-base-grey-10: #e5e5e5;
+  --colors-base-grey-15: #d9d9d9;
+  --colors-base-grey-20: #ccc;
+  --colors-base-grey-30: #b3b3b3;
+  --colors-base-grey-40: #999;
+  --colors-base-grey-50: #808080;
+  --colors-base-grey-60: #666;
+  --colors-base-grey-70: #4c4c4c;
+  --colors-base-grey-80: #333;
+  --colors-base-grey-90: #1a1a1a;
+  --colors-base-grey-100: #000;
+  --colors-base-signal-green: #0da20d;
+  --colors-base-signal-red: #eb0d3f;
+  --colors-base-signal-yellow: #fa0;
+  --colors-charging-default: #0da20d;
+  --colors-charging-intelligent: #2526fe;
+  --colors-interaction-label-active: #333;
+  --colors-interaction-label-default: #333;
+  --colors-interaction-label-disabled: #b3b3b3;
+  --colors-interaction-label-filled: #333;
+  --colors-interaction-label-focus: #000;
+  --colors-interaction-label-hover: #000;
+  --colors-interaction-label-pressed: #000;
+  --colors-interaction-label-readonly: #333;
+  --colors-interaction-primary-active: #000;
+  --colors-interaction-primary-default: #000;
+  --colors-interaction-primary-disabled: #b3b3b3;
+  --colors-interaction-primary-focus: #000;
+  --colors-interaction-primary-hover: #4c4c4c;
+  --colors-interaction-primary-pressed: #000;
+  --colors-interaction-secondary-active: #000;
+  --colors-interaction-secondary-default: #666;
+  --colors-interaction-secondary-disabled: #b3b3b3;
+  --colors-interaction-secondary-filled: #333;
+  --colors-interaction-secondary-focus: #000;
+  --colors-interaction-secondary-hover: #000;
+  --colors-interaction-secondary-pressed: #000;
+  --colors-interaction-secondary-readonly: #333;
+  --colors-interaction-tertiary-active: #333;
+  --colors-interaction-tertiary-default: #d9d9d9;
+  --colors-interaction-tertiary-disabled: #d9d9d9;
+  --colors-interaction-tertiary-hover: #d9d9d9;
+  --colors-ui-divider: #d9d9d9;
+  --colors-ui-error: #eb0d3f;
+  --colors-ui-highlight-primary: #eb0d3f;
+  --colors-ui-highlight-secondary: #000;
+  --colors-ui-highlight-tertiary: rgba(0 0 0 / 5%);
+  --colors-ui-inverted: #fff;
+  --colors-ui-pending: #fa0;
+  --colors-ui-primary: #000;
+  --colors-ui-secondary: #333;
+  --colors-ui-success: #0da20d;
+  --colors-ui-tertiary: #666;
+
   /* colors */
   --background-color: white;
   --light-color: #eee;
@@ -136,7 +224,7 @@ ul li {
   align-items: start;
 }
 
-ul li::before {
+main ul li::before {
   content: url('/aemedge/icons/forward.svg');
   padding-right: 10px; /* adjust this value as needed */
   width: 24px;
@@ -163,7 +251,7 @@ a:hover {
 }
 
 /* Add the caret svg to anchors that are not a primary or secondary button */
-a:not(.button)::after {
+main a:not(.button)::after {
   content: url('/aemedge/icons/forward.svg');
   display: inline-block;
   width: 24px;
@@ -180,6 +268,7 @@ a.button:any-link, button {
   cursor: pointer;
   display: inline-block;
   font-style: normal;
+  font-family: var(--body-font-family);
   font-weight: var(--font-weight-normal);
   font-size:  var(--font-size-xs);
   margin: 16px 0;

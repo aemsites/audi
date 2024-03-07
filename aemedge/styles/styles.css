@@ -129,8 +129,8 @@ p, dl, ol, ul, pre, blockquote {
   background: #f50537;
 }
 
-/* Replace default list icon with svg.
-Use flexbox to achieve "grid" like style for line breaks */
+/* TODO I think we should do a general pass over all "forward" icons, once most main PRs are merged */
+/* Use flexbox to achieve "grid" like style for line breaks */
 ul li {
   display: flex;
   align-items: start;
@@ -138,7 +138,7 @@ ul li {
 
 ul li::before {
   content: url('/aemedge/icons/forward.svg');
-  padding-right: 10px; /* adjust this value as needed */
+  padding-right: 10px;
   width: 24px;
   height: 24px;
   display: inline-block;

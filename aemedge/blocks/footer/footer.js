@@ -56,6 +56,7 @@ function buildFooter(footerJson) {
     anchor.href = media.Link.Url;
     anchor.className = media.Link.Text.toLowerCase();
     anchor.target = media.Link.Target;
+    anchor.title = media.Link.Text.toLowerCase();
     listItem.appendChild(anchor);
     socialMediaList.appendChild(listItem);
   });

@@ -12,10 +12,12 @@
 
 :root {
   /* colors */
-  --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --clr-white : #fff;
+  --clr-black : #000;
+  --background-color: var(--clr-white);
 
   /* todo fix link colors */
   --link-color: var(--text-color);
@@ -25,9 +27,11 @@
   --heading-font-family: auditypeextended, sans-serif;
   --body-font-family: auditypewide, sans-serif;
   --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
+  --ff-auditype: auditype, sans-serif;
+  --ff-auditype-extended: auditypeextended, sans-serif;
 
   /* font sizes */
-  --font-size-xxs: 13px;
+  --font-size-xxs: 12px;
   --font-size-xs: 16px;
   --font-size-s: 20px;
   --font-size-m: 24px;
@@ -37,6 +41,7 @@
 
   /* font stretch */
   --font-stretch-100: 100%;
+  --font-stretch-105: 105%;
   --font-stretch-130: 130%;
 
   /* font weight */

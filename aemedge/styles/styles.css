@@ -105,14 +105,14 @@
   --dark-color: #ccc;
   --text-color: black;
 
- /* todo fix link colors */
- --link-color: var(--text-color);
- --link-hover-color: #b3b3b3;
+  /* todo fix link colors */
+  --link-color: var(--text-color);
+  --link-hover-color: #b3b3b3;
 
- /* fonts */
- --heading-font-family: auditypeextended, sans-serif;
- --body-font-family: auditypewide, sans-serif;
- --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
+  /* fonts */
+  --heading-font-family: auditypeextended, sans-serif;
+  --body-font-family: auditypewide, sans-serif;
+  --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
 
   /* font sizes */
   --font-size-xxs: 13px;
@@ -127,10 +127,10 @@
   --font-stretch-100: 100%;
   --font-stretch-130: 130%;
 
-   /* font weight */
- --font-weight-light: 200;
- --font-weight-normal:400;
- --font-weight-bold:700;
+  /* font weight */
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 
   /* line height */
   --line-height-xxs: 12px;
@@ -144,24 +144,26 @@
 
   /* nav height */
   --nav-height: 72px;
- }
+}
 
 h1 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
   font-size: var(--font-size-l);
   line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
 }
 
 h2 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
   font-size: var(--font-size-l);
   line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
 }
 
 h3, h4, h5, h6 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
+
+  /* todo fix me, this does not exist */
   font-size: var(--heading-font-size-s);
   line-height: var(--line-height-s);
 }
@@ -174,7 +176,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
-  margin:0;
+  margin: 0;
 }
 
 body.appear {
@@ -217,20 +219,26 @@ p, dl, ol, ul, pre, blockquote {
   background: #f50537;
 }
 
-/* Replace default list icon with svg.
-Use flexbox to achieve "grid" like style for line breaks */
+/* Use flexbox to achieve "grid" like style for line breaks */
 ul li {
+  /* TODO I think we should do a general pass over all "forward" icons, once most main PRs are merged */
   display: flex;
   align-items: start;
 }
 
-main ul li::before {
+/* only target li elements that contain a simple text node */
+main ul li:not(:has(*))::before {
   content: url('/aemedge/icons/forward.svg');
-  padding-right: 10px; /* adjust this value as needed */
+  padding-right: 10px;
   width: 24px;
   height: 24px;
-  display: inline-block;
   flex-shrink: 0;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.block.dark ul li:not(:has(*))::before {
+  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
 }
 
 /* links */
@@ -243,11 +251,15 @@ a:hover {
   color: var(--link-hover-color);
 }
 
+a > span.icon {
+  vertical-align: bottom;
+}
+
 /* only add flex for non-headline elements. */
 :not(h1, h2, h3, h4, h5, h6) > a:any-link {
   display: flex;
   align-items: center;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 /* Add the caret svg to anchors that are not a primary or secondary button */
@@ -256,8 +268,7 @@ main a:not(.button)::after {
   display: inline-block;
   width: 24px;
   height: 24px;
-  margin-left: 6px;
-  margin-top: -6px;
+  vertical-align: bottom;
 }
 
 /* buttons */
@@ -270,7 +281,7 @@ a.button:any-link, button {
   font-style: normal;
   font-family: var(--body-font-family);
   font-weight: var(--font-weight-normal);
-  font-size:  var(--font-size-xs);
+  font-size: var(--font-size-xs);
   margin: 16px 0;
   overflow: hidden;
   padding: 15px 36px;
@@ -286,15 +297,15 @@ a.button:hover, a.button:focus, button:hover, button:focus {
   cursor: pointer;
 }
 
-/* Transparent Button Variation */
 a.button.primary, button.primary {
   color: var(--background-color);
   background-color: transparent;
 }
 
-/* Button without a border and "forward" icon */
 a.button.secondary, button.secondary {
   border: unset;
+  margin: 0;
+  padding: 0;
 }
 
 main img {
@@ -314,9 +325,8 @@ main img {
   width: 100%;
 }
 
-/* sections */
 main .section {
-  padding: 36px 16px;
+  padding: 36px 0;
 }
 
 /* Swap black and white in case of dark background */
@@ -336,12 +346,12 @@ main .section {
 }
 
 .block.dark ul li::before {
-  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
+  content: url('/aemedge/icons/forward-white.svg');
 }
 
 @media (width >= 768px) {
   h1, h2 {
-    font-size: var( --font-size-xl);
+    font-size: var(--font-size-xl);
     line-height: var(--line-height-l);
   }
 }

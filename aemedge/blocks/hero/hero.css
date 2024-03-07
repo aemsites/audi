@@ -11,15 +11,44 @@ main .hero-container {
   min-height: 300px;
 }
 
-.hero h1 {
+.hero div div {
+  display: grid;  
+}
+
+.hero div div h1 {
+  order: 2;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px 20px;
   color: black;
 }
 
+.hero div div p:first-of-type {
+  order: 1;
+}
+
 .hero picture, .hero img {
-  height: 100%;
+  width: 100%;
   box-sizing: border-box;
   object-fit: cover;
+}
+
+.hero p.button-container {
+  order: 3;
+  margin: 0 20px;
+}
+
+.hero p.button-container a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 0.25em 0;
+}
+
+.hero p.button-container a:first-of-type {
+  background-color: black;
+  color: white;
+}
+
+@media (width >= 600px) {
+
 }

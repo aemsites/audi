@@ -227,7 +227,7 @@ main img {
 
 /* sections */
 main .section {
-  padding: 36px 16px;
+  padding: 36px 0;
 }
 
 /* Swap black and white in case of dark background */

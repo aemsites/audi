@@ -1,14 +1,344 @@
+/* stylelint-disable media-feature-range-notation */
 footer {
-  padding: 2rem;
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-s);
+padding-bottom: 0;
+background-color: black;
+overflow-wrap: break-word;
 }
 
-footer .footer {
-  max-width: 1200px;
+footer .footer-wrapper {
   margin: auto;
+  font-size: 16px;
+  font-family: auditypewide, sans-serif;
+  font-stretch: 105%;
+  line-height: 24px;
+  color: white;
+  padding: 24px 28px 36px;
 }
 
-footer .footer p {
+footer a:any-link {
+  display: block;
+  color: white;
+  cursor: pointer;
+  font-family: auditypewide, sans-serif;
+  font-size: 12px;
+  font-stretch: 105%;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+footer .back-to-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  color: white;
+  cursor: pointer;
+  font-family: auditypewide, sans-serif;
+  font-size: 12px;
+  font-stretch: 105%;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+footer .back-to-top::after {
+  content: '';
+  display: inline-block;
+  background: url('../../icons/arrow-down.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
+  margin-left : 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+footer ul li::before {
+  content: none;
+}
+
+footer a:not(.button)::after {
+  content: none;
+}
+
+footer .categories {
+  margin-top: 36px ;
+}
+
+footer .categories > ul {
+  display: block;
+  list-style: none;
+  margin: 0 0 36px calc(-1* 28px);
+  padding: 0;
+  width: calc(100% + 2* 28px);
+}
+
+footer .categories > ul > li {
+  margin-bottom: -1px;
+  display: block;
+}
+
+footer .category-menu{
+  align-content: center;
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #333;
+  cursor: pointer;
+  padding: 0 28px;
+  position: relative;
+  display: flex;
+}
+
+footer .category-menu::after{
+  content: '';
+  background: url('../../icons/arrow-down.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+footer .category-menu.open::after{
+  transform: rotate(180deg);
+}
+
+footer .category-menu a {
+  color: #d9d9d9;
+  font-size: 16px;
+  font-stretch: 105%;
+  line-height: 24px;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+footer .category-menu-links > ul{
+  padding: 16px 0;
+  margin:0;
+}
+
+footer .category-menu-links > ul > li {
+  padding: 0 28px;
+}
+
+footer .social-media > ul >li {
+  display: inline-block;
+  margin: 0 0 0 8px;
+}
+
+footer .social-media > ul >li > a::after{
+  content: '';
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1); 
+}
+
+footer .social-media > ul >li > a.facebook::after{
+  background: url('../../icons/facebook.svg') no-repeat;
+}
+
+footer .social-media > ul >li > a.instagram::after{
+  background: url('../../icons/instagram.svg') no-repeat;
+}
+
+footer .social-media > ul >li > a.youtube::after{
+  background: url('../../icons/youtube.svg') no-repeat;
+}
+
+footer .social-media > ul >li > a.pinterest::after{
+  background: url('../../icons/pinterest.svg') no-repeat;
+}
+
+footer .category-menu-links > ul > li > a {
+  padding: 8px 0;
+  width: 100%;
+}
+
+footer .social-media > ul >li:first-child {
   margin: 0;
 }
+
+footer .category-menu-links{
+  overflow: hidden;
+  background-color: #1a1a1a;
+  height: auto;
+  max-height: 2000px;
+  opacity: 1;
+}
+
+footer .social-media{
+  display: flex;
+}
+
+footer .social-media > ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+footer .categories > ul > li:first-of-type {
+  margin-top: 16px;
+}
+
+
+footer .copyright-wrapper {
+  border-top: 1px solid #333;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin: 24px 0 0;
+  padding: 24px 0 0;
+}
+
+footer .copyright-wrapper .copyright {
+  display: inline;
+  margin: 0;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 12px;
+  margin-inline-end: 36px;
+  margin-top: 12px;
+}
+
+footer .copyright-wrapper .legal-links {
+  flex-grow: 1;
+  margin-right: 28px;
+}
+
+footer .copyright-wrapper .legal-links > ul{
+  display: inline-flex;
+  flex-flow: wrap;
+  list-style: none;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+footer .copyright-wrapper .legal-links > ul > li {
+  padding-right: 24px;
+}
+
+footer .copyright-wrapper .legal-links > ul > li > a {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+footer .category-menu-links {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+footer .category-menu-links.open {
+  max-height: 500px;
+}
+}
+
+
+@media only screen and (min-width: 768px) {
+  footer .footer-wrapper {
+    padding: 24px 40px 36px;
+  }
+
+  footer .categories {
+    margin-top: 68px ;
+  }
+  
+
+  footer .categories > ul {
+    display: flex;
+    flex-flow: wrap;
+    margin: 36px auto 0;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+
+  }
+
+footer .category-menu{
+  border: none;
+  cursor: initial;
+  margin-bottom: 28px;
+  padding: 0;
+}
+
+footer .category-menu::after{
+  content: none;
+}
+
+footer .category-menu a{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: 20px;
+  font-stretch: 130%;
+  line-height: 32px;
+  padding: 0;
+  width: auto;
+}
+
+footer .category-menu-links{
+  background-color: #000;
+  height: auto;
+  margin: 0;
+  max-height: initial;
+}
+
+footer .category-menu-links >ul{
+  padding: 0;
+}
+
+footer .category-menu-links > ul > li {
+  padding: 0 0 12px;
+}
+
+
+footer .categories > ul > li {
+  margin: 0 28px 36px 0;
+  padding: 0;
+  width: calc(33% - 40px * 2 / 3);
+}
+
+footer .category-menu-links > ul > li > a {
+  display: inline;
+  padding: 0;
+  width: auto;
+}
+
+footer .category-menu-links > ul > li:first-child {
+  display: none;
+}
+
+
+footer .categories > ul > li:first-of-type {
+  margin-top: 0;
+}
+
+footer .social-media{
+  justify-content: flex-end;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+  footer .footer-wrapper {
+    padding: 24px 60px 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  footer .footer-wrapper {
+    padding: 24px 96px 52px;
+  }
+
+  footer .categories > ul > li {
+    width: calc(20% - 32px* 4 / 5);
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  footer .footer-wrapper {
+    padding: 24px 96px 68px;
+  }
+}
+

@@ -1,7 +1,7 @@
 import { getMetadata, decorateIcons, toClassName } from '../../scripts/aem.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1200px)');
 
 /**
  * Toggles all nav sections
@@ -104,6 +104,9 @@ function createNavSection(navSectionJson, sectionCount) {
   flyoutCloseButton.innerHTML = sectionLink.innerHTML;
   flyout.append(flyoutCloseButton);
 
+  const lister = document.createElement('div');
+  lister.className = 'for-desktop-columns';
+  flyout.append(lister);
   const ul = document.createElement('ul');
   ul.append(...navSectionJson.SubNavigation.map((subNav) => {
     const subLi = document.createElement('li');
@@ -114,7 +117,7 @@ function createNavSection(navSectionJson, sectionCount) {
     }
     return subLi;
   }));
-  flyout.append(ul);
+  lister.append(ul);
 
   const teaser = document.createElement('div');
   teaser.classList.add('nav-section-teaser');
@@ -161,6 +164,13 @@ function buildNav(navJson) {
         const expanded = flyout.getAttribute('aria-expanded') === 'true';
         toggleAllNavSections(sections, false);
         flyout.setAttribute('aria-expanded', !expanded);
+        // if (!expanded) {
+        //   flyout.addEventListener('transitionend', () => {
+        //     addOutsideClickListener(flyout, () => {
+        //       flyout.setAttribute('aria-expanded', false);
+        //     });
+        //   });
+        // }
       }
     });
   });
@@ -210,7 +220,25 @@ function buildNav(navJson) {
 
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, sections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, sections, isDesktop.matches));
+
+  const closeNavOnClickOutsideNav = (evt) => {
+    const openFlyout = nav.querySelector('.nav-section-flyout[aria-expanded="true"]');
+    if (openFlyout && !openFlyout.contains(evt.target) && !nav.contains(evt.target)) {
+      toggleAllNavSections(sections, false);
+    }
+  };
+  if (isDesktop.matches) {
+    window.addEventListener('click', closeNavOnClickOutsideNav);
+  }
+
+  isDesktop.addEventListener('change', () => {
+    toggleMenu(nav, sections, isDesktop.matches);
+    if (isDesktop.matches) {
+      window.addEventListener('click', closeNavOnClickOutsideNav);
+    } else {
+      window.removeEventListener('click', closeNavOnClickOutsideNav);
+    }
+  });
 
   // keyboard nav accessibility
   window.addEventListener('keydown', (e) => {
@@ -248,6 +276,12 @@ export default async function decorate(block) {
     const navWrapper = document.createElement('div');
     navWrapper.className = 'nav-wrapper';
     navWrapper.append(nav);
+
     block.replaceChildren(navWrapper);
+
+    const navShadow = document.createElement('div');
+    navShadow.className = 'nav-shadow';
+
+    block.append(navShadow);
   }
 }

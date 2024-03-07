@@ -110,8 +110,8 @@
   --link-hover-color: #b3b3b3;
 
   /* fonts */
-  --heading-font-family: auditypeextended, sans-serif;
-  --body-font-family: auditypewide, sans-serif;
+  --heading-font-family: AudiTypeExtended, sans-serif;
+  --body-font-family: AudiTypeWide, sans-serif;
   --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
 
   /* font sizes */
@@ -125,6 +125,7 @@
 
   /* font stretch */
   --font-stretch-100: 100%;
+  --font-stretch-105: 105%;
   --font-stretch-130: 130%;
 
   /* font weight */
@@ -282,6 +283,7 @@ a.button:any-link, button {
   font-family: var(--body-font-family);
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
   margin: 16px 0;
   overflow: hidden;
   padding: 15px 36px;

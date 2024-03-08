@@ -243,23 +243,29 @@ header nav .nav-section .nav-section-toggle-button::after {
 }
 
 header nav .nav-sections .nav-section-flyout {
-  visibility: hidden;
   background-color: var(--background-color);
   position: absolute;
   inset: 0;
-  transform: translateX(100vw);
-  max-height: 0;
-  transition: transform var(--transition-time) var(--transiiton-easing),
-              visibility var(--transition-time) 180ms var(--transiiton-easing),
-              max-height var(--transition-time) 180ms;
-  transform-origin: top;
   z-index: 2;
+}
+
+header nav .nav-sections .nav-section-flyout[aria-expanded="false"] {
+  visibility: hidden;
+  translate: 100vw 0;
+  scale: 1 .5;
+  transition: translate var(--transition-time) var(--transiiton-easing),
+              scale var(--transition-time) var(--transiiton-easing),
+              visibility 1s var(--transition-time);
+  transform-origin: top;
 }
 
 header nav .nav-sections .nav-section-flyout[aria-expanded="true"] {
   visibility: visible;
-  transform: translateX(0);
-  max-height: 100vh;
+  translate: 0;
+  scale: 1;
+  transition: translate var(--transition-time) var(--transiiton-easing),
+              scale var(--transition-time) var(--transiiton-easing);
+  transform-origin: top;
 }
 
 header nav .nav-sections .nav-flyout-close-button {
@@ -370,16 +376,18 @@ header nav .nav-sections .nav-section-teaser a::after {
     bottom: unset;
     padding-inline: 197px 96px;
     padding-block-start: 52px;
+  }
+  
+  header nav .nav-sections .nav-section-flyout[aria-expanded="false"] {
     max-height: 0;
     opacity: 0;
     transition: max-height var(--transition-time) var(--transiiton-easing), opacity 180ms var(--transiiton-easing);
   }
-  
+
   header nav .nav-sections .nav-section-flyout[aria-expanded="true"] {
     max-height: 660px;
     opacity: 1;
     transition: max-height var(--transition-time) var(--transiiton-easing), opacity 180ms var(--transiiton-easing) 300ms;
-
   }
 
   header nav .nav-sections .nav-section-flyout .for-desktop-columns {

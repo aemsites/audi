@@ -39,11 +39,9 @@ export default async function decorate(block) {
       subnavTitle.classList.add('subnav-title');
       subnavTitle.textContent = 'Audi Used Cars';
 
-    subnavTitle.setAttribute('aria-expanded', 'false');
       subnavTitle.addEventListener('click', () => {
-        const isExpanded = ul.getAttribute('aria-expanded') === 'true';
-        ul.setAttribute('aria-expanded', !isExpanded);
-        subnavTitle.setAttribute('aria-expanded', !isExpanded);
+        ul.classList.toggle('subnav-expand');
+        subnavTitle.classList.toggle('subnav-title-expand');
       });
 
       subnavWrapper.append(subnavTitle, ul);

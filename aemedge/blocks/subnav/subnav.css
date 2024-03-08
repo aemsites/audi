@@ -42,7 +42,7 @@
     background-position: 8px center;
 }
 
-.subnav span.subnav-title[aria-expanded="true"]::before{
+.subnav span.subnav-title.subnav-title-expand::before{
     content: '';
     display: inline-block;
     background: url('../../icons/cross-large.svg') no-repeat;
@@ -64,7 +64,7 @@
     transition: max-height 0.3s ease-out;
 }
 
-.subnav ul.subnav-ul[aria-expanded="true"]{
+.subnav ul.subnav-ul.subnav-expand{
     display: block;
     max-height: 500px; 
 }
@@ -108,9 +108,9 @@
     }
 
     .subnav ul.subnav-ul,
-    .subnav ul.subnav-ul[aria-expanded="true"]{
-    display: flex;
-    max-height: inherit;
+    .subnav ul.subnav-ul.subnav-expand{
+        display: flex;
+        max-height: inherit;
 }
 
     .subnav .subnav-ul li{

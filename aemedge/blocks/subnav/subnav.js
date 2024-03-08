@@ -8,12 +8,13 @@ import {
  */
 export default async function decorate(block) {
   const subnav = getMetadata('subnav');
+  const subnavRoot = getMetadata('subnav-root');
   const currentURL = window.location.href;
-  if (subnav) {
+  if (subnav && subnavRoot && subnavRoot.trim()) {
     const resp = await fetch('/query-index.json');
     if (resp.ok) {
       const json = await resp.json();
-      const filteredEntries = json.data.filter((entry) => entry.path.startsWith('/uk/web/en/used-cars'));
+      const filteredEntries = json.data.filter((entry) => entry.path.startsWith(subnavRoot));
       const subnavWrapper = document.createElement('div');
       subnavWrapper.classList.add('subnav-wrapper');
 

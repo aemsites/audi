@@ -6,7 +6,8 @@
   "scripts": {
     "lint:js": "eslint . --fix",
     "lint:css": "stylelint aemedge/blocks/**/*.css aemedge/styles/*.css",
-    "lint": "npm run lint:js && npm run lint:css"
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "eslint . --fix && stylelint aemedge/blocks/**/*.css aemedge/styles/*.css --fix"
   },
   "repository": {
     "type": "git",

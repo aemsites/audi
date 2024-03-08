@@ -8,8 +8,7 @@ import {
  */
 export default async function decorate(block) {
   const subnav = getMetadata('subnav');
-  const subnavRoot = getMetadata('subnav-root');
-  const currentPage = window.location.pathname;
+  const currentURL = window.location.href;
   if (subnav) {
     const resp = await fetch('/query-index.json');
     if (resp.ok) {
@@ -26,6 +25,9 @@ export default async function decorate(block) {
         const a = document.createElement('a');
         a.setAttribute('href', `${entry.path}`);
         a.setAttribute('title', entry['page-title']);
+        if (currentURL === a.href) {
+          a.classList.add('focus');
+        }
         const span = document.createElement('span');
         span.textContent = entry['page-title'];
         a.appendChild(span);
@@ -37,11 +39,15 @@ export default async function decorate(block) {
       subnavTitle.classList.add('subnav-title');
       subnavTitle.textContent = 'Audi Used Cars';
 
+    subnavTitle.setAttribute('aria-expanded', 'false');
+      subnavTitle.addEventListener('click', () => {
+        const isExpanded = ul.getAttribute('aria-expanded') === 'true';
+        ul.setAttribute('aria-expanded', !isExpanded);
+        subnavTitle.setAttribute('aria-expanded', !isExpanded);
+      });
+
       subnavWrapper.append(subnavTitle, ul);
       block.appendChild(subnavWrapper);
-
-      console.log(subnavRoot);
-      console.log(currentPage);
     }
   }
 }

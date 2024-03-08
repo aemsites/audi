@@ -48,7 +48,6 @@ header nav[aria-expanded="true"] {
   header nav {
     display: flex;
     padding-inline: 3.75rem;
-    position: relative;
   }
 
   header nav[aria-expanded="true"] {
@@ -249,7 +248,10 @@ header nav .nav-sections .nav-section-flyout {
   position: absolute;
   inset: 0;
   transform: translateX(100vw);
-  transition: transform var(--transition-time) var(--transiiton-easing), visibility var(--transition-time) 180ms var(--transiiton-easing);
+  max-height: 0;
+  transition: transform var(--transition-time) var(--transiiton-easing),
+              visibility var(--transition-time) 180ms var(--transiiton-easing),
+              max-height var(--transition-time) 180ms;
   transform-origin: top;
   z-index: 2;
 }
@@ -257,7 +259,7 @@ header nav .nav-sections .nav-section-flyout {
 header nav .nav-sections .nav-section-flyout[aria-expanded="true"] {
   visibility: visible;
   transform: translateX(0);
-  transition: transform var(--transition-time) var(--transiiton-easing), visibility 0;
+  max-height: 100vh;
 }
 
 header nav .nav-sections .nav-flyout-close-button {

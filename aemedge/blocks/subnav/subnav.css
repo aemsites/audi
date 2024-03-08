@@ -1,0 +1,125 @@
+/* stylelint-disable color-function-notation */
+.section.subnav-container{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+}
+
+.subnav-wrapper{
+    max-width: 100% !important;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+
+}
+
+.subnav .subnav-title{
+    background-color: #000;
+    color: #fff;
+    font-family: AudiTypeWide, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    left: 0;
+    display: flex;
+    height: 54px;
+    bottom: 0;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.subnav span.subnav-title::before{
+    content: '';
+    display: inline-block;
+    background: url('../../icons/arrow-down.svg') no-repeat;
+    width: 36px;
+    height: 24px;
+    transform: rotate(360deg);
+    background-color: transparent;
+  }
+
+
+.subnav .subnav-ul ul,
+.subnav .subnav-ul li{
+    list-style: none;
+}
+
+.subnav ul.subnav-ul{
+    margin:0;
+}
+
+.subnav .subnav-ul li{
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 1;
+    margin: 0;
+    padding: 0;
+    align-items:inherit;
+    border-top: 2px solid rgba(0, 0, 0, 10%);
+}
+
+.subnav .subnav-ul li a{
+    color: #000;
+    padding: 15px 5%;
+    white-space: normal;
+    width: 108.7%;
+    word-break: break-word;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    font-family: AudiTypeWide, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.subnav .subnav-ul li a::after{
+    content: none;
+}
+
+
+@media (width > 999px) {
+    .subnav .subnav-wrapper {
+        flex-flow: row;
+        justify-content: space-around;
+        background-color: #000;
+    }
+
+    .subnav .subnav-ul{
+        display: flex;
+    } 
+
+    .subnav .subnav-ul li{
+        display: block;
+        border-top: inherit;
+    }
+
+    .subnav .subnav-ul li a{
+        background-color: #000;
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        padding: 15px;
+        position: relative;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        font-family: AudiTypeWide, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .subnav .subnav-title{
+        display: none;
+    }
+
+    .subnav span.subnav-title::before{
+        content: none;
+    }
+  }

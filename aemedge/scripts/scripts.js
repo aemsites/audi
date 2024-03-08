@@ -31,6 +31,16 @@ function buildHeroBlock(main) {
 }
 
 /**
+ * Builds Subnav block and appens after the Hero block.
+ * @param {Element} main The container element
+ */
+async function buildSubnav(main) {
+  const subnav = document.createElement('div');
+  subnav.append(buildBlock('subnav', { elems: [] }));
+  main.prepend(subnav);
+}
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
@@ -49,6 +59,7 @@ async function loadFonts() {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildSubnav(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

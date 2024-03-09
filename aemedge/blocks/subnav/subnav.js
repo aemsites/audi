@@ -7,6 +7,7 @@ import {
  * @param {HTMLElement} block Default DOM structure for the block.
  */
 export default async function decorate(block) {
+  const pageTitle = getMetadata('page-title');
   const subnav = getMetadata('subnav');
   const subnavRoot = getMetadata('subnav-root');
   const currentURL = window.location.href;
@@ -38,11 +39,17 @@ export default async function decorate(block) {
 
       const subnavTitle = document.createElement('span');
       subnavTitle.classList.add('subnav-title');
-      subnavTitle.textContent = 'Audi Used Cars';
+      subnavTitle.textContent = pageTitle;
 
       subnavTitle.addEventListener('click', () => {
         ul.classList.toggle('subnav-expand');
         subnavTitle.classList.toggle('subnav-title-expand');
+
+        if (ul.classList.contains('subnav-expand')) {
+          subnavTitle.textContent = 'Audi Used Cars';
+        } else {
+          subnavTitle.textContent = pageTitle;
+        }
       });
 
       subnavWrapper.append(subnavTitle, ul);

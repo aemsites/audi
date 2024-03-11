@@ -46,9 +46,8 @@ export default function decorate(block) {
     });
   });
 
-  // setup parallax variation
+  // Setup parallax variation
   if (block.classList.contains('parallax') && block.classList.contains('columns-2-cols')) {
-    console.debug('detected parallax');
     const wrapper = block.firstElementChild;
     const picture = block.querySelector('picture');
 

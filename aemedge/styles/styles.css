@@ -10,8 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
-  /* 
+:root {
+  /*
     audi colors. I'm sure how many of these we will actually use
     but felt it better to just copy them all now and we can comment out
     or elimate later if needed.
@@ -103,8 +103,8 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
-  --clr-white : #fff;
-  --clr-black : #000;
+  --clr-white: #fff;
+  --clr-black: #000;
   --background-color: var(--clr-white);
 
   /* todo fix link colors */
@@ -213,7 +213,40 @@ h4, h5, h6 {
   animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
 }
 
-p, dl, ol, ul, pre, blockquote {
+.default-content-wrapper > h2 {
+  width: 92%;
+  margin: 42px auto 0;
+
+  @media (width >= 1024px) {
+    text-align: center;
+    margin-top: 42px;
+  }
+}
+
+.default-content-wrapper > p {
+  width: 92%;
+  margin: 0 auto;
+
+  @media (width >= 1024px) {
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+.section.fineprint > div.default-content-wrapper {
+  padding: 54px 4%;
+  margin: 0;
+}
+
+.section.fineprint > div.default-content-wrapper > p {
+  text-align: start;
+  width: 100%;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+
+dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
   padding-inline-start: 0;

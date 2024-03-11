@@ -42,6 +42,11 @@ export default function decorate(block) {
           anchor.appendChild(contentWrapper);
           col.appendChild(anchor);
         }
+
+        // setup parallax variation
+        if (block.classList.contains('parallax')) {
+
+        }
       }
     });
   });

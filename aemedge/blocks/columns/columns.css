@@ -207,11 +207,13 @@
 }
 
 .columns.parallax > div.parallax-wrapper > div.parallax-text {
-  position: relative;
+  position: absolute;
+  top: 10%;
+  left: 5%;
   z-index: 1;
   background-color: white;
   padding: 2rem;
-  max-width: 80%;
+  max-width: 66%;
 
   @media (width >= 768px) {
     max-width: 50%;
@@ -222,6 +224,15 @@
   }
 }
 
+.columns.parallax > div.parallax-wrapper > div.parallax-text > p.button-container > em > a::after {
+  content: url('/aemedge/icons/forward.svg');
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 .columns.parallax > div.parallax-wrapper > div.parallax-text > p > strong {
   font-size: var(--font-size-xxl);
+  line-height: var(--line-height-xxl);
 }

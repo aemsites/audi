@@ -49,15 +49,15 @@ export default function decorate(block) {
   // setup parallax variation
   if (block.classList.contains('parallax') && block.classList.contains('columns-2-cols')) {
     console.debug('detected parallax');
-    block.firstElementChild?.classList.add('parallax-wrapper');
+    const wrapper = block.firstElementChild;
+    const picture = block.querySelector('picture');
 
     // todo get higher res image
-    // Setup Background Parallax Image
-    const picture = block.querySelector('picture');
-    if (picture) {
-      picture.parentElement.style.backgroundImage = `url('${picture.lastElementChild.src}')`;
-      // delete picture element
-      picture.parentElement.innerHTML = '';
+    if (picture && wrapper) {
+      wrapper.classList.add('parallax-wrapper');
+      wrapper.style.backgroundImage = `url('${picture.lastElementChild.src}')`;
+      wrapper.querySelector('.columns-img-col')
+        ?.remove();
     }
 
     // Setup Text Content

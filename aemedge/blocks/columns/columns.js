@@ -3,11 +3,11 @@ export default function decorate(block) {
   block.classList.add(`columns-${cols.length}-cols`);
 
   function transformImage(img) {
-    const scrollPosition = window.scrollY;
-    const elementPosition = img.getBoundingClientRect().top;
-    const shiftAmount = (elementPosition - scrollPosition) * 1.1;
-    const relativeShiftAmount = shiftAmount / img.clientHeight;
-    img.style.transform = `translate3d(0px, ${-(relativeShiftAmount)}px, 0px)`;
+    const viewportHeight = window.innerHeight;
+    const elementPosition = img.getBoundingClientRect().top + img.clientHeight / 2;
+    const shiftAmount = (elementPosition - viewportHeight / 2) * 0.2;
+
+    img.style.transform = `translate3d(0px, ${-shiftAmount}px, 0px)`;
   }
 
   [...block.children].forEach((row) => {

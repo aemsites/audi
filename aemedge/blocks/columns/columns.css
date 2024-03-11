@@ -82,6 +82,7 @@
 }
 
 .columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary {
+  padding-top: 1rem;
   color: var(--background-color);
   border-color: var(--background-color);
 }

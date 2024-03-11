@@ -167,9 +167,7 @@ h2 {
 
 h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
-
-  /* todo fix me, this does not exist */
-  font-size: var(--heading-font-size-s);
+  font-size: var(--font-size-xl);
   line-height: var(--line-height-s);
 }
 
@@ -242,7 +240,7 @@ h4, h5, h6 {
 .section.fineprint > div.default-content-wrapper > p {
   text-align: start;
   width: 100%;
-  font-size: 0.8rem;
+  font-size: var(--font-size-xxs);
   line-height: 1rem;
 }
 

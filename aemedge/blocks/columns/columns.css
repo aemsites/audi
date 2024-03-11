@@ -98,7 +98,12 @@
   vertical-align: middle;
   width: 24px;
   height: 24px;
-  margin-left: 6px;
+}
+
+.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary:hover::after {
+  transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
+  transition-duration: 250ms;
+  transform: translateX(5px);
 }
 
 .columns.hover > div > div > a > div.content-wrapper > *:first-child {

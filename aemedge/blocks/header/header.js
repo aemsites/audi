@@ -4,6 +4,16 @@ import { getMetadata, decorateIcons, toClassName } from '../../scripts/aem.js';
 const isDesktop = window.matchMedia('(min-width: 1200px)');
 
 /**
+ * Add an event listener to open/close the search flyout
+ * @param {*} event handler for search button click
+ */
+function toggleSearchContainer() {
+  const searchSection = document.querySelector('.nav-tools .nav-search-container');
+  const expanded = searchSection.getAttribute('aria-expanded') === 'true';
+  searchSection.setAttribute('aria-expanded', !expanded);
+}
+
+/**
  * Toggles all nav sections
  * @param {Element} sections The container element
  * @param {Boolean} expanded Whether the sections should be expanded or collapsed
@@ -187,7 +197,26 @@ function buildNav(navJson) {
   searchButton.setAttribute('type', 'button');
   searchButton.dataset.clientId = navJson.Search.OneHeaderSearchClientId;
   searchButton.dataset.queryParam = navJson.Search.QueryParam;
+  // Create the search section
+  const searchContainer = document.createElement('div');
+  searchContainer.classList.add('nav-search-container');
+  searchContainer.setAttribute('aria-expanded', 'false');
+  const searchSection = document.createElement('div');
+  searchSection.classList.add('nav-search-bar');
+  const searchInputIcon = document.createElement('span');
+  searchInputIcon.classList.add('icon', 'icon-search');
+  searchSection.append(searchInputIcon);
+  // Create the search input field
+  const searchInput = document.createElement('input');
+  searchInput.setAttribute('type', 'search');
+  searchInput.setAttribute('name', 'q');
+  searchInput.setAttribute('placeholder', 'Models / Dealers / Audi Code');
+  searchInput.setAttribute('aria-label', 'Search');
+  searchSection.append(searchInput);
+  searchContainer.append(searchSection);
+  searchButton.addEventListener('click', toggleSearchContainer);
   tools.append(searchButton);
+  tools.append(searchContainer);
 
   nav.append(brand, sections, tools);
 

@@ -439,8 +439,59 @@ header nav .nav-tools button {
   margin: 0;
 }
 
+header nav .nav-tools .nav-search-container[aria-expanded="false"] {
+  display: none;
+}
+
+header nav .nav-tools .nav-search-container[aria-expanded="true"] {
+  position: absolute;
+  display: grid;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 3;
+  padding: 0 42px;
+  background-color: var(--background-color);
+}
+
+header nav .nav-tools .nav-search-bar {
+  display: grid;
+  align-self: center;
+  grid-template-columns: [ search-icon ] 24px [ input ] 1fr [ clear-icon ] 24px [ end ];
+}
+
+header nav .nav-tools .nav-search-bar span {
+  grid-column: search-icon;
+  grid-row: 1;
+} 
+
+header nav .nav-tools .nav-search-bar input {
+  grid-column: input / end;
+  grid-row: 1;
+  border: unset;
+  line-height: 24px;
+  margin: 0 12px;
+}
+
+header nav .nav-tools .nav-search-bar::after {
+  grid-column: search-icon / end;
+  grid-row: 1;
+  content: '';
+  position: relative;
+  top: 30px;
+  height: 1px;
+  border-top: 1px solid rgb(0 0 0);
+}
+
 @media (width >= 1200px) {
   header nav .nav-tools {
     display: block;
+  }
+
+  header nav .nav-tools .nav-search-bar {
+    margin: 0 auto;
+    width: 40vw;
+    max-width: 576px;
   }
 }

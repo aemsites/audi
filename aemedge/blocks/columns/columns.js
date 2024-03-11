@@ -2,6 +2,12 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
+  /**
+   * Transforms the position of an image on the Y-axis based on its position
+   * relative to the viewport.
+   *
+   * @param {HTMLElement} img - The image element to be transformed.
+   */
   function transformImage(img) {
     const viewportHeight = window.innerHeight;
     const elementPosition = img.getBoundingClientRect().top + img.clientHeight / 2;

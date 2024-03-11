@@ -10,8 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
-  /* 
+:root {
+  /*
     audi colors. I'm sure how many of these we will actually use
     but felt it better to just copy them all now and we can comment out
     or elimate later if needed.
@@ -103,8 +103,8 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
-  --clr-white : #fff;
-  --clr-black : #000;
+  --clr-white: #fff;
+  --clr-black: #000;
   --background-color: var(--clr-white);
 
   /* todo fix link colors */
@@ -224,13 +224,6 @@ p, dl, ol, ul, pre, blockquote {
   background: #f50537;
 }
 
-/* Use flexbox to achieve "grid" like style for line breaks */
-ul li {
-  /* TODO I think we should do a general pass over all "forward" icons, once most main PRs are merged */
-  display: flex;
-  align-items: start;
-}
-
 /* only target li elements that contain a simple text node */
 main ul li:not(:has(*))::before {
   content: url('/aemedge/icons/forward.svg');
@@ -239,7 +232,7 @@ main ul li:not(:has(*))::before {
   height: 24px;
   flex-shrink: 0;
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .block.dark ul li:not(:has(*))::before {
@@ -256,8 +249,15 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-a > span.icon {
-  vertical-align: bottom;
+a.button.secondary > span.icon {
+  vertical-align: middle;
+}
+
+/* span.icon included via content :<icon-name>: */
+a.button.secondary:hover > span.icon {
+  transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
+  transition-duration: 250ms;
+  transform: translateX(5px);
 }
 
 /* only add flex for non-headline elements. */
@@ -273,7 +273,7 @@ main a:not(.button)::after {
   display: inline-block;
   width: 24px;
   height: 24px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 /* buttons */

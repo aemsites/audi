@@ -52,7 +52,6 @@ export default function decorate(block) {
     const wrapper = block.firstElementChild;
     const picture = block.querySelector('picture');
 
-    // todo get higher res image
     if (picture && wrapper) {
       wrapper.classList.add('parallax-wrapper');
       wrapper.style.backgroundImage = `url('${picture.lastElementChild.src}')`;

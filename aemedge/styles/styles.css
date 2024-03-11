@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+:root {
   /*
     audi colors. I'm sure how many of these we will actually use
     but felt it better to just copy them all now and we can comment out
@@ -103,8 +103,8 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
-  --clr-white : #fff;
-  --clr-black : #000;
+  --clr-white: #fff;
+  --clr-black: #000;
   --background-color: var(--clr-white);
 
   /* todo fix link colors */
@@ -260,6 +260,7 @@ a.button.secondary > span.icon {
   vertical-align: middle;
 }
 
+/* span.icon included via content :<icon-name>: */
 a.button.secondary:hover > span.icon {
   transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
   transition-duration: 250ms;

@@ -16,9 +16,6 @@ export default async function decorate(block) {
     if (resp.ok) {
       const json = await resp.json();
       const filteredEntries = json.data.filter((entry) => entry.path.startsWith(subnavRoot));
-      const subnavWrapper = document.createElement('div');
-      subnavWrapper.classList.add('subnav-wrapper');
-
       const ul = document.createElement('ul');
       ul.classList.add('subnav-ul');
       filteredEntries.forEach((entry) => {
@@ -52,8 +49,7 @@ export default async function decorate(block) {
         }
       });
 
-      subnavWrapper.append(subnavTitle, ul);
-      block.appendChild(subnavWrapper);
+      block.append(subnavTitle, ul);
     }
   }
 }

@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  getMetadata,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -35,11 +36,12 @@ function buildHeroBlock(main) {
  * @param {Element} main The container element
  */
 async function buildSubnav(main) {
-  const subnav = document.createElement('div');
-  subnav.append(buildBlock('subnav', { elems: [] }));
-  main.prepend(subnav);
+  const heroBlock = main.querySelector('.hero');
+  const subnav = getMetadata('subnav');
+  if (heroBlock && subnav) {
+    heroBlock.insertAdjacentElement('afterend', buildBlock('subnav', { elems: [] }));
+  }
 }
-
 /**
  * load fonts.css and set a session storage flag
  */

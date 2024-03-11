@@ -1,20 +1,10 @@
 /* stylelint-disable color-function-notation */
-.section.subnav-container{
+.subnav{
     top: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
     position: sticky;
-    z-index: 1;
-}
-
-.subnav-wrapper{
-    max-width: 100% !important;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    background-color: var(  --color-grey-05);
-
+    z-index:1;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .subnav .subnav-title{
@@ -62,6 +52,8 @@
     display: none;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    justify-content: center;
+    flex-wrap: wrap; 
 }
 
 .subnav ul.subnav-ul.subnav-expand{
@@ -97,7 +89,7 @@
 
 
 @media (width > 999px) {
-    .subnav .subnav-wrapper {
+    .subnav{
         flex-flow: row;
         justify-content: space-around;
         background-color: var(--clr-black);
@@ -127,6 +119,7 @@
         position: relative;
         text-decoration: none;
         white-space: nowrap;
+        width: 100%; 
     }
 
     .subnav .subnav-ul li a.focus{

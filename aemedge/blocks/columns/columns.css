@@ -190,12 +190,8 @@
 
 .columns.parallax > div.parallax-wrapper {
   position: relative;
+  padding: 0;
   height: 1000px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
 
   @media (width >= 768px) {
     height: 1400px;
@@ -208,7 +204,7 @@
 
 .columns.parallax > div.parallax-wrapper > div.parallax-text {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 5%;
   z-index: 1;
   background-color: white;

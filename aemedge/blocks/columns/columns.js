@@ -2,6 +2,14 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
+  function transformImage(img) {
+    const scrollPosition = window.scrollY;
+    const elementPosition = img.getBoundingClientRect().top;
+    const shiftAmount = (elementPosition - scrollPosition) * 1.1;
+    const relativeShiftAmount = shiftAmount / img.clientHeight;
+    img.style.transform = `translate3d(0px, ${-(relativeShiftAmount)}px, 0px)`;
+  }
+
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
       // setup image columns
@@ -49,17 +57,28 @@ export default function decorate(block) {
   // Setup parallax variation
   if (block.classList.contains('parallax') && block.classList.contains('columns-2-cols')) {
     const wrapper = block.firstElementChild;
-    const picture = block.querySelector('picture');
-
-    if (picture && wrapper) {
+    if (wrapper) {
       wrapper.classList.add('parallax-wrapper');
-      wrapper.style.backgroundImage = `url('${picture.lastElementChild.src}')`;
-      wrapper.querySelector('.columns-img-col')
-        ?.remove();
     }
 
     // Setup Text Content
     const textColumn = block.querySelector('.parallax-wrapper > div:not(.columns-img-col)');
     textColumn?.classList.add('parallax-text');
+
+    // Setup Upwards Scroll of Parallax Image on downwards Mouse Scroll
+    const parallaxImages = block.querySelectorAll('picture > img');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          window.addEventListener('scroll', () => transformImage(entry.target));
+        } else {
+          window.removeEventListener('scroll', () => transformImage(entry.target));
+        }
+      });
+    });
+
+    parallaxImages.forEach((parallaxImg) => {
+      observer.observe(parallaxImg);
+    });
   }
 }

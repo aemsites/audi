@@ -42,12 +42,26 @@ export default function decorate(block) {
           anchor.appendChild(contentWrapper);
           col.appendChild(anchor);
         }
-
-        // setup parallax variation
-        if (block.classList.contains('parallax')) {
-
-        }
       }
     });
   });
+
+  // setup parallax variation
+  if (block.classList.contains('parallax') && block.classList.contains('columns-2-cols')) {
+    console.debug('detected parallax');
+    block.firstElementChild?.classList.add('parallax-wrapper');
+
+    // todo get higher res image
+    // Setup Background Parallax Image
+    const picture = block.querySelector('picture');
+    if (picture) {
+      picture.parentElement.style.backgroundImage = `url('${picture.lastElementChild.src}')`;
+      // delete picture element
+      picture.parentElement.innerHTML = '';
+    }
+
+    // Setup Text Content
+    const textColumn = block.querySelector('.parallax-wrapper > div:not(.columns-img-col)');
+    textColumn?.classList.add('parallax-text');
+  }
 }

@@ -134,3 +134,22 @@
     content: none;
   }
 }
+
+@media (width > 1440px){
+    .subnav .subnav-ul{
+        left: -96px;
+        position: relative;
+    }
+
+    .subnav .subnav-ul li a {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+@media (width > 1920px){
+    .subnav .subnav-ul li a {
+        padding-left: 21px;
+        padding-right: 21px;
+    }
+}

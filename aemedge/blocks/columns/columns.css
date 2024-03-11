@@ -94,7 +94,7 @@
 .columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary::after {
   content: url('/aemedge/icons/forward-white.svg');
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: middle;
   width: 24px;
   height: 24px;
   margin-left: 6px;

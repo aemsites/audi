@@ -11,7 +11,7 @@
  */
 
  :root {
-  /* 
+  /*
     audi colors. I'm sure how many of these we will actually use
     but felt it better to just copy them all now and we can comment out
     or elimate later if needed.
@@ -239,7 +239,7 @@ main ul li:not(:has(*))::before {
   height: 24px;
   flex-shrink: 0;
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .block.dark ul li:not(:has(*))::before {
@@ -257,7 +257,7 @@ a:hover {
 }
 
 a > span.icon {
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 /* only add flex for non-headline elements. */
@@ -273,7 +273,7 @@ main a:not(.button)::after {
   display: inline-block;
   width: 24px;
   height: 24px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 /* buttons */

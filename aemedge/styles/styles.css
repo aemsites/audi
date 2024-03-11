@@ -235,6 +235,7 @@ h4, h5, h6 {
 .section.fineprint > div.default-content-wrapper {
   padding: 54px 4%;
   margin: 0;
+  max-width: 100%;
 }
 
 .section.fineprint > div.default-content-wrapper > p {

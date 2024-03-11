@@ -71,7 +71,7 @@ export default function decorate(block) {
     const textColumn = block.querySelector('.parallax-wrapper > div:not(.columns-img-col)');
     textColumn?.classList.add('parallax-text');
 
-    // Setup Upwards Scroll of Parallax Image on downwards Mouse Scroll
+    // Setup image transform based on scroll direction.
     const parallaxImages = block.querySelectorAll('picture > img');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

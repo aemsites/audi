@@ -256,8 +256,14 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-a > span.icon {
+a.button.secondary > span.icon {
   vertical-align: middle;
+}
+
+a.button.secondary:hover > span.icon {
+  transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
+  transition-duration: 250ms;
+  transform: translateX(5px);
 }
 
 /* only add flex for non-headline elements. */

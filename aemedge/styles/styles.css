@@ -214,6 +214,8 @@ h4, h5, h6 {
 .default-content-wrapper > *:is(h2, h3, h4, h5, h6) {
   width: 92%;
   margin: 42px auto 0;
+  font-family: var(--body-font-family);
+  font-size: 1.4rem;
 
   @media (width >= 1024px) {
     text-align: center;

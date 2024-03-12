@@ -223,7 +223,7 @@ h4, h5, h6 {
 
 .default-content-wrapper > p {
   width: 92%;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
 
   @media (width >= 1024px) {
     text-align: center;

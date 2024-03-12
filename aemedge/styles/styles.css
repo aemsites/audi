@@ -221,15 +221,24 @@ h4, h5, h6 {
   }
 }
 
+.default-content-wrapper > *:is(h3, h4, h5, h6) {
+  text-align: start;
+}
+
 .default-content-wrapper > p {
   width: 92%;
   margin: 0 auto 1rem;
 
   @media (width >= 1024px) {
     text-align: center;
-    margin: 0 auto;
     width: 60%;
   }
+}
+
+.default-content-wrapper > *:is(h3, h4, h5, h6) ~ p {
+  text-align: start;
+  width: 92%;
+  margin: 12px auto 0;
 }
 
 .section.fineprint > div.default-content-wrapper {

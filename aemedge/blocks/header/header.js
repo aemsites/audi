@@ -8,6 +8,27 @@ const SEARCH_AUTOCOMPLETE_ENDPOINT = 'https://search-service.audi.com/auto-compl
 // const SEARCH_COUNT_ENDPOINT = 'https://search-service.audi.com/search/count';
 // const SEARCH_ENDPOINT = 'https://search-service.audi.com/search/pages';
 
+async function getAutocompleteResults(query, clientId, queryParam) {
+  const autoCompleteResults = await fetch(`${SEARCH_AUTOCOMPLETE_ENDPOINT}?${queryParam}=${query}&client=${clientId}`);
+  const data = await autoCompleteResults.json();
+  const autoCompleteContainer = document.querySelector('.nav-search-container .autocomplete');
+  if (data && data.length > 0) {
+    autoCompleteContainer.setAttribute('aria-expanded', 'true');
+    autoCompleteContainer.innerHTML = '';
+    const acList = document.createElement('ul');
+    data.forEach((item) => {
+      const a = document.createElement('a');
+      a.textContent = item;
+      const acItem = document.createElement('li');
+      acItem.append(a);
+      acList.append(acItem);
+    });
+    autoCompleteContainer.append(acList);
+  } else {
+    autoCompleteContainer.setAttribute('aria-expanded', 'false');
+  }
+}
+
 async function showAutocomplete(query, clientId, queryParam) {
   const searchContainer = document.querySelector('.nav-search-container');
   const autoCompleteContainerExists = searchContainer.querySelector('.autocomplete');
@@ -23,24 +44,11 @@ async function showAutocomplete(query, clientId, queryParam) {
     searchContainer.append(tempResultsContainer);
   }
   if (query.length >= 2) {
-    const autoCompleteResults = await fetch(`${SEARCH_AUTOCOMPLETE_ENDPOINT}?${queryParam}=${query}&client=${clientId}`);
-    const data = await autoCompleteResults.json();
+    await getAutocompleteResults(query, clientId, queryParam);
+  } else {
     const autoCompleteContainer = searchContainer.querySelector('.autocomplete');
-    if (data && data.length > 0) {
-      autoCompleteContainer.setAttribute('aria-expanded', 'true');
-      autoCompleteContainer.innerHTML = '';
-      const acList = document.createElement('ul');
-      data.forEach((item) => {
-        const a = document.createElement('a');
-        a.textContent = item;
-        const acItem = document.createElement('li');
-        acItem.append(a);
-        acList.append(acItem);
-      });
-      autoCompleteContainer.append(acList);
-    } else {
-      autoCompleteContainer.setAttribute('aria-expanded', 'false');
-    }
+    autoCompleteContainer.setAttribute('aria-expanded', 'false');
+    autoCompleteContainer.innerHTML = '';
   }
 }
 
@@ -276,9 +284,7 @@ function buildNav(navJson) {
   // Autocomplete
   // eslint-disable-next-line no-unused-vars
   searchInput.addEventListener('input', (e) => {
-    if (e.target.value.length >= 2) {
-      showAutocomplete(e.target.value, searchClient, queryParam);
-    }
+    showAutocomplete(e.target.value, searchClient, queryParam);
   });
 
   tools.append(searchButton);
@@ -326,6 +332,7 @@ function buildNav(navJson) {
       toggleSearchContainer();
     }
   };
+
   if (isDesktop.matches) {
     window.addEventListener('click', closeNavOnClickOutsideNav);
   }

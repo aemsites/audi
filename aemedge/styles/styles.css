@@ -244,7 +244,7 @@ h4, h5, h6 {
 }
 
 /* Paragraph not connected to h1 or h2 */
-.default-content-wrapper > *:is(h3, h4, h5, h6, p) ~ p {
+.default-content-wrapper > *:is(h3, h4, h5, h6) ~ p {
   text-align: start;
   width: 92%;
   margin: 12px auto 0;

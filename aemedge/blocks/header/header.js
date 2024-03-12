@@ -203,6 +203,9 @@ function buildNav(navJson) {
   const searchContainer = document.createElement('div');
   searchContainer.classList.add('nav-search-container');
   searchContainer.setAttribute('aria-expanded', 'false');
+  const closeSearchIcon = document.createElement('span');
+  closeSearchIcon.classList.add('icon', 'icon-forward');
+  searchContainer.append(closeSearchIcon);
   const searchSection = document.createElement('div');
   searchSection.classList.add('nav-search-bar');
   const searchInputIcon = document.createElement('span');
@@ -216,7 +219,14 @@ function buildNav(navJson) {
   searchInput.setAttribute('aria-label', 'Search');
   searchSection.append(searchInput);
   searchContainer.append(searchSection);
-  searchButton.addEventListener('click', toggleSearchContainer);
+  searchButton.addEventListener('click', () => {
+    if (isDesktop.matches) toggleAllNavSections(sections, false);
+    toggleSearchContainer();
+    searchInput.focus();
+  });
+  closeSearchIcon.addEventListener('click', () => {
+    toggleSearchContainer();
+  });
   tools.append(searchButton);
   tools.append(searchContainer);
 

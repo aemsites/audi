@@ -216,7 +216,6 @@ h4, h5, h6 {
   width: 92%;
   margin: 42px auto 0;
   font-family: var(--body-font-family);
-  font-size: 1.4rem;
 
   @media (width >= 1024px) {
     text-align: center;
@@ -226,6 +225,7 @@ h4, h5, h6 {
 
 /* Overwrite alignment and width for non h1, h2 headlines */
 .default-content-wrapper > *:is(h3, h4, h5, h6) {
+  font-size: 1.4rem;
   text-align: start;
 
   @media (width >= 1440px) {
@@ -428,6 +428,10 @@ button#ccc-icon {
     margin: auto;
   }
 
+  h1, h2 {
+    font-family: var(--body-font-family);
+  }
+
   h1 {
     font-size: var(--font-size-l);
     line-height: var(--line-height-m);
@@ -436,6 +440,16 @@ button#ccc-icon {
   h2 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-xxl);
+
+    @media (width >= 1024px) {
+      font-size: 3.2rem;
+      line-height: 6rem;
+    }
+
+    @media (width >= 1440px) {
+      font-size: 4rem;
+      line-height: 7.8rem;
+    }
   }
 }
 

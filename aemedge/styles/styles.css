@@ -211,7 +211,7 @@ h4, h5, h6 {
   animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
 }
 
-.default-content-wrapper > h2 {
+.default-content-wrapper > *:is(h2, h3, h4, h5, h6) {
   width: 92%;
   margin: 42px auto 0;
 
@@ -388,7 +388,7 @@ main .section {
 }
 
 /* Cookie consent banner */
-button#ccc-icon{
+button#ccc-icon {
   margin-bottom: inherit;
 }
 

@@ -3,6 +3,47 @@ import { getMetadata, decorateIcons, toClassName } from '../../scripts/aem.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1200px)');
 
+// Search constants
+const SEARCH_AUTOCOMPLETE_ENDPOINT = 'https://search-service.audi.com/auto-complete';
+// const SEARCH_COUNT_ENDPOINT = 'https://search-service.audi.com/search/count';
+// const SEARCH_ENDPOINT = 'https://search-service.audi.com/search/pages';
+
+async function showAutocomplete(query, clientId, queryParam) {
+  const searchContainer = document.querySelector('.nav-search-container');
+  const autoCompleteContainerExists = searchContainer.querySelector('.autocomplete');
+  if (!autoCompleteContainerExists) {
+    const tempAutoCompleteContainer = document.createElement('div');
+    tempAutoCompleteContainer.classList.add('autocomplete');
+    searchContainer.append(tempAutoCompleteContainer);
+  }
+  const resultsContainerExists = searchContainer.querySelector('.results');
+  if (!resultsContainerExists) {
+    const tempResultsContainer = document.createElement('div');
+    tempResultsContainer.classList.add('results');
+    searchContainer.append(tempResultsContainer);
+  }
+  if (query.length >= 2) {
+    const autoCompleteResults = await fetch(`${SEARCH_AUTOCOMPLETE_ENDPOINT}?${queryParam}=${query}&client=${clientId}`);
+    const data = await autoCompleteResults.json();
+    const autoCompleteContainer = searchContainer.querySelector('.autocomplete');
+    if (data && data.length > 0) {
+      autoCompleteContainer.setAttribute('aria-expanded', 'true');
+      autoCompleteContainer.innerHTML = '';
+      const acList = document.createElement('ul');
+      data.forEach((item) => {
+        const a = document.createElement('a');
+        a.textContent = item;
+        const acItem = document.createElement('li');
+        acItem.append(a);
+        acList.append(acItem);
+      });
+      autoCompleteContainer.append(acList);
+    } else {
+      autoCompleteContainer.setAttribute('aria-expanded', 'false');
+    }
+  }
+}
+
 /**
  * Add an event listener to open/close the search flyout
  * @param {*} event handler for search button click
@@ -188,7 +229,7 @@ function buildNav(navJson) {
   });
   sections.append(navList);
 
-  // tools
+  // tools and search functionality
   const tools = document.createElement('div');
   tools.className = 'nav-tools';
   const searchButton = document.createElement('button');
@@ -219,14 +260,27 @@ function buildNav(navJson) {
   searchInput.setAttribute('aria-label', 'Search');
   searchSection.append(searchInput);
   searchContainer.append(searchSection);
+  // Open the search container
   searchButton.addEventListener('click', () => {
     if (isDesktop.matches) toggleAllNavSections(sections, false);
     toggleSearchContainer();
     searchInput.focus();
   });
+  // Close the search container
   closeSearchIcon.addEventListener('click', () => {
     toggleSearchContainer();
   });
+  // Search functionality
+  const searchClient = navJson.Search.OneHeaderSearchClientId;
+  const queryParam = navJson.Search.QueryParam;
+  // Autocomplete
+  // eslint-disable-next-line no-unused-vars
+  searchInput.addEventListener('input', (e) => {
+    if (e.target.value.length >= 2) {
+      showAutocomplete(e.target.value, searchClient, queryParam);
+    }
+  });
+
   tools.append(searchButton);
   tools.append(searchContainer);
 

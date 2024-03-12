@@ -152,6 +152,7 @@
   align-items: normal;
   color: white;
   padding: 0;
+  margin-top: 32px;
 
   /* to not color padding area */
   background-color: black;

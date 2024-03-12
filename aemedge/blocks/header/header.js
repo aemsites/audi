@@ -27,6 +27,7 @@ function toggleAllNavSections(sections, expanded = false) {
 function closeOnEscape(nav, navSections) {
   const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
   const menuExpanded = nav.getAttribute('aria-expanded') === 'true';
+  const searchExpanded = nav.querySelector('.nav-tools .nav-search-container[aria-expanded="true"]');
   if (navSectionExpanded) {
     // eslint-disable-next-line no-use-before-define
     toggleAllNavSections(navSections);
@@ -36,6 +37,7 @@ function closeOnEscape(nav, navSections) {
     toggleMenu(nav, navSections);
     nav.querySelector('button').focus();
   }
+  if (searchExpanded) toggleSearchContainer();
 }
 
 function headerKeyPress(event, nav, navSections) {
@@ -254,6 +256,10 @@ function buildNav(navJson) {
     const openFlyout = nav.querySelector('.nav-section-flyout[aria-expanded="true"]');
     if (openFlyout && !openFlyout.contains(evt.target) && !nav.contains(evt.target)) {
       toggleAllNavSections(sections, false);
+    }
+    const openSearch = nav.querySelector('.nav-search-container[aria-expanded="true"]');
+    if (openSearch && !openSearch.contains(evt.target) && !nav.contains(evt.target)) {
+      toggleSearchContainer();
     }
   };
   if (isDesktop.matches) {

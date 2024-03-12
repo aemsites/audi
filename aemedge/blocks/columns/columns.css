@@ -230,12 +230,14 @@
   }
 }
 
-.columns.parallax > div.parallax-wrapper > div.parallax-text > p.button-container > em > a::after {
-  content: url('/aemedge/icons/forward.svg');
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: bottom;
+.columns.parallax > div.parallax-wrapper > div.parallax-text > p.button-container > em > a {
+  white-space: unset;
+}
+
+.columns.parallax > div.parallax-wrapper > div.parallax-text > p.button-container > em > a:has(> span.icon) {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem
 }
 
 .columns.parallax > div.parallax-wrapper > div.parallax-text > p > strong {

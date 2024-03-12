@@ -166,13 +166,6 @@
   background-clip: content-box;
 }
 
-.columns[class*="30-70"] > div > div > h2,
-.columns[class*="70-30"] > div > div > h2 {
-  font-size: 2.8rem;
-  line-height: 3.5rem;
-  margin-top: 0.5rem;
-}
-
 .columns[class*="70-30"] > div > div:nth-child(2n+1) {
   flex: 0 0 70%;
 }

@@ -19,6 +19,11 @@
   order: 1;
 }
 
+.columns > div > div > p > strong {
+  font-size: 2.8rem;
+  line-height: 4rem;
+}
+
 .columns > div > .columns-img-col {
   order: 0;
 }

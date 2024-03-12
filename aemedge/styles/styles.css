@@ -10,24 +10,116 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+:root {
+  /*
+    audi colors. I'm sure how many of these we will actually use
+    but felt it better to just copy them all now and we can comment out
+    or elimate later if needed.
+  */
+  --color-black: #000;
+  --color-green: #090;
+  --color-grey-05: #f2f2f2;
+  --color-grey-10: #e5e5e5;
+  --color-grey-15: #d9d9d9;
+  --color-grey-20: #ccc;
+  --color-grey-30: #b3b3b3;
+  --color-grey-40: #999;
+  --color-grey-50: grey;
+  --color-grey-60: #666;
+  --color-grey-70: #4c4c4c;
+  --color-grey-80: #333;
+  --color-grey-90: #1a1a1a;
+  --color-progressive-red: #f50537;
+  --color-red: #bb0a30;
+  --color-white: #fff;
+  --colors-background-backdrop-strong: rgba(0 0 0 / 90%);
+  --colors-background-card: #fff;
+  --colors-background-level-0: #fff;
+  --colors-background-level-1: #fff;
+  --colors-background-level-2: #fff;
+  --colors-background-level-3: #f2f2f2;
+  --colors-base-brand-black: #000;
+  --colors-base-brand-progressive-red: #f50537;
+  --colors-base-brand-white: #fff;
+  --colors-base-charging-neon-blue: #2526fe;
+  --colors-base-charging-neon-green: #2526fe;
+  --colors-base-grey-0: #fff;
+  --colors-base-grey-5: #f2f2f2;
+  --colors-base-grey-10: #e5e5e5;
+  --colors-base-grey-15: #d9d9d9;
+  --colors-base-grey-20: #ccc;
+  --colors-base-grey-30: #b3b3b3;
+  --colors-base-grey-40: #999;
+  --colors-base-grey-50: #808080;
+  --colors-base-grey-60: #666;
+  --colors-base-grey-70: #4c4c4c;
+  --colors-base-grey-80: #333;
+  --colors-base-grey-90: #1a1a1a;
+  --colors-base-grey-100: #000;
+  --colors-base-signal-green: #0da20d;
+  --colors-base-signal-red: #eb0d3f;
+  --colors-base-signal-yellow: #fa0;
+  --colors-charging-default: #0da20d;
+  --colors-charging-intelligent: #2526fe;
+  --colors-interaction-label-active: #333;
+  --colors-interaction-label-default: #333;
+  --colors-interaction-label-disabled: #b3b3b3;
+  --colors-interaction-label-filled: #333;
+  --colors-interaction-label-focus: #000;
+  --colors-interaction-label-hover: #000;
+  --colors-interaction-label-pressed: #000;
+  --colors-interaction-label-readonly: #333;
+  --colors-interaction-primary-active: #000;
+  --colors-interaction-primary-default: #000;
+  --colors-interaction-primary-disabled: #b3b3b3;
+  --colors-interaction-primary-focus: #000;
+  --colors-interaction-primary-hover: #4c4c4c;
+  --colors-interaction-primary-pressed: #000;
+  --colors-interaction-secondary-active: #000;
+  --colors-interaction-secondary-default: #666;
+  --colors-interaction-secondary-disabled: #b3b3b3;
+  --colors-interaction-secondary-filled: #333;
+  --colors-interaction-secondary-focus: #000;
+  --colors-interaction-secondary-hover: #000;
+  --colors-interaction-secondary-pressed: #000;
+  --colors-interaction-secondary-readonly: #333;
+  --colors-interaction-tertiary-active: #333;
+  --colors-interaction-tertiary-default: #d9d9d9;
+  --colors-interaction-tertiary-disabled: #d9d9d9;
+  --colors-interaction-tertiary-hover: #d9d9d9;
+  --colors-ui-divider: #d9d9d9;
+  --colors-ui-error: #eb0d3f;
+  --colors-ui-highlight-primary: #eb0d3f;
+  --colors-ui-highlight-secondary: #000;
+  --colors-ui-highlight-tertiary: rgba(0 0 0 / 5%);
+  --colors-ui-inverted: #fff;
+  --colors-ui-pending: #fa0;
+  --colors-ui-primary: #000;
+  --colors-ui-secondary: #333;
+  --colors-ui-success: #0da20d;
+  --colors-ui-tertiary: #666;
+
   /* colors */
-  --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --clr-white: #fff;
+  --clr-black: #000;
+  --background-color: var(--clr-white);
 
- /* todo fix link colors */
- --link-color: var(--text-color);
- --link-hover-color: #b3b3b3;
+  /* todo fix link colors */
+  --link-color: var(--text-color);
+  --link-hover-color: #b3b3b3;
 
- /* fonts */
- --heading-font-family: auditypeextended, sans-serif;
- --body-font-family: auditypewide, sans-serif;
- --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
+  /* fonts */
+  --heading-font-family: auditypeextended, sans-serif;
+  --body-font-family: auditypewide, sans-serif;
+  --fixed-font-family: menlo, consolas, 'Liberation Mono', monospace;
+  --ff-auditype: auditype, sans-serif;
+  --ff-auditype-extended: auditypeextended, sans-serif;
 
   /* font sizes */
-  --font-size-xxs: 13px;
+  --font-size-xxs: 12px;
   --font-size-xs: 16px;
   --font-size-s: 20px;
   --font-size-m: 24px;
@@ -37,12 +129,13 @@
 
   /* font stretch */
   --font-stretch-100: 100%;
+  --font-stretch-105: 105%;
   --font-stretch-130: 130%;
 
-   /* font weight */
- --font-weight-light: 200;
- --font-weight-normal:400;
- --font-weight-bold:700;
+  /* font weight */
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 
   /* line height */
   --line-height-xxs: 12px;
@@ -56,25 +149,25 @@
 
   /* nav height */
   --nav-height: 72px;
- }
+}
 
 h1 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
   font-size: var(--font-size-l);
   line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
 }
 
 h2 {
-  font-family: var( --heading-font-family);
+  font-family: var(--heading-font-family);
   font-size: var(--font-size-l);
   line-height: var(--line-height-m);
   font-weight: var(--font-weight-bold);
 }
 
 h3, h4, h5, h6 {
-  font-family: var( --heading-font-family);
-  font-size: var(--heading-font-size-s);
+  font-family: var(--heading-font-family);
+  font-size: var(--font-size-xl);
   line-height: var(--line-height-s);
 }
 
@@ -86,7 +179,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
-  margin:0;
+  margin: 0;
 }
 
 body.appear {
@@ -118,7 +211,41 @@ h4, h5, h6 {
   animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
 }
 
-p, dl, ol, ul, pre, blockquote {
+.default-content-wrapper > h2 {
+  width: 92%;
+  margin: 42px auto 0;
+
+  @media (width >= 1024px) {
+    text-align: center;
+    margin-top: 42px;
+  }
+}
+
+.default-content-wrapper > p {
+  width: 92%;
+  margin: 0 auto;
+
+  @media (width >= 1024px) {
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+.section.fineprint > div.default-content-wrapper {
+  padding: 54px 4%;
+  margin: 0;
+  max-width: 100%;
+}
+
+.section.fineprint > div.default-content-wrapper > p {
+  text-align: start;
+  width: 100%;
+  font-size: var(--font-size-xxs);
+  line-height: 1rem;
+}
+
+dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
   padding-inline-start: 0;
@@ -129,20 +256,19 @@ p, dl, ol, ul, pre, blockquote {
   background: #f50537;
 }
 
-/* Replace default list icon with svg.
-Use flexbox to achieve "grid" like style for line breaks */
-ul li {
-  display: flex;
-  align-items: start;
-}
-
-ul li::before {
+/* only target li elements that contain a simple text node */
+main ul li:not(:has(*))::before {
   content: url('/aemedge/icons/forward.svg');
-  padding-right: 10px; /* adjust this value as needed */
+  padding-right: 10px;
   width: 24px;
   height: 24px;
-  display: inline-block;
   flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.block.dark ul li:not(:has(*))::before {
+  content: url('/aemedge/icons/forward-white.svg');
 }
 
 /* links */
@@ -155,21 +281,31 @@ a:hover {
   color: var(--link-hover-color);
 }
 
+a.button.secondary > span.icon {
+  vertical-align: middle;
+}
+
+/* span.icon included via content :<icon-name>: */
+a.button.secondary:hover > span.icon {
+  transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
+  transition-duration: 250ms;
+  transform: translateX(5px);
+}
+
 /* only add flex for non-headline elements. */
 :not(h1, h2, h3, h4, h5, h6) > a:any-link {
   display: flex;
   align-items: center;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 /* Add the caret svg to anchors that are not a primary or secondary button */
-a:not(.button)::after {
+main a:not(.button)::after {
   content: url('/aemedge/icons/forward.svg');
   display: inline-block;
   width: 24px;
   height: 24px;
-  margin-left: 6px;
-  margin-top: -6px;
+  vertical-align: middle;
 }
 
 /* buttons */
@@ -180,8 +316,10 @@ a.button:any-link, button {
   cursor: pointer;
   display: inline-block;
   font-style: normal;
+  font-family: var(--body-font-family);
   font-weight: var(--font-weight-normal);
-  font-size:  var(--font-size-xs);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
   margin: 16px 0;
   overflow: hidden;
   padding: 15px 36px;
@@ -197,15 +335,15 @@ a.button:hover, a.button:focus, button:hover, button:focus {
   cursor: pointer;
 }
 
-/* Transparent Button Variation */
 a.button.primary, button.primary {
   color: var(--background-color);
   background-color: transparent;
 }
 
-/* Button without a border and "forward" icon */
 a.button.secondary, button.secondary {
   border: unset;
+  margin: 0;
+  padding: 0;
 }
 
 main img {
@@ -225,9 +363,8 @@ main img {
   width: 100%;
 }
 
-/* sections */
 main .section {
-  padding: 36px 16px;
+  padding: 36px 0;
 }
 
 /* Swap black and white in case of dark background */
@@ -247,12 +384,12 @@ main .section {
 }
 
 .block.dark ul li::before {
-  content: url('/aemedge/icons/forward-white.svg'); /* replace this path with your actual dark version SVG path */
+  content: url('/aemedge/icons/forward-white.svg');
 }
 
 @media (width >= 768px) {
   h1, h2 {
-    font-size: var( --font-size-xl);
+    font-size: var(--font-size-xl);
     line-height: var(--line-height-l);
   }
 }
@@ -271,5 +408,12 @@ main .section {
   h2 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-xxl);
+  }
+}
+
+/* Error 404 Styling */
+.error {
+  main.error {
+    min-height: calc(100vh - var(--nav-height));
   }
 }

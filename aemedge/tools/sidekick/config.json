@@ -1,0 +1,12 @@
+{
+    "project": "Audi UK Used Cars",
+    "plugins": [
+        {
+            "id": "library",
+            "title": "Library",
+            "environments": ["edit"],
+            "url": "/aemedge/tools/sidekick/library.html",
+            "includePaths": ["**.docx**"]
+        }
+    ]
+}

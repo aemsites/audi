@@ -1,7 +1,6 @@
 export default function decorate(block) {
-
   // manually setup button container and child buttons
-  const buttonContainer = block.querySelector('div >div > p:nth-child(2)');
+  const buttonContainer = block.querySelector('div >div > p:has(a)');
   if (buttonContainer) {
     buttonContainer.classList.add('button-container');
     buttonContainer.firstChild.classList.add('button');

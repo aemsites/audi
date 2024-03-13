@@ -27,6 +27,13 @@ async function getSearchResults(clientId, queryParam) {
   const data = await searchResults.json();
   if (data && data.results && data.results.length > 0) {
     resultsContainer.setAttribute('aria-expanded', 'true');
+    const { resultCount } = data.pagination;
+    if (resultCount) {
+      const resultsCountContainer = document.createElement('div');
+      resultsCountContainer.classList.add('results-count');
+      resultsCountContainer.innerHTML = `Your query with the search term "<b>${query}</b>" produced ${resultCount} results.`;
+      resultsContainer.append(resultsCountContainer);
+    }
     const ul = document.createElement('ul');
     data.results.forEach((item) => {
       const breadcrumb = document.createElement('div');
@@ -45,6 +52,8 @@ async function getSearchResults(clientId, queryParam) {
       ul.append(li);
     });
     resultsContainer.append(ul);
+    const autocompleteContainer = document.querySelector('.nav-search-container .autocomplete');
+    autocompleteContainer.setAttribute('aria-expanded', 'false');
   } else {
     const noResults = document.createElement('p');
     noResults.textContent = 'No results found';
@@ -125,7 +134,6 @@ async function showResults(query, clientId, queryParam) {
       getAutocompleteResults(query, clientId, queryParam),
       getResultsCount(query, clientId, queryParam),
     ]);
-    // await getAutocompleteResults(query, clientId, queryParam);
   } else {
     const autoCompleteContainer = searchContainer.querySelector('.autocomplete');
     autoCompleteContainer.setAttribute('aria-expanded', 'false');

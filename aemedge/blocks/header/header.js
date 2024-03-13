@@ -371,9 +371,6 @@ function buildNav(navJson) {
   searchContainer.append(closeSearchIcon);
   const searchSection = document.createElement('div');
   searchSection.classList.add('nav-search-bar');
-  const searchInputIcon = document.createElement('span');
-  searchInputIcon.classList.add('icon', 'icon-search');
-  searchSection.append(searchInputIcon);
   // Create the search input field
   const searchInput = document.createElement('input');
   searchInput.setAttribute('type', 'search');

@@ -485,16 +485,9 @@ header nav .nav-tools .nav-search-bar input {
   border: unset;
   line-height: 24px;
   margin: 0 12px;
-}
-
-header nav .nav-tools .nav-search-bar::after {
-  grid-column: search-icon / clear-space;
-  grid-row: 1;
-  content: '';
-  position: relative;
-  top: 30px;
-  height: 1px;
-  border-top: 1px solid rgb(0 0 0);
+  padding-left: 30px;
+  background: url('../../icons/search.svg') no-repeat;
+  border-bottom: 1px solid rgb(0 0 0);
 }
 
 /* Autocomplete and Search Results */

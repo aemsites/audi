@@ -28,10 +28,6 @@ main .hero-container {
 .hero img {
   width: 100%;
   object-fit: cover;
-
-  @media (width >= 1024px) {
-    height: 57%;
-  }
 }
 
 .hero > div > div {

@@ -389,6 +389,11 @@ main .section {
   content: url('/aemedge/icons/forward-white.svg');
 }
 
+/* Cookie consent banner */
+button#ccc-icon{
+  margin-bottom: inherit;
+}
+
 @media (width >= 768px) {
   h1, h2 {
     font-size: var(--font-size-xl);

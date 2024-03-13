@@ -1,8 +1,8 @@
 main .hero-container > div {
   max-width: unset;
 }
-
-main {
+  
+main  {
   padding: 0;
 }
 
@@ -20,18 +20,13 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
 }
 
 .hero div div {
-  display: grid;
+  display: grid;  
 }
 
-.hero > div > div > h1 {
-  order: 2;
+.hero div div h1 {
   max-width: 1200px;
   margin: 30px 20px 15px;
   color: black;
-}
-
-.hero > div > div > p {
-  margin: 0;
 }
 
 .hero picture, .hero img {
@@ -54,11 +49,6 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   z-index: 10;
 }
 
-.hero p.button-container a:hover {
-  color: var(--link-hover-color);
-  border-color: #b3b3b3;
-}
-
 .hero p.button-container a:first-of-type {
   background-color: black;
   color: white;
@@ -73,7 +63,7 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   .hero p.button-container a {
     width: 252px;
     margin: 0 0.25em;
-  }
+  }  
 }
 
 /* Large view port */
@@ -81,7 +71,7 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   .hero div div h1 {
     margin-top: -260px;
     color: white;
-  }
+  }  
 
   .hero p.button-container {
     height: 56px;
@@ -90,21 +80,16 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
 
   .hero.variation1 a {
     height: 100%;
-  }
+  }  
 
   .hero p.button-container a {
     color: white;
     border: 1pt solid white;
   }
 
-  .hero p.button-container a.button.primary {
+  .hero p.button-container a:first-of-type {
     background-color: white;
     color: black;
-  }
-
-  .hero p.button-container a.button.primary:hover {
-    background-color: #b3b3b3;
-    border-color: #b3b3b3;
   }
 }
 
@@ -122,7 +107,7 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
 }
 
 .hero.variation1 h1 {
-  position: absolute;
+  position:absolute;
   top: 38%;
   letter-spacing: -0.015em;
   font-weight: 400;
@@ -154,7 +139,7 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   color: white;
 }
 
-.hero.variation1 a:not(.button)::after {
+.hero.variation1 a:not(.button)::after { 
   display: none;
 }
 
@@ -170,13 +155,13 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
 
   .hero.variation1 p.button-container {
     margin-top: -30%;
-  }
+  }  
 }
 
 @media (width >= 1024px) {
   .hero.variation1 {
     height: 300px;
-  }
+  }  
 
   .hero.variation1 p.button-container {
     margin-top: -10%;

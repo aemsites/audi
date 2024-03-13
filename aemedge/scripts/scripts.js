@@ -1,45 +1,20 @@
 import {
-  sampleRUM,
   buildBlock,
-  loadHeader,
-  loadFooter,
+  decorateBlocks,
   decorateButtons,
   decorateIcons,
   decorateSections,
-  decorateBlocks,
   decorateTemplateAndTheme,
-  waitForLCP,
+  getMetadata,
   loadBlocks,
   loadCSS,
-  getMetadata,
+  loadFooter,
+  loadHeader,
+  sampleRUM,
+  waitForLCP,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
-
-/**
- * Builds hero block and prepends to main in a new section.
- * @param {Element} main The container element
- */
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  const pLinks = document.createElement('p');
-  pLinks.classList.add('button-container');
-  main.querySelector('.hero').querySelectorAll('p > a').forEach((a) => {
-    a.title = a.title || a.textContent;
-    if (a.href !== a.textContent) {
-      a.className = 'button'; // default
-    }
-    pLinks.appendChild(a);
-  });
-
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1, pLinks] }));
-    main.prepend(section);
-  }
-}
 
 /**
  * Builds Subnav block and appens after the Hero block.
@@ -70,7 +45,6 @@ async function loadFonts() {
  */
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
     buildSubnav(main);
   } catch (error) {
     // eslint-disable-next-line no-console

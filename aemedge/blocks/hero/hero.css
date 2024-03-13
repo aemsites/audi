@@ -53,6 +53,11 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   z-index: 10;
 }
 
+.hero p.button-container a:hover {
+  color: var(--link-hover-color);
+  border-color: #b3b3b3;
+}
+
 .hero p.button-container a:first-of-type {
   background-color: black;
   color: white;
@@ -91,9 +96,14 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
     border: 1pt solid white;
   }
 
-  .hero p.button-container a:first-of-type {
+  .hero p.button-container a.button.primary {
     background-color: white;
     color: black;
+  }
+
+  .hero p.button-container a.button.primary:hover {
+    background-color: #b3b3b3;
+    border-color: #b3b3b3;
   }
 }
 

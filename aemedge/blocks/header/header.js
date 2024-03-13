@@ -5,8 +5,78 @@ const isDesktop = window.matchMedia('(min-width: 1200px)');
 
 // Search constants
 const SEARCH_AUTOCOMPLETE_ENDPOINT = 'https://search-service.audi.com/auto-complete';
-// const SEARCH_COUNT_ENDPOINT = 'https://search-service.audi.com/search/count';
-// const SEARCH_ENDPOINT = 'https://search-service.audi.com/search/pages';
+const SEARCH_COUNT_ENDPOINT = 'https://search-service.audi.com/search/count';
+const SEARCH_ENDPOINT = 'https://search-service.audi.com/search/pages';
+
+function decodeHTML(html) {
+  const txt = document.createElement('textarea');
+  txt.innerHTML = html;
+  return txt.value;
+}
+
+async function getSearchResults(clientId, queryParam) {
+  const searchInput = document.querySelector('.nav-search-container input');
+  const query = searchInput.value;
+  const resultsContainer = document.querySelector('.nav-search-container .results');
+  resultsContainer.innerHTML = '';
+  if (query.length < 2) {
+    return;
+  }
+  const searchResultsQuery = `${SEARCH_ENDPOINT}?${queryParam}=${query}&fl=en&client=${clientId}&type=PAGES&start=0&num=10`;
+  const searchResults = await fetch(searchResultsQuery);
+  const data = await searchResults.json();
+  if (data && data.results && data.results.length > 0) {
+    resultsContainer.setAttribute('aria-expanded', 'true');
+    const ul = document.createElement('ul');
+    data.results.forEach((item) => {
+      const breadcrumb = document.createElement('div');
+      breadcrumb.classList.add('breadcrumb');
+      breadcrumb.innerHTML = `<a href="${item.url}">${item.breadcrumbs}</a>`;
+      const title = document.createElement('div');
+      title.classList.add('title');
+      title.innerHTML = `<a href="${item.url}">${item.title}</a>`;
+      const snippet = document.createElement('div');
+      snippet.classList.add('snippet');
+      snippet.innerHTML = `<a href="${item.url}">${decodeHTML(item.snippet)}</a>`;
+      const li = document.createElement('li');
+      li.append(breadcrumb);
+      li.append(title);
+      li.append(snippet);
+      ul.append(li);
+    });
+    resultsContainer.append(ul);
+  } else {
+    const noResults = document.createElement('p');
+    noResults.textContent = 'No results found';
+    resultsContainer.append(noResults);
+  }
+
+  // else if (data && data.suggestions && data.suggestions.didYouMean
+  //     && data.suggestions.didYouMean.length > 0) {
+  //   const didYouMean = document.createElement('p');
+  //   didYouMean.textContent = `Did you mean: ${data.suggestions.didYouMean}`;
+}
+
+async function getResultsCount(query, clientId, queryParam) {
+  const countResult = await fetch(`${SEARCH_COUNT_ENDPOINT}?${queryParam}=${query}&client=${clientId}`);
+  const data = await countResult.json();
+  const autoCompleteContainer = document.querySelector('.nav-search-container .autocomplete');
+  if (data && data.count) {
+    const resultsCountUl = document.createElement('ul');
+    const resultsCount = document.createElement('li');
+    const a = document.createElement('a');
+    a.textContent = `Show ${data.count} results >`;
+    a.href = '#';
+    resultsCount.append(a);
+    resultsCount.classList.add('results-count');
+    resultsCountUl.append(resultsCount);
+    autoCompleteContainer.append(resultsCountUl);
+    resultsCount.addEventListener('click', () => {
+      autoCompleteContainer.setAttribute('aria-expanded', 'false');
+      getSearchResults(clientId, queryParam);
+    });
+  }
+}
 
 async function getAutocompleteResults(query, clientId, queryParam) {
   const autoCompleteResults = await fetch(`${SEARCH_AUTOCOMPLETE_ENDPOINT}?${queryParam}=${query}&client=${clientId}`);
@@ -22,6 +92,13 @@ async function getAutocompleteResults(query, clientId, queryParam) {
       const acItem = document.createElement('li');
       acItem.append(a);
       acList.append(acItem);
+      acItem.addEventListener('click', () => {
+        const searchInput = document.querySelector('.nav-search-container input');
+        searchInput.value = item;
+        searchInput.focus();
+        autoCompleteContainer.setAttribute('aria-expanded', 'false');
+        getSearchResults(clientId, queryParam);
+      });
     });
     autoCompleteContainer.append(acList);
   } else {
@@ -29,7 +106,7 @@ async function getAutocompleteResults(query, clientId, queryParam) {
   }
 }
 
-async function showAutocomplete(query, clientId, queryParam) {
+async function showResults(query, clientId, queryParam) {
   const searchContainer = document.querySelector('.nav-search-container');
   const autoCompleteContainerExists = searchContainer.querySelector('.autocomplete');
   if (!autoCompleteContainerExists) {
@@ -44,7 +121,11 @@ async function showAutocomplete(query, clientId, queryParam) {
     searchContainer.append(tempResultsContainer);
   }
   if (query.length >= 2) {
-    await getAutocompleteResults(query, clientId, queryParam);
+    await Promise.all([
+      getAutocompleteResults(query, clientId, queryParam),
+      getResultsCount(query, clientId, queryParam),
+    ]);
+    // await getAutocompleteResults(query, clientId, queryParam);
   } else {
     const autoCompleteContainer = searchContainer.querySelector('.autocomplete');
     autoCompleteContainer.setAttribute('aria-expanded', 'false');
@@ -284,7 +365,7 @@ function buildNav(navJson) {
   // Autocomplete
   // eslint-disable-next-line no-unused-vars
   searchInput.addEventListener('input', (e) => {
-    showAutocomplete(e.target.value, searchClient, queryParam);
+    showResults(e.target.value, searchClient, queryParam);
   });
 
   tools.append(searchButton);

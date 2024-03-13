@@ -257,8 +257,7 @@ h4, h5, h6 {
 /* Fineprint Variation via Section Metadata */
 .section.fineprint > div.default-content-wrapper {
   padding: 54px 4%;
-  margin: 0;
-  max-width: 100%;
+  width: 100%;
 }
 
 .section.fineprint > div.default-content-wrapper > p {
@@ -304,12 +303,23 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-a.button.secondary > span.icon {
+/* a.button.secondary > span.icon {
   vertical-align: middle;
+  position: relative;
+} */
+
+a.button.secondary {
+  position: relative;
+}
+
+a.button.secondary::after {
+  position: absolute;
+  content: '>';
+  display: contents;
 }
 
 /* span.icon included via content :<icon-name>: */
-a.button.secondary:hover > span.icon {
+a.button.secondary:hover {
   transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
   transition-duration: 250ms;
   transform: translateX(5px);
@@ -363,6 +373,7 @@ a.button.primary, button.primary {
   background-color: transparent;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 a.button.secondary, button.secondary {
   border: unset;
   margin: 0;
@@ -425,9 +436,14 @@ button#ccc-icon {
 }
 
 @media (width >= 1024px) {
+  main {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
   .section > div {
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1920px;
+    margin: 0 auto;
   }
 
   h1, h2 {

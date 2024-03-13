@@ -1,12 +1,13 @@
-main .hero-container > div {
+/* main .hero-wrapper {
   max-width: unset;
-}
+} */
 
 main .hero-container {
   padding: 0;
 }
 
 .hero {
+  position: relative;
   min-height: 300px;
 }
 
@@ -20,7 +21,7 @@ main .hero-container {
   order: 1;
   padding: 0 4%;
 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
     color: white;
   }
 }
@@ -30,30 +31,30 @@ main .hero-container {
   object-fit: cover;
 }
 
-.hero > div > div {
+.hero:not(.variation1) > div > div {
   display: grid;
 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
     display: unset;
   }
 }
 
-.hero p.button-container {
+.hero:not(.variation1) p.button-container {
   margin: 15px 0;
   padding: 0 4%;
   order: 2;
 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
     display: inline-block;
     width: fit-content;
     padding-right: 0;
   }
 }
 
-.hero p.button-container:last-child {
+.hero:not(.variation1) p.button-container:last-child {
   margin: -15px 0 15px;
 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
     padding-left: 0;
   }
 }
@@ -62,7 +63,7 @@ main .hero-container {
   width: 100%;
   margin: 0;
 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
     width: inherit;
     color: white;
     border-color: white;
@@ -72,19 +73,59 @@ main .hero-container {
 .hero a.button.primary {
   background-color: black;
 
-  @media (width >= 1024px) {
+  @media (width >= 1200px) {
     background-color: white;
     color: black;
     border-color: white;
   }
 }
 
-@media (width > 1024px) {
+@media (width > 1200px) {
+  .hero {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+    min-height: 500px;
+  }
+
+  .hero p {
+    color: white;
+    padding-left: 4%;
+  }
+
   .hero picture {
     position: absolute;
     z-index: -1;
     inset: 0;
+    height: 100%;
     object-fit: cover;
     box-sizing: border-box;
+  }
+
+  .hero picture img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero h1,
+  .hero p.button-container {
+    max-width: 1920px;
+  }
+
+  .hero h1 {
+    padding-top: 10%;
+  }
+
+  .hero.variation1 h2,
+  .hero.variation1 p.button-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+  }
+
+  .hero.variation1 h2 {
+    padding-top: 10%;
   }
 }

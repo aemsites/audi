@@ -363,9 +363,11 @@ main img {
   width: 100%;
 }
 
+/*
 main .section {
   padding: 36px 0;
 }
+*/
 
 /* Swap black and white in case of dark background */
 .block.dark {

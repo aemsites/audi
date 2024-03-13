@@ -19,6 +19,11 @@
   order: 1;
 }
 
+.columns > div > div > p > strong {
+  font-size: 2.8rem;
+  line-height: 4rem;
+}
+
 .columns > div > .columns-img-col {
   order: 0;
 }
@@ -29,9 +34,11 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     gap: 32px;
+    padding-left: 12%;
+    padding-right: 12%;
   }
 
   .columns > div > div {
@@ -152,6 +159,7 @@
   align-items: normal;
   color: white;
   padding: 0;
+  margin-top: 32px;
 
   /* to not color padding area */
   background-color: black;

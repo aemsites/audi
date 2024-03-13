@@ -439,8 +439,166 @@ header nav .nav-tools button {
   margin: 0;
 }
 
+header nav .nav-tools .nav-search-container[aria-expanded="false"] {
+  display: none;
+}
+
+header nav .nav-tools .nav-search-container[aria-expanded="true"] {
+  position: fixed;
+  display: grid;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 3;
+  padding-inline: 2.5rem;
+  background-color: var(--background-color);
+}
+
+header nav .nav-tools .nav-search-container .icon-forward {
+  content: '';
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.5rem;
+  margin: auto;
+  rotate: 180deg;
+}
+
+header nav .nav-tools .nav-search-bar {
+  display: grid;
+  align-self: center;
+  position: relative;
+  grid-template-columns: [start-space] 24px [search-icon] 24px [input] 1fr [clear-space] 24px [end];
+}
+
+header nav .nav-tools .nav-search-bar .icon-search {
+  grid-column: search-icon;
+  grid-row: 1;
+} 
+
+header nav .nav-tools .nav-search-bar input {
+  grid-column: input / clear-space;
+  grid-row: 1;
+  border: unset;
+  line-height: 24px;
+  margin: 0 12px;
+  padding-left: 30px;
+  background: url('../../icons/search.svg') no-repeat;
+  border-bottom: 1px solid rgb(0 0 0);
+}
+
+/* Autocomplete and Search Results */
+header nav .nav-tools .nav-search-container .autocomplete[aria-expanded="false"],
+header nav .nav-tools .nav-search-container .results[aria-expanded="false"] {
+  display: none;
+}
+
+header nav .nav-tools .nav-search-container .autocomplete[aria-expanded="true"] {
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  height: 100vmax;
+  background-color: var(--background-color);
+}
+
+header nav .nav-tools .nav-search-container .results[aria-expanded="true"] {
+  position: fixed;
+  inset: 0;
+  margin-top: var(--nav-height);
+  background-color: var(--background-color);
+  overflow-y: auto;
+  z-index: -1;
+}
+
+header nav .nav-tools .nav-search-container .autocomplete ul li,
+header nav .nav-tools .nav-search-container .results ul li,
+header nav .nav-tools .nav-search-container .results .results-count,
+header nav .nav-tools .nav-search-container .autocomplete p {
+  padding-inline: 24px;
+  line-height: 200%;
+}
+
+header nav .nav-tools .nav-search-container .results ul li {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+header nav .nav-tools .nav-search-container .autocomplete ul li:hover {
+  background-color: var(--color-grey-10);
+}
+
+header nav .nav-tools .nav-search-container .results ul li a {
+  display: block;
+}
+
+header nav .nav-tools .nav-search-container .results .breadcrumb,
+header nav .nav-tools .nav-search-container .results .snippet {
+  font-size: var(--font-size-xxs);
+}
+
+@media (width >= 600px) {
+  header nav .nav-tools .nav-search-container[aria-expanded="true"] {
+    padding-inline: 3.75rem;
+  }
+
+  header nav .nav-tools .nav-search-container .icon-forward {
+    left: 2.5rem;
+  }
+}
+
 @media (width >= 1200px) {
   header nav .nav-tools {
     display: block;
+  }
+
+  header nav .nav-tools .nav-search-container[aria-expanded="true"] {
+    padding-inline: 6rem;
+  }
+
+  header nav .nav-tools .nav-search-container .icon-forward {
+    left: 3.75rem;
+  }
+
+  header nav .nav-tools .nav-search-bar {
+    margin: 0 auto;
+    width: 40vw;
+    max-width: 576px;
+  }
+
+  header nav .nav-tools .nav-search-container .autocomplete[aria-expanded="true"] {
+    margin: 0 auto;
+    width: 40vw;
+    height: unset;
+    max-width: 576px;
+  }
+
+  header nav .nav-tools .nav-search-container .autocomplete::before {
+    content: '';
+    position: fixed;
+    background-color: var(--color-black);
+    transition: background-color 120ms var(--easing-06ec850);
+    display: block;
+    top: var(--nav-height);
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.65;
+    z-index: -1;
+  }
+
+  header nav .nav-tools .nav-search-container .results[aria-expanded="true"] {
+    position: fixed;
+    background-color: var(--background-color);
+    max-width: 100vw;
+    padding-inline: 12%;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+    z-index: -2;
   }
 }

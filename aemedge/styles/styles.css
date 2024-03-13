@@ -211,9 +211,11 @@ h4, h5, h6 {
   animation: headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards, headline-fadein .5s cubic-bezier(.15, 0, .25, 1) forwards;
 }
 
-.default-content-wrapper > h2 {
+/* Default non h1 headline styling */
+.default-content-wrapper > *:is(h2, h3, h4, h5, h6) {
   width: 92%;
   margin: 42px auto 0;
+  font-family: var(--body-font-family);
 
   @media (width >= 1024px) {
     text-align: center;
@@ -221,17 +223,38 @@ h4, h5, h6 {
   }
 }
 
+/* Overwrite alignment and width for non h1, h2 headlines */
+.default-content-wrapper > *:is(h3, h4, h5, h6) {
+  font-size: 1.4rem;
+  text-align: start;
+
+  @media (width >= 1440px) {
+    width: 70%;
+  }
+}
+
 .default-content-wrapper > p {
   width: 92%;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
 
   @media (width >= 1024px) {
     text-align: center;
-    margin: 0 auto;
     width: 60%;
   }
 }
 
+/* Paragraph not connected to h1 or h2 */
+.default-content-wrapper > *:is(h3, h4, h5, h6) ~ p {
+  text-align: start;
+  width: 92%;
+  margin: 12px auto 0;
+
+  @media (width >= 1440px) {
+    width: 70%;
+  }
+}
+
+/* Fineprint Variation via Section Metadata */
 .section.fineprint > div.default-content-wrapper {
   padding: 54px 4%;
   margin: 0;
@@ -388,7 +411,7 @@ main .section {
 }
 
 /* Cookie consent banner */
-button#ccc-icon{
+button#ccc-icon {
   margin-bottom: inherit;
 }
 
@@ -405,6 +428,10 @@ button#ccc-icon{
     margin: auto;
   }
 
+  h1, h2 {
+    font-family: var(--body-font-family);
+  }
+
   h1 {
     font-size: var(--font-size-l);
     line-height: var(--line-height-m);
@@ -413,6 +440,16 @@ button#ccc-icon{
   h2 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-xxl);
+
+    @media (width >= 1024px) {
+      font-size: 3.2rem;
+      line-height: 6rem;
+    }
+
+    @media (width >= 1440px) {
+      font-size: 4rem;
+      line-height: 7.8rem;
+    }
   }
 }
 

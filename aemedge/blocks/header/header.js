@@ -3,10 +3,12 @@ import { getMetadata, decorateIcons, toClassName } from '../../scripts/aem.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1200px)');
 
-// Search constants
+// global vars for search
 const SEARCH_AUTOCOMPLETE_ENDPOINT = 'https://search-service.audi.com/auto-complete';
 const SEARCH_COUNT_ENDPOINT = 'https://search-service.audi.com/search/count';
 const SEARCH_ENDPOINT = 'https://search-service.audi.com/search/pages';
+let searchResultsStart = 0;
+let searchResultsCount = 0;
 
 function decodeHTML(html) {
   const txt = document.createElement('textarea');
@@ -14,21 +16,24 @@ function decodeHTML(html) {
   return txt.value;
 }
 
-async function getSearchResults(clientId, queryParam) {
+async function getSearchResults(clientId, queryParam, start = 0) {
+  searchResultsStart = start;
   const searchInput = document.querySelector('.nav-search-container input');
   const query = searchInput.value;
   const resultsContainer = document.querySelector('.nav-search-container .results');
-  resultsContainer.innerHTML = '';
+  if (start === 0) resultsContainer.innerHTML = '';
   if (query.length < 2) {
     return;
   }
-  const searchResultsQuery = `${SEARCH_ENDPOINT}?${queryParam}=${query}&fl=en&client=${clientId}&type=PAGES&start=0&num=10`;
+  const searchResultsQuery = `${SEARCH_ENDPOINT}?${queryParam}=${query}&fl=en&client=${clientId}&type=PAGES&start=${searchResultsStart}&num=10`;
   const searchResults = await fetch(searchResultsQuery);
   const data = await searchResults.json();
   if (data && data.results && data.results.length > 0) {
     resultsContainer.setAttribute('aria-expanded', 'true');
-    const { resultCount } = data.pagination;
-    if (resultCount) {
+    const { resultCount, lastResult } = data.pagination;
+    searchResultsCount = resultCount;
+    searchResultsStart = lastResult;
+    if (resultCount && (start === 0)) {
       const resultsCountContainer = document.createElement('div');
       resultsCountContainer.classList.add('results-count');
       resultsCountContainer.innerHTML = `Your query with the search term "<b>${query}</b>" produced ${resultCount} results.`;
@@ -54,6 +59,17 @@ async function getSearchResults(clientId, queryParam) {
     resultsContainer.append(ul);
     const autocompleteContainer = document.querySelector('.nav-search-container .autocomplete');
     autocompleteContainer.setAttribute('aria-expanded', 'false');
+    if (start === 0) {
+      resultsContainer.addEventListener('scroll', () => {
+        const { scrollTop, clientHeight, scrollHeight } = resultsContainer;
+        if (scrollTop + clientHeight >= scrollHeight) {
+          console.log(`reached end of scroll scrollTop: ${scrollTop}, clientHeight: ${clientHeight}, scrollHeight: ${scrollHeight}`);
+          if (searchResultsStart < searchResultsCount) {
+            getSearchResults(clientId, queryParam, searchResultsStart);
+          }
+        }
+      }, { passive: true });
+    }
   } else {
     const noResults = document.createElement('p');
     noResults.textContent = 'No results found';

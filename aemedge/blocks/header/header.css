@@ -530,6 +530,11 @@ header nav .nav-tools .nav-search-container .autocomplete ul li:hover {
   background-color: var(--color-grey-10);
 }
 
+header nav .nav-tools .nav-search-container .results .breadcrumb,
+header nav .nav-tools .nav-search-container .results .snippet {
+  font-size: var(--font-size-xxs);
+}
+
 @media (width >= 600px) {
   header nav .nav-tools .nav-search-container[aria-expanded="true"] {
     padding-inline: 3.75rem;

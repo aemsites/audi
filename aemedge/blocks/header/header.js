@@ -130,6 +130,9 @@ async function showResults(query, clientId, queryParam) {
     const autoCompleteContainer = searchContainer.querySelector('.autocomplete');
     autoCompleteContainer.setAttribute('aria-expanded', 'false');
     autoCompleteContainer.innerHTML = '';
+    const searchResultsContainer = searchContainer.querySelector('.results');
+    searchResultsContainer.setAttribute('aria-expanded', 'false');
+    searchResultsContainer.innerHTML = '';
   }
 }
 
@@ -355,6 +358,10 @@ function buildNav(navJson) {
     toggleSearchContainer();
     searchInput.focus();
   });
+  searchInput.addEventListener('cancel', () => {
+    // if (isDesktop.matches) toggleAllNavSections(sections, false);
+    toggleSearchContainer();
+  });
   // Close the search container
   closeSearchIcon.addEventListener('click', () => {
     toggleSearchContainer();
@@ -367,7 +374,11 @@ function buildNav(navJson) {
   searchInput.addEventListener('input', (e) => {
     showResults(e.target.value, searchClient, queryParam);
   });
-
+  searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      getSearchResults(searchClient, queryParam);
+    }
+  });
   tools.append(searchButton);
   tools.append(searchContainer);
 

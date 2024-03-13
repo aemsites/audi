@@ -72,6 +72,10 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
     margin-top: -200px;
   }
 
+  .hero.variation1 a {
+    height: 100%;
+  }  
+
   .hero p.button-container a {
     color: white;
     border: 1pt solid white;
@@ -89,10 +93,6 @@ main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   padding: 20px;
   text-align: center;
   overflow: hidden;
-}
-
-.hero.variation1 a {
-  height: 100%;
 }
 
 .hero.variation1 a div {

@@ -36,7 +36,11 @@ async function getSearchResults(clientId, queryParam, start = 0) {
     if (resultCount && (start === 0)) {
       const resultsCountContainer = document.createElement('div');
       resultsCountContainer.classList.add('results-count');
-      resultsCountContainer.innerHTML = `Your query with the search term "<b>${query}</b>" produced ${resultCount} results.`;
+      if (data.isFuzzy && data.isFuzzy === true) {
+        resultsCountContainer.innerHTML = `We did not find any results for the search term "<b>${query}</b>", but we found ${resultCount} similar results.`;
+      } else {
+        resultsCountContainer.innerHTML = `Your query with the search term "<b>${query}</b>" produced ${resultCount} results.`;
+      }
       resultsContainer.append(resultsCountContainer);
     }
     const ul = document.createElement('ul');
@@ -63,7 +67,6 @@ async function getSearchResults(clientId, queryParam, start = 0) {
       resultsContainer.addEventListener('scroll', () => {
         const { scrollTop, clientHeight, scrollHeight } = resultsContainer;
         if (scrollTop + clientHeight >= scrollHeight) {
-          console.log(`reached end of scroll scrollTop: ${scrollTop}, clientHeight: ${clientHeight}, scrollHeight: ${scrollHeight}`);
           if (searchResultsStart < searchResultsCount) {
             getSearchResults(clientId, queryParam, searchResultsStart);
           }
@@ -86,7 +89,7 @@ async function getResultsCount(query, clientId, queryParam) {
   const countResult = await fetch(`${SEARCH_COUNT_ENDPOINT}?${queryParam}=${query}&client=${clientId}`);
   const data = await countResult.json();
   const autoCompleteContainer = document.querySelector('.nav-search-container .autocomplete');
-  if (data && data.count) {
+  if (data && data.count && data.count > 0) {
     const resultsCountUl = document.createElement('ul');
     const resultsCount = document.createElement('li');
     const a = document.createElement('a');
@@ -127,7 +130,10 @@ async function getAutocompleteResults(query, clientId, queryParam) {
     });
     autoCompleteContainer.append(acList);
   } else {
-    autoCompleteContainer.setAttribute('aria-expanded', 'false');
+    autoCompleteContainer.innerHTML = '';
+    const noResults = document.createElement('p');
+    noResults.textContent = 'No results found';
+    autoCompleteContainer.append(noResults);
   }
 }
 

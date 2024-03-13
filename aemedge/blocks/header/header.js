@@ -124,7 +124,6 @@ async function getAutocompleteResults(query, clientId, queryParam) {
         const searchInput = document.querySelector('.nav-search-container input');
         searchInput.value = item;
         searchInput.focus();
-        autoCompleteContainer.setAttribute('aria-expanded', 'false');
         getSearchResults(clientId, queryParam);
       });
     });

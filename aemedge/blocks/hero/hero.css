@@ -6,10 +6,9 @@ main  {
   padding: 0;
 }
 
-main .hero-container:nth-of-type(2) .hero-wrapper {
+main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
   display: none;
 }
-
 
 .hero {
   position: relative;
@@ -27,8 +26,6 @@ main .hero-container:nth-of-type(2) .hero-wrapper {
 }
 
 .hero picture, .hero img {
-  width: 100%;
-  height: 100%;
   min-height: 56vw;
   box-sizing: border-box;
   object-fit: cover;
@@ -88,17 +85,79 @@ main .hero-container:nth-of-type(2) .hero-wrapper {
 
 /* Variation 1 */
 .hero.variation1 {
-  margin: 350px 15px 15px;
+  height: 705px;
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero.variation1 a {
+  height: 100%;
+}
+
+.hero.variation1 a div {
+  height: 100%;
+  width: 100%;
 }
 
 .hero.variation1 h1 {
+  position:absolute;
+  top: 38%;
   letter-spacing: -0.015em;
   font-weight: 400;
   color: white;
-  text-align: center;
+  width: 90%;
 }
 
+.hero.variation1 p:not(.button-container) {
+  height: 100%;
+}
+
+
 .hero.variation1 picture, .hero.variation1 img {
-  height: 705px;
-  margin-top: -350px;
+  height: 100%;
+}
+
+.hero.variation1 p.button-container {
+  margin-top: -50%;
+  display: block;
+  color: white;
+}
+
+.hero.variation1 p.button-container::after {
+  content: url('/aemedge/icons/forward.svg');
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  color: white;
+}
+
+.hero.variation1 a:not(.button)::after { 
+  display: none;
+}
+
+@media (width >= 768px) {
+  .hero.variation1 {
+    height: 590px;
+  }
+
+  .hero.variation1 h1 {
+    padding: 14px;
+    box-sizing: border-box;
+  }
+
+  .hero.variation1 p.button-container {
+    margin-top: -30%;
+  }  
+}
+
+@media (width >= 1024px) {
+  .hero.variation1 {
+    height: 300px;
+  }  
+
+  .hero.variation1 p.button-container {
+    margin-top: -10%;
+  }
 }

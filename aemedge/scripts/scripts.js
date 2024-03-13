@@ -25,7 +25,7 @@ function buildHeroBlock(main) {
   const picture = main.querySelector('picture');
   const pLinks = document.createElement('p');
   pLinks.classList.add('button-container');
-  main.querySelectorAll('.hero p > a').forEach((a) => {
+  main.querySelector('.hero').querySelectorAll('p > a').forEach((a) => {
     a.title = a.title || a.textContent;
     if (a.href !== a.textContent) {
       a.className = 'button'; // default

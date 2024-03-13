@@ -1,169 +1,90 @@
 main .hero-container > div {
   max-width: unset;
 }
-  
-main  {
+
+main .hero-container {
   padding: 0;
 }
 
-main .hero-container:nth-of-type(2) .hero-wrapper:first-of-type {
-  display: none;
-}
-
 .hero {
-  position: relative;
   min-height: 300px;
-  max-height: 600px;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.hero div div {
-  display: grid;  
-}
-
-.hero div div h1 {
+.hero h1 {
   max-width: 1200px;
-  margin: 30px 20px 15px;
   color: black;
+  font-family: AudiTypeExtended, sans-serif;
+  font-size: 27px;
+  line-height: 42px;
+  font-weight: var(--font-weight-bold);
+  order: 1;
+  padding: 0 4%;
+
+  @media (width >= 1024px) {
+    color: white;
+  }
 }
 
-.hero picture, .hero img {
-  height: 56vw;
-  max-height: 600px;
-  box-sizing: border-box;
+.hero img {
+  width: 100%;
   object-fit: cover;
-  overflow: hidden;
+}
+
+.hero > div > div {
+  display: grid;
+
+  @media (width >= 1024px) {
+    display: unset;
+  }
 }
 
 .hero p.button-container {
-  margin: 0 20px 30px;
+  margin: 15px 0;
+  padding: 0 4%;
+  order: 2;
+
+  @media (width >= 1024px) {
+    display: inline-block;
+    width: fit-content;
+    padding-right: 0;
+  }
 }
 
-.hero p.button-container a {
-  display: block;
-  text-align: center;
+.hero p.button-container:last-child {
+  margin: -15px 0 15px;
+
+  @media (width >= 1024px) {
+    padding-left: 0;
+  }
+}
+
+.hero a.button {
   width: 100%;
-  margin: 0.25em 0;
-  z-index: 10;
+  margin: 0;
+
+  @media (width >= 1024px) {
+    width: inherit;
+    color: white;
+    border-color: white;
+  }
 }
 
-.hero p.button-container a:first-of-type {
+.hero a.button.primary {
   background-color: black;
-  color: white;
-}
 
-/* Medium view port */
-@media (width >= 768px) {
-  .hero p.button-container {
-    display: flex;
-  }
-
-  .hero p.button-container a {
-    width: 252px;
-    margin: 0 0.25em;
-  }  
-}
-
-/* Large view port */
-@media (width >= 1024px) {
-  .hero div div h1 {
-    margin-top: -260px;
-    color: white;
-  }  
-
-  .hero p.button-container {
-    height: 56px;
-    margin-top: -200px;
-  }
-
-  .hero.variation1 a {
-    height: 100%;
-  }  
-
-  .hero p.button-container a {
-    color: white;
-    border: 1pt solid white;
-  }
-
-  .hero p.button-container a:first-of-type {
+  @media (width >= 1024px) {
     background-color: white;
     color: black;
+    border-color: white;
   }
 }
 
-/* Variation 1 */
-.hero.variation1 {
-  height: 705px;
-  padding: 20px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero.variation1 a div {
-  height: 100%;
-  width: 100%;
-}
-
-.hero.variation1 h1 {
-  position:absolute;
-  top: 38%;
-  letter-spacing: -0.015em;
-  font-weight: 400;
-  color: white;
-  width: 90%;
-}
-
-.hero.variation1 p:not(.button-container) {
-  height: 100%;
-}
-
-
-.hero.variation1 picture, .hero.variation1 img {
-  height: 100%;
-}
-
-.hero.variation1 p.button-container {
-  margin-top: -50%;
-  display: block;
-  color: white;
-}
-
-.hero.variation1 p.button-container::after {
-  content: url('/aemedge/icons/forward.svg');
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  color: white;
-}
-
-.hero.variation1 a:not(.button)::after { 
-  display: none;
-}
-
-@media (width >= 768px) {
-  .hero.variation1 {
-    height: 590px;
-  }
-
-  .hero.variation1 h1 {
-    padding: 14px;
+@media (width > 1024px) {
+  .hero picture {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    object-fit: cover;
     box-sizing: border-box;
-  }
-
-  .hero.variation1 p.button-container {
-    margin-top: -30%;
-  }  
-}
-
-@media (width >= 1024px) {
-  .hero.variation1 {
-    height: 300px;
-  }  
-
-  .hero.variation1 p.button-container {
-    margin-top: -10%;
   }
 }

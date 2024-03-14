@@ -36,7 +36,7 @@ main .hero-container {
   display: grid;
 
   @media (width >= 1200px) {
-    display: unset;
+    display:contents;
   }
 }
 
@@ -114,8 +114,12 @@ main .hero-container {
     max-width: 1920px;
   }
 
-  .hero h1 {
-    padding-top: 10%;
+  .hero:not(.bottom) h1 {
+    padding-top: 42px;
+  }
+
+  .hero.bottom h1 {
+    padding-top: 300px;
   }
 
   .hero.variation1 h2,

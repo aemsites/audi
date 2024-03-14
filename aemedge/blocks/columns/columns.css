@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns-wrapper:has(> div.columns[class*="30-70"]),
 .columns-wrapper:has(>  div.columns[class*="70-30"]) {
   max-width: unset;
@@ -13,6 +14,7 @@
 
 .columns img {
   width: 100%;
+  user-select: none;
 }
 
 .columns > div > div {
@@ -30,28 +32,6 @@
 
 .columns > div > .columns-img-col img {
   display: block;
-}
-
-@media (width >= 900px) {
-  .columns > div {
-    align-items: flex-start;
-    flex-direction: row;
-    gap: 32px;
-    padding-left: 12%;
-    padding-right: 12%;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
-}
-
-/* Hover Variation */
-@media (width >= 900px) {
-  .columns.hover > div {
-    align-items: start;
-  }
 }
 
 .columns.hover > div > div > a {
@@ -145,14 +125,6 @@
   width: 100%;
 }
 
-@media (width >= 900px) {
-  /* zoom-in effect on hover */
-  .columns.hover > div > div > a:hover > div.hover-wrapper > p > picture > img {
-    transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
-    transform: scale(1.2);
-  }
-}
-
 /* 70-30, 30-70 Variation */
 .columns[class*="30-70"] > div,
 .columns[class*="70-30"] > div {
@@ -201,24 +173,12 @@
   position: relative;
   padding: 0;
   height: 1000px;
-
-  @media (width >= 768px) {
-    height: 1400px;
-  }
-
-  @media (width >= 1440px) {
-    height: 1600px;
-  }
 }
 
 .columns.parallax > div.parallax-wrapper > div.columns-img-col > picture > img {
   object-fit: cover;
   will-change: transform;
   height: 1000px;
-
-  @media (width >= 768px) {
-    height: 1400px;
-  }
 }
 
 .columns.parallax > div.parallax-wrapper > div.parallax-text {
@@ -229,14 +189,6 @@
   background-color: white;
   padding: 2rem;
   max-width: 66%;
-
-  @media (width >= 768px) {
-    max-width: 50%;
-  }
-
-  @media (width >= 1440px) {
-    max-width: 40%;
-  }
 }
 
 .columns.parallax > div.parallax-wrapper > div.parallax-text > p.button-container > em > a {
@@ -252,4 +204,53 @@
 .columns.parallax > div.parallax-wrapper > div.parallax-text > p > strong {
   font-size: var(--font-size-xxl);
   line-height: var(--line-height-xxl);
+}
+
+
+@media (width >= 900px) {
+  .columns > div {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 32px;
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  .columns > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  /* Hover Variation */
+  .columns.hover > div {
+    align-items: start;
+  }
+
+  /* zoom-in effect on hover */
+  .columns.hover > div > div > a:hover > div.hover-wrapper > p > picture > img {
+    transition: all 2000ms cubic-bezier(0.75, 0.02, 0.5, 1) 0s;
+    transform: scale(1.2);
+  }
+
+  .columns.parallax > div.parallax-wrapper {
+    height: 1400px;
+  }
+
+  .columns.parallax > div.parallax-wrapper > div.columns-img-col > picture > img {
+    height: 1400px;
+  }
+
+  .columns.parallax > div.parallax-wrapper > div.parallax-text {
+    max-width: 50%;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns.parallax > div.parallax-wrapper {
+    height: 1600px;
+  }
+
+  .columns.parallax > div.parallax-wrapper > div.parallax-text {
+    max-width: 40%;
+  }
 }

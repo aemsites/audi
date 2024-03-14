@@ -66,6 +66,7 @@
   order: 1;
   align-items: inherit;
   border-top: 2px solid rgb(0 0 0 / 10%);
+  background-color: #F2F2F2;
 }
 
 .subnav .subnav-ul li a {
@@ -87,7 +88,7 @@
 }
 
 
-@media (width > 999px) {
+@media (width >= 900px) {
   .subnav {
     flex-flow: row;
     justify-content: space-around;
@@ -109,6 +110,7 @@
   .subnav .subnav-ul li {
     display: block;
     border-top: inherit;
+    background-color: inherit;
   }
 
   .subnav .subnav-ul li a {
@@ -137,7 +139,7 @@
   }
 }
 
-@media (width > 1440px){
+@media (width >=1200px){
     .subnav .subnav-ul{
         left: -96px;
         position: relative;
@@ -146,12 +148,5 @@
     .subnav .subnav-ul li a {
         padding-left: 18px;
         padding-right: 18px;
-    }
-}
-
-@media (width > 1920px){
-    .subnav .subnav-ul li a {
-        padding-left: 21px;
-        padding-right: 21px;
     }
 }

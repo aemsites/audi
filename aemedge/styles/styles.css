@@ -215,7 +215,7 @@ h4, h5, h6 {
 .default-content-wrapper > *:is(h2, h3, h4, h5, h6) {
   width: 92%;
   margin: 42px auto 0;
-  font-family: var(--body-font-family);
+  font-family: var(  --heading-font-family);
 
   @media (width >= 1024px) {
     text-align: center;
@@ -227,10 +227,6 @@ h4, h5, h6 {
 .default-content-wrapper > *:is(h3, h4, h5, h6) {
   font-size: 1.4rem;
   text-align: start;
-
-  @media (width >= 1440px) {
-    width: 70%;
-  }
 }
 
 .default-content-wrapper > p {
@@ -428,14 +424,14 @@ button#ccc-icon {
   margin-bottom: inherit;
 }
 
-@media (width >= 768px) {
+@media (width >= 600px) {
   h1, h2 {
     font-size: var(--font-size-xl);
     line-height: var(--line-height-l);
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 900px) {
   main {
     max-width: 1920px;
     margin: 0 auto;
@@ -446,10 +442,6 @@ button#ccc-icon {
     margin: 0 auto;
   }
 
-  h1, h2 {
-    font-family: var(--body-font-family);
-  }
-
   h1 {
     font-size: var(--font-size-l);
     line-height: var(--line-height-m);
@@ -458,17 +450,15 @@ button#ccc-icon {
   h2 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-xxl);
-
-    @media (width >= 1024px) {
-      font-size: 3.2rem;
-      line-height: 6rem;
-    }
-
-    @media (width >= 1440px) {
-      font-size: 4rem;
-      line-height: 7.8rem;
-    }
   }
+}
+
+@media (width >= 1200px) {
+  .default-content-wrapper > *:is(h2, h3, h4, h5, h6) {
+      text-align: center;
+      margin-top: 42px;
+  }
+
 }
 
 /* Error 404 Styling */
@@ -477,3 +467,5 @@ button#ccc-icon {
     min-height: calc(100vh - var(--nav-height));
   }
 }
+
+

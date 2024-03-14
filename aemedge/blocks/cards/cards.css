@@ -7,18 +7,6 @@
   grid-gap: 8px;
 }
 
-.cards.two-column > ul {
-  @media (width >= 600px) {
-    grid-template-columns: repeat(2, minmax(278px, 1fr));
-  }
-}
-
-.cards.three-column > ul {
-  @media (width >= 900px) {
-    grid-template-columns: repeat(3, minmax(278px, 1fr));
-  }
-}
-
 .cards > ul > li {
   display: unset;
   background-color: var(--background-color);
@@ -56,4 +44,16 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+@media (width >= 600px) {
+.cards.two-column > ul {
+    grid-template-columns: repeat(2, minmax(278px, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cards.three-column > ul {
+    grid-template-columns: repeat(3, minmax(278px, 1fr));
+  }
 }

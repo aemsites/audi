@@ -358,6 +358,7 @@ a.button.secondary::after {
 }
 
 a.button.secondary:hover::after {
+  content: url('/aemedge/icons/forward-grey.svg');
   transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
   transition-duration: 250ms;
   transform: translateX(5px);

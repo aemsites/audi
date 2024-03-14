@@ -24,14 +24,6 @@
   font-size: var(--font-size-s);
 }
 
-.cards .cards-card-body > p.button-container > em > a::after {
-  content: url('/aemedge/icons/forward.svg');
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: bottom;
-}
-
 .cards .cards-card-image {
   line-height: 0;
 }

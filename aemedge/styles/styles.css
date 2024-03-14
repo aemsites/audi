@@ -299,42 +299,11 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-/* a.button.secondary > span.icon {
-  vertical-align: middle;
-  position: relative;
-} */
-
-a.button.secondary {
-  position: relative;
-}
-
-a.button.secondary::after {
-  position: absolute;
-  content: '>';
-  display: contents;
-}
-
-/* span.icon included via content :<icon-name>: */
-a.button.secondary:hover {
-  transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
-  transition-duration: 250ms;
-  transform: translateX(5px);
-}
-
 /* only add flex for non-headline elements. */
 :not(h1, h2, h3, h4, h5, h6) > a:any-link {
   display: flex;
   align-items: center;
   word-break: break-word;
-}
-
-/* Add the caret svg to anchors that are not a primary or secondary button */
-main a:not(.button)::after {
-  content: url('/aemedge/icons/forward.svg');
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
 }
 
 /* buttons */
@@ -369,11 +338,26 @@ a.button.primary, button.primary {
   background-color: transparent;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
+/* Add the caret svg to anchors that are a secondary button */
 a.button.secondary, button.secondary {
   border: unset;
   margin: 0;
   padding: 0;
+}
+
+a.button.secondary::after {
+  content: url('/aemedge/icons/forward.svg');
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}
+
+a.button.secondary:hover::after {
+  content: url('/aemedge/icons/forward-grey.svg');
+  transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
+  transition-duration: 250ms;
+  transform: translateX(5px);
 }
 
 main img {

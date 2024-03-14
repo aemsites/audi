@@ -68,18 +68,18 @@
   margin: 0 32px;
 }
 
-.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary {
+.columns.hover a.button.secondary {
   padding-top: 1rem;
   color: var(--background-color);
   border-color: var(--background-color);
 }
 
-.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary:hover {
+.columns.hover a.button.secondary:hover {
   color: var(--link-hover-color);
   border-color: var(--link-hover-color);
 }
 
-.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary::after {
+.columns.hover a.button.secondary::after {
   content: url('/aemedge/icons/forward-white.svg');
   display: inline-block;
   vertical-align: middle;
@@ -87,7 +87,8 @@
   height: 24px;
 }
 
-.columns.hover > div > div > a > div.content-wrapper > p.button-container > em > a.button.secondary:hover::after {
+.columns.hover a.button.secondary:hover::after {
+  content: url('/aemedge/icons/forward-grey.svg');
   transition-timing-function: cubic-bezier(0.75, 0.02, 0.5, 1);
   transition-duration: 250ms;
   transform: translateX(5px);

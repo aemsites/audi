@@ -129,4 +129,8 @@ main .hero-container {
   .hero.variation1 h2 {
     padding-top: 10%;
   }
+
+  .hero.variation1 a.button.secondary::after {
+    content: url('/aemedge/icons/forward-white.svg');
+  }
 }

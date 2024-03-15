@@ -11,6 +11,10 @@ main .hero-container {
   min-height: 300px;
 }
 
+.hero > div > div > p:has(> picture) {
+  margin: 0;
+}
+
 .hero h1 {
   max-width: 1200px;
   color: black;
@@ -36,7 +40,7 @@ main .hero-container {
   display: grid;
 
   @media (width >= 1200px) {
-    display:contents;
+    display: contents;
   }
 }
 

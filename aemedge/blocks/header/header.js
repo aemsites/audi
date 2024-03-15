@@ -16,10 +16,14 @@ function decodeHTML(html) {
   return txt.value;
 }
 
+function sanitizeHTML(str) {
+  return str.replace(/[^\w. ]/gi, (c) => `&#${c.charCodeAt(0)};`);
+}
+
 async function getSearchResults(clientId, queryParam, start = 0) {
   searchResultsStart = start;
   const searchInput = document.querySelector('.nav-search-container input');
-  const query = searchInput.value;
+  const query = sanitizeHTML(searchInput.value);
   const resultsContainer = document.querySelector('.nav-search-container .results');
   if (start === 0) resultsContainer.innerHTML = '';
   if (query.length < 2) {
@@ -151,9 +155,10 @@ async function showResults(query, clientId, queryParam) {
     searchContainer.append(tempResultsContainer);
   }
   if (query.length >= 2) {
+    const sanitizedQuery = sanitizeHTML(query);
     await Promise.all([
-      getAutocompleteResults(query, clientId, queryParam),
-      getResultsCount(query, clientId, queryParam),
+      getAutocompleteResults(sanitizedQuery, clientId, queryParam),
+      getResultsCount(sanitizedQuery, clientId, queryParam),
     ]);
   } else {
     const autoCompleteContainer = searchContainer.querySelector('.autocomplete');
